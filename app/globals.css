@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  /* Updated color palette */
+  --color-planetary: #8FB6D8; /* Calm Ocean */
+  --color-galaxy: #243A5E; /* Midnight Blue */
+  --color-universe: #5F86A6; /* Dusty Denim */
+  --color-venus: #CFE3F1; /* Powder Sky */
+  --color-sky: #CFE3F1; /* Powder Sky */
+  --color-meteor: #EDF4FA; /* Cloud Blue */
+  --color-milky-way: #EDF4FA; /* Cloud Blue */
+}
+
+/* Base layout */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-milky-way);
+  color: var(--color-galaxy);
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-planetary);
+  outline-offset: 2px;
+}

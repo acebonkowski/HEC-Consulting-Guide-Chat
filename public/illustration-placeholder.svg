@@ -1,0 +1,12 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration placeholder">
+  <rect width="800" height="400" fill="#D0E3FF"/>
+  <g fill="none" stroke="#334EAC" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <path d="M140 270 C 220 150, 360 120, 460 210 C 520 262, 612 300, 680 240"/>
+    <path d="M170 140 L 250 140 L 250 220 L 170 220 Z"/>
+    <path d="M310 110 L 390 110 L 390 190 L 310 190 Z"/>
+    <path d="M450 150 L 530 150 L 530 230 L 450 230 Z"/>
+  </g>
+  <text x="50%" y="58%" text-anchor="middle" font-family="Open Sans, Arial, sans-serif" font-size="22" fill="#081F5C" opacity="0.9">
+    Replace with unDraw illustration
+  </text>
+</svg>
