@@ -10,7 +10,7 @@ export function Badge({
   return (
     <span
       className={clsx(
-        "inline-flex items-center rounded-full bg-meteor px-3 py-1 text-xs font-semibold text-galaxy ring-1 ring-venus",
+        "inline-flex items-center rounded-full bg-[#7096D1] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C] ring-1 ring-venus",
         className
       )}
     >

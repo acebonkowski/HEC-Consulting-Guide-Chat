@@ -21,7 +21,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-venus bg-galaxy/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-venus bg-[#334EAC] backdrop-blur">
       <a
         href="#home"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 rounded-md bg-meteor px-3 py-2 text-sm font-semibold text-galaxy"

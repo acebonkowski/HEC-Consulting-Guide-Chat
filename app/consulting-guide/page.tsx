@@ -12,7 +12,7 @@ export default function ConsultingGuidePage() {
       <h1 className="text-3xl font-semibold tracking-tight text-galaxy sm:text-4xl">
         Consulting Guide
       </h1>
-      <p className="mt-4 max-w-3xl text-base leading-7 text-universe">
+      <p className="mt-4 max-w-3xl text-base leading-7 text-[#090814]">
         The PRD specifies that the Consulting Guide is linked from the public site,
         but not implemented here. This page is a placeholder route so the CTA works.
       </p>

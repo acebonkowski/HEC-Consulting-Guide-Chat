@@ -21,7 +21,7 @@ export function ButtonLink({
 }) {
   const styles: Record<Variant, string> = {
     primary:
-      "bg-planetary text-galaxy hover:bg-planetary/90 focus-visible:ring-2 focus-visible:ring-planetary",
+      "bg-[#334EAC] text-[#FFF9F0] hover:bg-[#081F5C] focus-visible:ring-2 focus-visible:ring-[#334EAC]",
     secondary:
       "bg-meteor text-galaxy ring-1 ring-venus hover:bg-sky focus-visible:ring-2 focus-visible:ring-planetary",
     ghost:
