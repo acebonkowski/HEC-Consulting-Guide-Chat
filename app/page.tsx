@@ -15,6 +15,18 @@ import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Card } from "@/components/Card";
 import { Badge } from "@/components/Badge";
+import { DayInLifeDonut } from "@/components/DayInLifeDonut";
+
+const DAY_IN_LIFE_BREAKDOWN = [
+  { label: "Analysis", hours: 22.5, display: "20–25h", color: "#334EAC" },
+  { label: "Client Meetings", hours: 12.5, display: "10–15h", color: "#7096D1" },
+  { label: "Slide Building", hours: 11, display: "10–12h", color: "#8FB6D8" },
+  { label: "Team Coordination", hours: 6.5, display: "5–8h", color: "#5F86A6" },
+  { label: "Travel (If Needed)", hours: 4, display: "3–5h", color: "#CFE3F1" },
+  { label: "Learning/Admin", hours: 3.5, display: "3–5h", color: "#243A5E" },
+] as const;
+
+const DAY_IN_LIFE_TOTAL = 60;
 
 function SectionHeading({
   kicker,
@@ -109,7 +121,7 @@ export default function HomePage() {
 
           <div className="mt-10 flex flex-col gap-6">
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Core Consulting Skills</div>
+              <div className="text-lg font-semibold text-galaxy">Core Consulting Skills</div>
               <div className="mt-4 grid gap-6 text-sm text-[#090814] md:grid-cols-2 md:auto-rows-fr md:gap-x-8">
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
@@ -221,24 +233,22 @@ export default function HomePage() {
                     <div className="mt-3 text-sm text-[#090814]">
                       <span className="font-semibold">In Practice:</span> tying recommendations to P&amp;L and ROI.
                     </div>
-                  </div>
-                </div>
+              </div>
+              </div>
               </div>
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Day-in-the-Life (Typical Week)</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Typical workload: <span className="font-semibold">50–60 hours</span> of actual
-                work/week (excluding extra travel/admin).
-              </p>
-              <div className="mt-4 grid gap-2 text-sm text-[#090814] sm:grid-cols-2">
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">20–25h analysis</div>
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">10–15h client meetings</div>
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">10–12h slide building</div>
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">5–8h team coordination</div>
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">3–5h travel (if needed)</div>
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">3–5h learning/admin</div>
+              <div className="grid gap-6 md:grid-cols-[1fr_2fr] md:items-center">
+                <div className="flex h-full flex-col justify-between">
+                  <div>
+                    <div className="text-lg font-semibold text-galaxy">Day-in-the-Life</div>
+                    <p className="mt-2 text-sm text-[#090814]">
+                      As a consultant, you can expect a typical workload of{" "}
+                      <span className="font-semibold">50–60 hours</span> per week (excluding extra travel/admin). <br />{" "}
+                      <br /> In comparison, European firms typically have formal 40h contracts (even if actual hours
+                      often higher). In the US and GCC, projects frequently reach 60–80h during peak periods.
+                    </p>
               </div>
               <div className="mt-4 flex flex-col gap-2">
                 <SourceLink
@@ -249,13 +259,16 @@ export default function HomePage() {
                   href="https://www.consultancy.eu/career/work-life-balance"
                   label="Source: Consultancy.eu"
                 />
+                  </div>
+                </div>
+                <DayInLifeDonut data={DAY_IN_LIFE_BREAKDOWN} total={DAY_IN_LIFE_TOTAL} />
               </div>
             </Card>
           </div>
 
           <div className="mt-10">
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Pros & Cons (Community-Reported)</div>
+              <div className="text-lg font-semibold text-galaxy">Pros & Cons (Community-Reported)</div>
               <div className="mt-4 grid gap-6 lg:grid-cols-2">
                 <div>
                   <div className="text-xs font-semibold text-[#090814]">Pros</div>
@@ -295,7 +308,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Hiring Momentum</div>
+              <div className="text-lg font-semibold text-galaxy">Hiring Momentum</div>
               <p className="mt-2 text-sm text-[#090814]">
                 Reported ~60% YoY increase in consulting roles (H1 2024 → H1 2025).
               </p>
@@ -308,7 +321,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Middle East (GCC)</div>
+              <div className="text-lg font-semibold text-galaxy">Middle East (GCC)</div>
               <p className="mt-2 text-sm text-[#090814]">
                 Growth forecast around <span className="font-semibold">12%</span> for 2025,
                 driven by large transformation programs.
@@ -322,7 +335,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Europe</div>
+              <div className="text-lg font-semibold text-galaxy">Europe</div>
               <p className="mt-2 text-sm text-[#090814]">
                 Strategic consulting growth often cited around <span className="font-semibold">4–5%</span> CAGR
                 (2025–2035), alongside disciplined hiring.
@@ -338,7 +351,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Trends Impacting Recruiting</div>
+              <div className="text-lg font-semibold text-galaxy">Trends Impacting Recruiting</div>
               <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-[#090814]">
                 <li>Shift toward digital, analytics, and implementation roles.</li>
                 <li>Sustainability and ESG demand increases in many practices.</li>
@@ -349,7 +362,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Who Hires Consultants</div>
+              <div className="text-lg font-semibold text-galaxy">Who Hires Consultants</div>
               <div className="mt-3 overflow-x-auto">
                 <table className="w-full min-w-[620px] border-separate border-spacing-0 text-sm">
                   <thead>
@@ -423,7 +436,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Case Prep</div>
+              <div className="text-lg font-semibold text-galaxy">Case Prep</div>
               <div className="mt-3 space-y-2">
                 <SourceLink href="https://casecoach.com/" label="Casecoach" />
                 <br />
@@ -432,7 +445,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Case Books</div>
+              <div className="text-lg font-semibold text-galaxy">Case Books</div>
               <p className="mt-2 text-sm text-[#090814]">
                 HEC Consulting Club Case Collection (SharePoint).
               </p>
@@ -445,7 +458,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Behavioral Interviews</div>
+              <div className="text-lg font-semibold text-galaxy">Behavioral Interviews</div>
               <p className="mt-2 text-sm text-[#090814]">Big Interview (HEC access).</p>
               <div className="mt-3">
                 <SourceLink href="https://hec.biginterview.com/login" label="Open Big Interview" />
@@ -453,7 +466,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Aptitude Tests</div>
+              <div className="text-lg font-semibold text-galaxy">Aptitude Tests</div>
               <p className="mt-2 text-sm text-[#090814]">Practice Aptitude Tests.</p>
               <div className="mt-3">
                 <SourceLink href="https://www.practiceaptitudetest.com/" label="Open site" />
@@ -461,7 +474,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor lg:col-span-2">
-              <div className="text-sm font-semibold text-galaxy">Networking & Events</div>
+              <div className="text-lg font-semibold text-galaxy">Networking & Events</div>
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">
                   <div className="text-xs font-semibold text-[#090814]">HEC Alumni</div>
@@ -498,7 +511,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Email</div>
+              <div className="text-lg font-semibold text-galaxy">Email</div>
               <p className="mt-2 text-sm text-[#090814]">
                 For club operations and inquiries.
               </p>
@@ -513,7 +526,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">LinkedIn</div>
+              <div className="text-lg font-semibold text-galaxy">LinkedIn</div>
               <p className="mt-2 text-sm text-[#090814]">
                 Follow the page for announcements and updates.
               </p>
