@@ -1,5 +1,16 @@
 import Image from "next/image";
-import { ArrowRight, BookOpen, Users } from "react-feather";
+import {
+  ArrowRight,
+  BookOpen,
+  Users,
+  BarChart2,
+  MessageCircle,
+  Clipboard,
+  Zap,
+  Target,
+  Award,
+  Briefcase,
+} from "react-feather";
 import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Card } from "@/components/Card";
@@ -73,14 +84,14 @@ export default function HomePage() {
             <div className="relative">
               <div className="absolute -inset-4 -z-10 rounded-2xl bg-sky blur-2xl" />
               <div className="relative overflow-hidden rounded-2xl bg-meteor p-6">
-                <Image
+                    <Image
                   src="/header-illustration.svg"
                   alt="Consulting illustration"
                   width={520}
                   height={320}
                   className="h-auto w-full object-contain"
-                  priority
-                />
+                      priority
+                    />
               </div>
             </div>
           </div>
@@ -93,102 +104,126 @@ export default function HomePage() {
           <SectionHeading
             kicker="The Role"
             title="What Consulting Looks Like in Practice"
-            description="Benchmarks and day-to-day expectations—designed to replace vague, anecdotal advice with specific, sourced information."
+            description="As a consultant, you help organizations solve complex problems and improve performance by analyzing how they currently operate, & recommending better strategies, structures, and processes. "
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-4">
-            <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Hiring Momentum</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Reported ~60% YoY increase in consulting roles (H1 2024 → H1 2025).
-              </p>
-              <div className="mt-4">
-                <SourceLink
-                  href="https://blog.getaura.ai/management-consulting-job-market-2025"
-                  label="Source: AURA"
-                />
-              </div>
-            </Card>
-
-            <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">United States</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Recovery after 2023–24 slowdown; growth strongest in digital and implementation roles.
-              </p>
-              <div className="mt-4">
-                <SourceLink
-                  href="https://blog.getaura.ai/management-consulting-job-market-2025"
-                  label="Source: AURA"
-                />
-              </div>
-            </Card>
-
-            <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Middle East (GCC)</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Growth forecast around <span className="font-semibold">12%</span> for 2025,
-                driven by large transformation programs.
-              </p>
-              <div className="mt-4">
-                <SourceLink
-                  href="https://www.consultancy-me.com/news/11464/consulting-market-of-gcc-to-grow-by-12-to-over-8-billion-in-2025"
-                  label="Source: Consultancy Middle East"
-                />
-              </div>
-            </Card>
-
-            <Card className="bg-meteor">
-              <div className="text-sm font-semibold text-galaxy">Europe</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Strategic consulting CAGR often cited around <span className="font-semibold">4–5%</span> (2025–2035),
-                alongside disciplined hiring.
-              </p>
-              <div className="mt-4">
-                <SourceLink
-                  href="https://www.linkedin.com/pulse/europe-strategic-consulting-services-market-cagr-crxif"
-                  label="Source: LinkedIn (market summary)"
-                />
-              </div>
-            </Card>
-          </div>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 flex flex-col gap-6">
             <Card className="bg-meteor">
               <div className="text-sm font-semibold text-galaxy">Core Consulting Skills</div>
-              <ul className="mt-3 space-y-3 text-sm text-[#090814]">
-                <li>
-                  <span className="font-semibold text-galaxy">Analytical problem‑solving:</span>{" "}
-                  structure ambiguity, test hypotheses, translate data into decisions.
-                </li>
-                <li>
-                  <span className="font-semibold text-galaxy">Communication:</span> clear
-                  narratives for senior stakeholders; concise slides.
-                </li>
-                <li>
-                  <span className="font-semibold text-galaxy">Teamwork:</span> cross‑functional,
-                  multicultural collaboration.
-                </li>
-                <li>
-                  <span className="font-semibold text-galaxy">Project/time management:</span>{" "}
-                  own workstreams, track milestones, manage trade‑offs.
-                </li>
-                <li>
-                  <span className="font-semibold text-galaxy">Learning agility:</span> ramp
-                  quickly in new topics and industries.
-                </li>
-                <li>
-                  <span className="font-semibold text-galaxy">Client orientation:</span> align
-                  scope to value; support implementation.
-                </li>
-                <li>
-                  <span className="font-semibold text-galaxy">Leadership & people development:</span>{" "}
-                  mentor juniors, give feedback, and lead modules.
-                </li>
-                <li>
-                  <span className="font-semibold text-galaxy">Business & commercial acumen:</span>{" "}
-                  connect recommendations to value creation (P&amp;L, ROI).
-                </li>
-              </ul>
+              <div className="mt-4 grid gap-6 text-sm text-[#090814] md:grid-cols-2 md:auto-rows-fr md:gap-x-8">
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <BarChart2 className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Analytical Problem‑Solving</span>
+                  </div>
+                  <div>
+                    Structure ambiguous problems, apply hypotheses and data, and translate insights into recommendations.
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> building Excel/BI models, pressure-testing assumptions, synthesizing messy data.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <MessageCircle className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Communication</span>
+                  </div>
+                  <div>
+                    Craft clear narratives, synthesize complexity, and tailor messages to senior stakeholders.
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> slide building, steering-committee presentations.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <Users className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Teamwork</span>
+                  </div>
+                  <div>
+                    Work effectively in cross-functional and multicultural teams.
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> daily coordination with partners, managers, and client teams.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <Clipboard className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Project/Time Management</span>
+                  </div>
+                  <div>
+                    Own workstreams end to end and manage competing priorities.
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> weekly planning, milestone tracking.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <Zap className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Learning Agility</span>
+                  </div>
+                  <div>
+                    Rapidly adjust to new industries, topics, and client needs.
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> learning AI, sustainability, or new sectors on the fly.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <Target className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Client Orientation</span>
+                  </div>
+                  <div>
+                    Design client-centric solutions focused on value creation.
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> scope alignment and implementation support.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <Award className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Leadership & People Development</span>
+                  </div>
+                  <div>
+                    Lead modules, mentor juniors, and give feedback.
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> being the “go-to” person for a topic.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                      <Briefcase className="text-[#081F5C]" size={18} />
+                    </span>
+                    <span className="text-lg font-semibold text-galaxy">Business & Commercial Acumen</span>
+                  </div>
+                  <div>
+                    Connect recommendations to value creation (P&amp;L, ROI).
+                    <div className="mt-3 text-sm text-[#090814]">
+                      <span className="font-semibold">In Practice:</span> tying recommendations to P&amp;L and ROI.
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Card>
 
             <Card className="bg-meteor">
