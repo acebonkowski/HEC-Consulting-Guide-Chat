@@ -61,7 +61,7 @@ function SourceLink({ href, label }: { href: string; label: string }) {
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="text-sm text-[#090814] underline decoration-universe/60 underline-offset-4 hover:text-galaxy"
+      className="text-[11px] font-semibold text-[#7096D1] underline underline-offset-4"
     >
       {label}
     </a>
@@ -186,18 +186,18 @@ export default function HomePage() {
                       <Target className="text-[#081F5C]" size={18} />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Client Orientation</span>
-                  </div>
+              </div>
                   <div>
                     Design client-centric solutions focused on value creation, travel to client locations, and join meetings to scope alignment and provide implementation support.
             
                   </div>
-                </div>
+              </div>
                
               </div>
             </Card>
 
             <Card className="bg-meteor">
-              <div className="grid gap-6 md:grid-cols-[1fr_2fr] md:items-center">
+              <div className="grid gap-6 md:grid-cols-2 md:items-center">
                 <div className="flex h-full flex-col justify-between">
                   <div>
                     <div className="text-lg font-semibold text-galaxy">Day-in-the-Life</div>
@@ -226,29 +226,39 @@ export default function HomePage() {
 
           <div className="mt-10">
             <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Pros & Cons (Community-Reported)</div>
-              <div className="mt-4 grid gap-6 lg:grid-cols-2">
+              <div className="text-lg font-semibold text-galaxy">What Consultants Like (And Don't Like) About Their Job</div>
+              <div className="mt-6 grid gap-8 lg:grid-cols-2">
                 <div>
-                  <div className="text-xs font-semibold text-[#090814]">Pros</div>
-                  <ul className="mt-2 list-disc pl-5 text-sm text-[#090814]">
-                    <li>High compensation and accelerated learning</li>
-                    <li>Strong exit opportunities after 2–4 years</li>
-                    <li>Variety of industries and problems</li>
-                    <li>Early exposure to senior decision-makers</li>
+                  <div className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-green-900 ring-1 ring-green-200">
+                    Pros
+                  </div>
+                  <ul className="mt-4 list-disc space-y-3 pl-5 text-sm text-[#090814]">
+                    <li><span className="font-semibold">High Compensation & Accelerated Learning:</span> Consultants praise top pay that funds lifestyles and rapid skill-building via diverse projects, likened to "professional speed dating" without errors costing jobs.</li>
+                    <li><span className="font-semibold">Strong Career Optionality After 2–4 Years:</span> Exits to private equity, strategy, tech, or startups leverage the resume boost and broad exposure.
+
+</li>
+                    <li><span className="font-semibold"> Variety of Industries & Problems:</span> Tackle different sectors & challenges, gaining early access to executives for networking & communication skills.</li>
                   </ul>
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-[#090814]">Cons</div>
-                  <ul className="mt-2 list-disc pl-5 text-sm text-[#090814]">
-                    <li>Long hours and burnout risk</li>
-                    <li>Travel intensity on some projects</li>
-                    <li>Unpredictable staffing</li>
-                    <li>Up-or-out promotion pressure</li>
+                  <div className="inline-flex items-center rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-red-900 ring-1 ring-red-200">
+                    Cons
+                  </div>
+                  <ul className="mt-4 list-disc space-y-3 pl-5 text-sm text-[#090814]">
+                    <li><span className="font-semibold">Long Hours & Burnout Risk:</span> 80+ hour weeks cause exhaustion, mental health issues, substance use, and medical leaves. Up to 75% time on-site leads to flight fatigue and family strain.</li>
+                    <li><span className="font-semibold">Unpredictable Staffing:</span> Fight for billable roles, network internally amid bench risks and chaotic pipelines.</li>
+                    <li><span className="font-semibold">Up-or-Out Promotion Pressure:</span> Miss promotions in reviews and face counseling out, driving cutthroat competition.</li>
                   </ul>
                 </div>
               </div>
-              <p className="mt-4 text-xs text-[#090814]">
-                Source is community discussion (r/consulting); treat as directional, not authoritative.
+              <p className="mt-10 text-xs text-[#090814]">
+              
+                <a
+                  href="https://www.reddit.com/r/consulting/"
+                  className="text-[11px] font-semibold text-[#7096D1] underline underline-offset-4"
+                >
+                  Learn More By Visiting r/consulting
+                </a>
               </p>
             </Card>
           </div>

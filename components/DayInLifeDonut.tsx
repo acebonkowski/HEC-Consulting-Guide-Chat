@@ -51,8 +51,8 @@ export function DayInLifeDonut({
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   return (
-    <div className="flex w-full flex-col items-end pr-3">
-      <div className="ml-auto -mt-10 aspect-square w-full max-w-md">
+    <div className="flex w-full flex-col items-center pr-3">
+      <div className="mx-auto -mt-10 aspect-square w-full max-w-xs">
         <svg
           viewBox="0 0 240 240"
           className="h-full w-full"
@@ -97,13 +97,15 @@ export function DayInLifeDonut({
             x="120"
             y="142"
             textAnchor="middle"
-            className="fill-[#090814] text-[9px]"
+            className="fill-[#090814] font-normal"
+            fontSize="11px"
+            fontFamily="inherit"
           >
             In Peak Times
           </text>
         </svg>
       </div>
-      <div className="ml-auto -mt-4 grid w-full max-w-md grid-cols-2 gap-2 text-sm text-[#090814]">
+      <div className="mx-auto -mt-4 grid w-full max-w-sm grid-cols-2 gap-2 text-sm text-[#090814]">
         {data.map((item, index) => (
           <div
             key={item.label}
