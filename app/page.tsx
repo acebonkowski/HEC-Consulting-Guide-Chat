@@ -131,10 +131,8 @@ export default function HomePage() {
                     <span className="text-lg font-semibold text-galaxy">Analytical Problem‑Solving</span>
                   </div>
                   <div>
-                    Structure ambiguous problems, apply hypotheses and data, and translate insights into recommendations.
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> building Excel/BI models, pressure-testing assumptions, synthesizing messy data.
-                    </div>
+                    Structure ambiguous problems, apply hypotheses and data, and translate insights into recommendations, including building Excel/BI models, pressure-testing assumptions, and synthesizing data.
+
                   </div>
                 </div>
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
@@ -145,10 +143,7 @@ export default function HomePage() {
                     <span className="text-lg font-semibold text-galaxy">Communication</span>
                   </div>
                   <div>
-                    Craft clear narratives, synthesize complexity, and tailor messages to senior stakeholders.
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> slide building, steering-committee presentations.
-                    </div>
+                    Craft clear narratives, synthesize complexity, and tailor messages to senior stakeholders, including slide building and steering-committee presentations.
                   </div>
                 </div>
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
@@ -156,13 +151,10 @@ export default function HomePage() {
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                       <Users className="text-[#081F5C]" size={18} />
                     </span>
-                    <span className="text-lg font-semibold text-galaxy">Teamwork</span>
+                    <span className="text-lg font-semibold text-galaxy">Teamwork & Leadership</span>
                   </div>
                   <div>
-                    Work effectively in cross-functional and multicultural teams.
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> daily coordination with partners, managers, and client teams.
-                    </div>
+                    Work effectively in cross-functional teams. Lead modules, mentor juniors, and give feedback, including daily coordination with partners, managers, and client teams.
                   </div>
                 </div>
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
@@ -170,13 +162,11 @@ export default function HomePage() {
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                       <Clipboard className="text-[#081F5C]" size={18} />
                     </span>
-                    <span className="text-lg font-semibold text-galaxy">Project/Time Management</span>
+                    <span className="text-lg font-semibold text-galaxy">Project Management</span>
                   </div>
                   <div>
-                    Own workstreams end to end and manage competing priorities.
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> weekly planning, milestone tracking.
-                    </div>
+                    Own workstreams end to end and manage competing priorities. Take ownership of projects, set milestones, and track progress amidst of changing client demands. 
+                    
                   </div>
                 </div>
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
@@ -187,10 +177,7 @@ export default function HomePage() {
                     <span className="text-lg font-semibold text-galaxy">Learning Agility</span>
                   </div>
                   <div>
-                    Rapidly adjust to new industries, topics, and client needs.
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> learning AI, sustainability, or new sectors on the fly.
-                    </div>
+                    Rapidly adjust to new industries, topics, and client needs, e.g., learning about AI or new sectors on the fly. Connect recommendations to value creation (P&amp;L, ROI).
                   </div>
                 </div>
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
@@ -201,40 +188,11 @@ export default function HomePage() {
                     <span className="text-lg font-semibold text-galaxy">Client Orientation</span>
                   </div>
                   <div>
-                    Design client-centric solutions focused on value creation.
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> scope alignment and implementation support.
-                    </div>
+                    Design client-centric solutions focused on value creation, travel to client locations, and join meetings to scope alignment and provide implementation support.
+            
                   </div>
                 </div>
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <Award className="text-[#081F5C]" size={18} />
-                    </span>
-                    <span className="text-lg font-semibold text-galaxy">Leadership & People Development</span>
-                  </div>
-                  <div>
-                    Lead modules, mentor juniors, and give feedback.
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> being the “go-to” person for a topic.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <Briefcase className="text-[#081F5C]" size={18} />
-                    </span>
-                    <span className="text-lg font-semibold text-galaxy">Business & Commercial Acumen</span>
-                  </div>
-                  <div>
-                    Connect recommendations to value creation (P&amp;L, ROI).
-                    <div className="mt-3 text-sm text-[#090814]">
-                      <span className="font-semibold">In Practice:</span> tying recommendations to P&amp;L and ROI.
-                    </div>
-              </div>
-              </div>
+               
               </div>
             </Card>
 
