@@ -72,7 +72,7 @@ export default function HomePage() {
   return (
     <div id="home">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-venus bg-milky-way">
+      <section className="relative overflow-hidden bg-milky-way">
         <Container className="py-14 sm:py-18">
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <div className="space-y-6">
@@ -270,30 +270,85 @@ export default function HomePage() {
         <Container className="py-14 sm:py-16">
           <SectionHeading
             kicker="The Market"
-            title="Hiring Is Selective — and Regionally Uneven"
-            description="A cautious market with strong pockets (digital/implementation, GCC growth) and tighter selectivity elsewhere."
+            title="Hiring Is Selective & Regionally Uneven"
+            description="The consulting job market in January 2026 shows modest recovery signs amid economic uncertainty, with hiring thawing but remaining selective and competitive."
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_2fr]">
             <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Hiring Momentum</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Reported ~60% YoY increase in consulting roles (H1 2024 → H1 2025).
+              <div className="flex h-full flex-col justify-between">
+                <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+                  <span>Change In Job Postings</span>
+                  <span className="ml-auto text-2xl" aria-hidden="true">💼</span>
+                </div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  <span className="text-[50px] font-semibold text-[#334EAC]">60%</span>
+                  <br /> YoY increase between H1 2024 & H1 2025, showing a rebound in hiring concentrated in specific firms, functions, and regions. 
               </p>
               <div className="mt-4">
                 <SourceLink
                   href="https://blog.getaura.ai/management-consulting-job-market-2025"
                   label="Source: AURA"
                 />
+                </div>
               </div>
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Middle East (GCC)</div>
+              <div className="text-lg font-semibold text-galaxy">Trends Impacting Recruiting</div>
+              <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-[#090814]">
+                <li><span className="font-semibold">Shift Of Roles:</span> Firms prioritize candidates with expertise in digital analytics, AI tools, and strategy execution, as seen in rising job postings for roles like Digital Analytics Consultants with productivity gains from AI driving demand for new skills.</li>
+                <li><span className="font-semibold">Sustainability and ESG demand increases:</span> ESG hiring is rebounding due to regulatory clarity, especially in Europe, with selective roles tying sustainability skills to business outcomes.</li>
+                <li><span className="font-semibold">Emphasis On Fit & Proof Of Skills:</span> Skills-based assessments and AI-driven screening replace degree-focused filters, emphasizing competencies, business acumen, and cultural fit through methods like digital games and chatbot cases.</li>
+              </ol>
+            </Card>
+          </div>
+
+          <div className="mt-6 grid gap-6 lg:grid-cols-3">
+            <Card className="bg-meteor">
+              <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+                <span>Europe</span>
+                <span className="ml-auto text-2xl" aria-hidden="true">🇪🇺</span>
+              </div>
               <p className="mt-2 text-sm text-[#090814]">
-                Growth forecast around <span className="font-semibold">12%</span> for 2025,
-                driven by large transformation programs.
+                  <span className="text-[50px] font-semibold text-[#334EAC]">5.99%</span>
+                  <br /> CAGR (2026-2033) of the strategy consulting market in Europe as the largest market in EMEA characterized by disciplined hirin. 
               </p>
+              <div className="mt-4">
+                <SourceLink
+                  href="https://www.mordorintelligence.com/industry-reports/europe-management-consulting-services-market"
+                  label="Source: Mordor Intelligence"
+                />
+              </div>
+            </Card>
+
+            <Card className="bg-meteor">
+              <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+                <span>United States</span>
+                <span className="ml-auto text-2xl" aria-hidden="true">🇺🇸</span>
+              </div>
+              <p className="mt-2 text-sm text-[#090814]">
+                  <span className="text-[50px] font-semibold text-[#334EAC]">4.94%</span>
+                  <br /> CAGR (2026-2031) in US for 2025 fueled by AI, cloud migration, and cybersecurity needs, with selective hiring in strategy teams.
+              </p>
+              <div className="mt-4">
+                <SourceLink
+                  href="https://www.mordorintelligence.com/industry-reports/us-management-consulting-services-market"
+                  label="Source: Mordor Intelligence"
+                />
+              </div>
+            </Card>
+
+            <Card className="bg-meteor">
+              <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+                <span>Middle East (GCC)</span>
+                <span className="ml-auto text-2xl" aria-hidden="true">🇦🇪</span>
+              </div>
+              <p className="mt-2 text-sm text-[#090814]">
+                  <span className="text-[50px] font-semibold text-[#334EAC]">12%</span>
+                  <br /> Growth forecasted in GCC for 2025 driven by high demand in digital tech, AI, energy transition, and financial services.
+
+</p>
               <div className="mt-4">
                 <SourceLink
                   href="https://www.consultancy-me.com/news/11464/consulting-market-of-gcc-to-grow-by-12-to-over-8-billion-in-2025"
@@ -301,85 +356,66 @@ export default function HomePage() {
                 />
               </div>
             </Card>
-
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Europe</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Strategic consulting growth often cited around <span className="font-semibold">4–5%</span> CAGR
-                (2025–2035), alongside disciplined hiring.
-              </p>
-              <div className="mt-4">
-                <SourceLink
-                  href="https://www.linkedin.com/pulse/europe-strategic-consulting-services-market-cagr-crxif"
-                  label="Source: LinkedIn (market summary)"
-                />
-              </div>
-            </Card>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Trends Impacting Recruiting</div>
-              <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-[#090814]">
-                <li>Shift toward digital, analytics, and implementation roles.</li>
-                <li>Sustainability and ESG demand increases in many practices.</li>
-                <li>Precision hiring: stronger emphasis on fit and proof of skills.</li>
-                <li>Regional rebalancing (GCC and select US cities).</li>
-                <li>Hybrid work: marketed as flexible, intensity remains.</li>
-              </ol>
-            </Card>
-
+          <div className="mt-10">
             <Card className="bg-meteor">
               <div className="text-lg font-semibold text-galaxy">Who Hires Consultants</div>
               <div className="mt-3 overflow-x-auto">
                 <table className="w-full min-w-[620px] border-separate border-spacing-0 text-sm">
                   <thead>
                     <tr className="text-left">
-                      <th className="border-b border-venus bg-meteor px-4 py-3 font-semibold">Category</th>
-                      <th className="border-b border-venus bg-meteor px-4 py-3 font-semibold">Example Firms</th>
-                      <th className="border-b border-venus bg-meteor px-4 py-3 font-semibold">Description</th>
+                      <th className="bg-[#334EAC] px-4 py-3 font-semibold text-[#FFF9F0]">
+                        Category
+                      </th>
+                      <th className="bg-[#334EAC] px-4 py-3 font-semibold text-[#FFF9F0]">
+                        Example Firms
+                      </th>
+                      <th className="bg-[#334EAC] px-4 py-3 font-semibold text-[#FFF9F0]">
+                        Description
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="border-b border-venus px-4 py-3 font-semibold">MBB</td>
-                      <td className="border-b border-venus px-4 py-3">McKinsey, BCG, Bain</td>
-                      <td className="border-b border-venus px-4 py-3 text-[#090814]">
+                      <td className="px-4 py-3 font-semibold">MBB</td>
+                      <td className="px-4 py-3">McKinsey, BCG, Bain</td>
+                      <td className="px-4 py-3 text-[#090814]">
                         Global strategy leaders with high-impact work, premium compensation, and broad sector coverage.
                       </td>
                     </tr>
-                    <tr>
-                      <td className="border-b border-venus px-4 py-3 font-semibold">Big 4</td>
-                      <td className="border-b border-venus px-4 py-3">Deloitte, PwC, EY, KPMG</td>
-                      <td className="border-b border-venus px-4 py-3 text-[#090814]">
+                    <tr className="bg-[#BAD6EB]/20">
+                      <td className="px-4 py-3 font-semibold">Big 4</td>
+                      <td className="px-4 py-3">Deloitte, PwC, EY, KPMG</td>
+                      <td className="px-4 py-3 text-[#090814]">
                         Large professional-services firms with strong implementation, risk, deals, and technology practices.
                       </td>
                     </tr>
                     <tr>
-                      <td className="border-b border-venus px-4 py-3 font-semibold">Tier‑2 / Strategy</td>
-                      <td className="border-b border-venus px-4 py-3">
+                      <td className="px-4 py-3 font-semibold">Tier‑2/Strategy</td>
+                      <td className="px-4 py-3">
                         Oliver Wyman, Strategy&amp;, Kearney, Roland Berger, L.E.K., Alvarez &amp; Marsal
                       </td>
-                      <td className="border-b border-venus px-4 py-3 text-[#090814]">
+                      <td className="px-4 py-3 text-[#090814]">
                         Strategy-focused firms often specialized by sector or region, with work similar to MBB in many teams.
                       </td>
                     </tr>
-                    <tr>
-                      <td className="border-b border-venus px-4 py-3 font-semibold">Boutiques</td>
-                      <td className="border-b border-venus px-4 py-3">AlixPartners, Simon‑Kucher, FTI</td>
-                      <td className="border-b border-venus px-4 py-3 text-[#090814]">
+                    <tr className="bg-[#BAD6EB]/20">
+                      <td className="px-4 py-3 font-semibold">Boutiques</td>
+                      <td className="px-4 py-3">AlixPartners, Simon‑Kucher, FTI</td>
+                      <td className="px-4 py-3 text-[#090814]">
                         Deep functional or industry specialization with early responsibility.
                       </td>
                     </tr>
                     <tr>
-                      <td className="border-b border-venus px-4 py-3 font-semibold">Implementation / Digital</td>
-                      <td className="border-b border-venus px-4 py-3">Accenture, Capgemini, IBM Consulting</td>
-                      <td className="border-b border-venus px-4 py-3 text-[#090814]">
+                      <td className="px-4 py-3 font-semibold">Implementation/Digital</td>
+                      <td className="px-4 py-3">Accenture, Capgemini, IBM Consulting</td>
+                      <td className="px-4 py-3 text-[#090814]">
                         Technology, systems integration, and large-scale transformation focus.
                       </td>
                     </tr>
-                    <tr>
-                      <td className="px-4 py-3 font-semibold">In-house Consulting</td>
+                    <tr className="bg-[#BAD6EB]/20">
+                      <td className="px-4 py-3 font-semibold">In-House Consulting</td>
                       <td className="px-4 py-3">Siemens, Amazon, Allianz, TotalEnergies</td>
                       <td className="px-4 py-3 text-[#090814]">
                         Internal consulting teams with lower travel and direct paths into line roles.
@@ -402,9 +438,18 @@ export default function HomePage() {
             description="Focused resources for case prep, case books, behavioral interview prep, aptitude tests, and networking."
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Case Prep</div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <Card className="bg-meteor">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                    <BookOpen className="text-[#081F5C]" size={18} />
+                  </span>
+                  <div className="text-lg font-semibold text-galaxy">Case Prep</div>
+                </div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  Core drills and live practice to sharpen structure, math, and delivery.
+                </p>
               <div className="mt-3 space-y-2">
                 <SourceLink href="https://casecoach.com/" label="Casecoach" />
                 <br />
@@ -412,10 +457,15 @@ export default function HomePage() {
               </div>
             </Card>
 
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Case Books</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                HEC Consulting Club Case Collection (SharePoint).
+              <Card className="bg-meteor">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                    <BookOpen className="text-[#081F5C]" size={18} />
+                  </span>
+                  <div className="text-lg font-semibold text-galaxy">Case Books</div>
+                </div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  HEC Consulting Club case collection for interview-style practice.
               </p>
               <div className="mt-3">
                 <SourceLink
@@ -425,25 +475,48 @@ export default function HomePage() {
               </div>
             </Card>
 
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Behavioral Interviews</div>
-              <p className="mt-2 text-sm text-[#090814]">Big Interview (HEC access).</p>
+              <Card className="bg-meteor">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                    <MessageCircle className="text-[#081F5C]" size={18} />
+                  </span>
+                  <div className="text-lg font-semibold text-galaxy">Behavioral Interviews</div>
+                </div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  Practice story structure, leadership examples, and fit questions.
+                </p>
               <div className="mt-3">
                 <SourceLink href="https://hec.biginterview.com/login" label="Open Big Interview" />
               </div>
             </Card>
 
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Aptitude Tests</div>
-              <p className="mt-2 text-sm text-[#090814]">Practice Aptitude Tests.</p>
+              <Card className="bg-meteor">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                    <Clipboard className="text-[#081F5C]" size={18} />
+                  </span>
+                  <div className="text-lg font-semibold text-galaxy">Aptitude Tests</div>
+                </div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  Timed drills for numerical, verbal, and logical assessments.
+                </p>
               <div className="mt-3">
                 <SourceLink href="https://www.practiceaptitudetest.com/" label="Open site" />
               </div>
             </Card>
+            </div>
 
-            <Card className="bg-meteor lg:col-span-2">
-              <div className="text-lg font-semibold text-galaxy">Networking & Events</div>
-              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+            <Card className="bg-meteor">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                  <Users className="text-[#081F5C]" size={18} />
+                </span>
+                <div className="text-lg font-semibold text-galaxy">Networking & Events</div>
+              </div>
+              <p className="mt-2 text-sm text-[#090814]">
+                Connect with alumni, recruiters, and peers through club channels and platforms.
+              </p>
+              <div className="mt-4 grid gap-2 sm:grid-cols-2">
                 <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">
                   <div className="text-xs font-semibold text-[#090814]">HEC Alumni</div>
                   <div className="mt-1">
