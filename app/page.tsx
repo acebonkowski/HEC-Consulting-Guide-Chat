@@ -10,6 +10,7 @@ import {
   Target,
   Award,
   Briefcase,
+  ArrowUpRight,
 } from "react-feather";
 import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -39,8 +40,8 @@ function SectionHeading({
 }) {
   return (
     <div className="space-y-2">
-      <div className="inline-flex items-center gap-2 rounded-full bg-[#7096D1] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C] ring-1 ring-venus">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#081F5C]" aria-hidden="true" />
+      <div className="inline-flex items-center gap-2 rounded-full bg-[#7096D1] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FFF9F0] ring-1 ring-venus">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#FFF9F0]" aria-hidden="true" />
         {kicker}
       </div>
       <h2 className="text-2xl font-semibold tracking-tight text-galaxy sm:text-3xl">
@@ -126,7 +127,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <BarChart2 className="text-[#081F5C]" size={18} />
+                    <BarChart2 className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Analytical Problem‑Solving</span>
                   </div>
@@ -138,7 +139,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <MessageCircle className="text-[#081F5C]" size={18} />
+                    <MessageCircle className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Communication</span>
                   </div>
@@ -149,7 +150,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <Users className="text-[#081F5C]" size={18} />
+                    <Users className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Teamwork & Leadership</span>
                   </div>
@@ -160,7 +161,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <Clipboard className="text-[#081F5C]" size={18} />
+                    <Clipboard className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Project Management</span>
                   </div>
@@ -172,7 +173,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <Zap className="text-[#081F5C]" size={18} />
+                    <Zap className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Learning Agility</span>
                   </div>
@@ -183,7 +184,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                      <Target className="text-[#081F5C]" size={18} />
+                    <Target className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Client Orientation</span>
               </div>
@@ -434,7 +435,7 @@ export default function HomePage() {
         <Container className="py-14 sm:py-16">
           <SectionHeading
             kicker="Key Resources"
-            title="Tools and Links That Actually Help"
+            title="Your Most Important Resources"
             description="Focused resources for case prep, case books, behavioral interview prep, aptitude tests, and networking."
           />
 
@@ -443,97 +444,130 @@ export default function HomePage() {
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <BookOpen className="text-[#081F5C]" size={18} />
+                    <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
                   <div className="text-lg font-semibold text-galaxy">Case Prep</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
-                  Core drills and live practice to sharpen structure, math, and delivery.
+                  Practice math, exhibit analysis, brainstorming and entire cases with Casecoach.
                 </p>
-              <div className="mt-3 space-y-2">
-                <SourceLink href="https://casecoach.com/" label="Casecoach" />
-                <br />
-                <SourceLink href="https://www.rocketblocks.me/" label="Rocketblocks" />
-              </div>
+                <div className="mt-3">
+                  <ButtonLink
+                    href="https://casecoach.com/"
+                    external
+                    variant="secondary"
+                    className="gap-2"
+                    ariaLabel="Open Casecoach in a new tab"
+                  >
+                    Open Casecoach <ArrowUpRight size={16} />
+                  </ButtonLink>
+                </div>
             </Card>
 
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <BookOpen className="text-[#081F5C]" size={18} />
+                    <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
                   <div className="text-lg font-semibold text-galaxy">Case Books</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
-                  HEC Consulting Club case collection for interview-style practice.
+                  Access cases based on real interview experiences in our collection.
               </p>
-              <div className="mt-3">
-                <SourceLink
-                  href="https://hecparis.sharepoint.com/teams/HECMBAConsultingClub/Documents%20partages/Forms/AllItems.aspx"
-                  label="Open SharePoint collection"
-                />
-              </div>
+                <div className="mt-3">
+                  <ButtonLink
+                    href="https://hecparis.sharepoint.com/teams/HECMBAConsultingClub/Documents%20partages/Forms/AllItems.aspx"
+                    external
+                    variant="secondary"
+                    className="gap-2"
+                    ariaLabel="Access case collection in a new tab"
+                  >
+                    Access Collection <ArrowUpRight size={16} />
+                  </ButtonLink>
+                </div>
             </Card>
 
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <MessageCircle className="text-[#081F5C]" size={18} />
+                    <MessageCircle className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
-                  <div className="text-lg font-semibold text-galaxy">Behavioral Interviews</div>
+                  <div className="text-lg font-semibold text-galaxy">Behavioral Prep</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
-                  Practice story structure, leadership examples, and fit questions.
+                  Prepare and refine your answers for fit and behavioral interviews via Big Interview. 
                 </p>
-              <div className="mt-3">
-                <SourceLink href="https://hec.biginterview.com/login" label="Open Big Interview" />
-              </div>
+                <div className="mt-3">
+                  <ButtonLink
+                    href="https://hec.biginterview.com/login"
+                    external
+                    variant="secondary"
+                    className="gap-2"
+                    ariaLabel="Open Big Interview in a new tab"
+                  >
+                    Open Big Interview <ArrowUpRight size={16} />
+                  </ButtonLink>
+                </div>
             </Card>
 
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Clipboard className="text-[#081F5C]" size={18} />
+                    <Clipboard className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
                   <div className="text-lg font-semibold text-galaxy">Aptitude Tests</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
-                  Timed drills for numerical, verbal, and logical assessments.
+                  Run through the numerical, verbal, and logical drills part of the application stage.
                 </p>
-              <div className="mt-3">
-                <SourceLink href="https://www.practiceaptitudetest.com/" label="Open site" />
-              </div>
+                <div className="mt-3">
+                  <ButtonLink
+                    href="https://www.practiceaptitudetest.com/"
+                    external
+                    variant="secondary"
+                    className="gap-2"
+                    ariaLabel="Visit Practice Aptitude Tests in a new tab"
+                  >
+                    Visit Site <ArrowUpRight size={16} />
+                  </ButtonLink>
+                </div>
             </Card>
             </div>
 
             <Card className="bg-meteor">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                  <Users className="text-[#081F5C]" size={18} />
-                </span>
-                <div className="text-lg font-semibold text-galaxy">Networking & Events</div>
-              </div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Connect with alumni, recruiters, and peers through club channels and platforms.
-              </p>
-              <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">
-                  <div className="text-xs font-semibold text-[#090814]">HEC Alumni</div>
-                  <div className="mt-1">
-                    <SourceLink href="https://www.hecalumni.fr/fr/" label="hecalumni.fr" />
-                  </div>
+              <div className="flex h-full flex-col">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
+                    <Users className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                  </span>
+                  <div className="text-lg font-semibold text-galaxy">Networking & Events</div>
                 </div>
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus">
-                  <div className="text-xs font-semibold text-[#090814]">Handshake</div>
-                  <div className="mt-1">
-                    <SourceLink href="https://hec.joinhandshake.fr/" label="hec.joinhandshake.fr" />
-                  </div>
-                </div>
-                <div className="rounded-lg bg-meteor p-3 ring-1 ring-venus sm:col-span-2">
-                  <div className="text-xs font-semibold text-[#090814]">LinkedIn</div>
-                  <div className="mt-1 text-sm text-[#090814]">
-                    Use alumni paths, recruiter searches, and targeted outreach.
-                  </div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  Learn more about consulting, your favorite companies and the process by connecting with alumni and recruiters through events and platforms. <br />
+                  <br />
+                  The HEC Alumni website is a great resources to find more than 80 000 alumni to reach out to. Handshake is your first address for MBA Connections with hiring companies and networking events.  <br />
+                   <br /> 
+                   Lastly, LinkedIn provides a meaningful opportunity to engage with current consultants and peers. 
+                </p>
+                <div className="mt-auto flex flex-wrap gap-3">
+                  <ButtonLink
+                    href="https://www.hecalumni.fr/fr/"
+                    external
+                    variant="secondary"
+                    className="flex-1 justify-center gap-2"
+                    ariaLabel="Open HEC Alumni in a new tab"
+                  >
+                    Visit HEC Alumni <ArrowUpRight size={16} />
+                  </ButtonLink>
+                  <ButtonLink
+                    href="https://hec.joinhandshake.fr/"
+                    external
+                    variant="secondary"
+                    className="flex-1 justify-center gap-2"
+                    ariaLabel="Open Handshake in a new tab"
+                  >
+                    Visit Handshake <ArrowUpRight size={16} />
+                  </ButtonLink>
                 </div>
               </div>
             </Card>
