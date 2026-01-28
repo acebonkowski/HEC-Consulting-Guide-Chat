@@ -11,7 +11,7 @@ export function Card({
   return (
     <div
       className={clsx(
-        "rounded-xl bg-meteor p-5 shadow-sm ring-1 ring-venus",
+        "rounded-[10px] bg-meteor p-5 shadow-sm",
         className
       )}
     >

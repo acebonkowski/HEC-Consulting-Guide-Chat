@@ -11,6 +11,8 @@ import {
   Award,
   Briefcase,
   ArrowUpRight,
+  Mail,
+  MessageSquare,
 } from "react-feather";
 import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -40,15 +42,17 @@ function SectionHeading({
 }) {
   return (
     <div className="space-y-2">
-      <div className="inline-flex items-center gap-2 rounded-full bg-[#7096D1] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FFF9F0] ring-1 ring-venus">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#FFF9F0]" aria-hidden="true" />
+      <div className="inline-flex items-center gap-2 rounded-full bg-[#BAD6EB] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C] ring-1 ring-venus">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#081F5C]" aria-hidden="true" />
         {kicker}
       </div>
-      <h2 className="text-2xl font-semibold tracking-tight text-galaxy sm:text-3xl">
-        {title}
-      </h2>
+      <div className="mt-3">
+        <h2 className="text-2xl font-semibold tracking-tight text-galaxy sm:text-3xl">
+          {title}
+        </h2>
+      </div>
       {description ? (
-        <p className="max-w-3xl text-sm leading-6 text-[#090814] sm:text-base">
+        <p className="mt-5 max-w-3xl text-sm text-[#090814] sm:text-base">
           {description}
         </p>
       ) : null}
@@ -62,7 +66,7 @@ function SourceLink({ href, label }: { href: string; label: string }) {
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="text-[11px] font-semibold text-[#7096D1] underline underline-offset-4"
+      className="text-[11px] font-light uppercase text-[#BAD6EB] underline underline-offset-4 hover:text-[#7096D1]"
     >
       {label}
     </a>
@@ -81,13 +85,13 @@ export default function HomePage() {
               <h1 className="text-3xl font-semibold tracking-tight text-galaxy sm:text-5xl">
                 Welcome to the HEC MBA Consulting Club!
               </h1>
-              <p className="text-base leading-7 text-[#090814]">
+              <p className="text-base text-[#090814]">
                 A single, source-backed destination for MBA students to understand the
                 consulting role, the recruiting market, and how to prepare realistically.
               </p>
               <div className="flex flex-wrap gap-3">
-                <ButtonLink href="#contact" variant="primary" className="h-10 gap-2">
-                  Get Involved <Users size={16} />
+              <ButtonLink href="#contact" variant="primary" className="h-10 gap-2">
+                Get Involved <MessageSquare size={16} />
                 </ButtonLink>
                 <ButtonLink href="/consulting-guide" variant="secondary" className="h-10 gap-2">
                   Consulting Guide <BookOpen size={16} />
@@ -95,8 +99,8 @@ export default function HomePage() {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute -inset-4 -z-10 rounded-2xl bg-sky blur-2xl" />
-              <div className="relative overflow-hidden rounded-2xl bg-meteor p-6">
+              <div className="absolute -inset-4 -z-10 rounded-[10px] bg-sky blur-2xl" />
+              <div className="relative overflow-hidden rounded-[10px] bg-meteor p-6">
                     <Image
                   src="/header-illustration.svg"
                   alt="Consulting illustration"
@@ -122,9 +126,9 @@ export default function HomePage() {
 
           <div className="mt-10 flex flex-col gap-6">
             <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Core Consulting Skills</div>
+              <div className="text-xl font-bold text-galaxy">Core Consulting Skills</div>
               <div className="mt-4 grid gap-6 text-sm text-[#090814] md:grid-cols-2 md:auto-rows-fr md:gap-x-8">
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <BarChart2 className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
@@ -136,7 +140,7 @@ export default function HomePage() {
 
                   </div>
                 </div>
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <MessageCircle className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
@@ -147,7 +151,7 @@ export default function HomePage() {
                     Craft clear narratives, synthesize complexity, and tailor messages to senior stakeholders, including slide building and steering-committee presentations.
                   </div>
                 </div>
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <Users className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
@@ -158,7 +162,7 @@ export default function HomePage() {
                     Work effectively in cross-functional teams. Lead modules, mentor juniors, and give feedback, including daily coordination with partners, managers, and client teams.
                   </div>
                 </div>
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <Clipboard className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
@@ -170,7 +174,7 @@ export default function HomePage() {
                     
                   </div>
                 </div>
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <Zap className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
@@ -181,7 +185,7 @@ export default function HomePage() {
                     Rapidly adjust to new industries, topics, and client needs, e.g., learning about AI or new sectors on the fly. Connect recommendations to value creation (P&amp;L, ROI).
                   </div>
                 </div>
-                <div className="flex h-full flex-col gap-3 rounded-lg bg-meteor p-4 ring-1 ring-venus">
+                <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <Target className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
@@ -200,8 +204,8 @@ export default function HomePage() {
             <Card className="bg-meteor">
               <div className="grid gap-6 md:grid-cols-2 md:items-center">
                 <div className="flex h-full flex-col justify-between">
-                  <div>
-                    <div className="text-lg font-semibold text-galaxy">Day-in-the-Life</div>
+                <div>
+                    <div className="text-xl font-bold text-galaxy">Day-in-the-Life</div>
                     <p className="mt-2 text-sm text-[#090814]">
                       As a consultant, you can expect a typical workload of{" "}
                       <span className="font-semibold">50–60 hours</span> per week (excluding extra travel/admin). <br />{" "}
@@ -227,10 +231,10 @@ export default function HomePage() {
 
           <div className="mt-10">
             <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">What Consultants Like (And Don't Like) About Their Job</div>
+              <div className="text-xl font-bold text-galaxy">What Consultants Like (And Don't Like) About Their Job</div>
               <div className="mt-6 grid gap-8 lg:grid-cols-2">
                 <div>
-                  <div className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-green-900 ring-1 ring-green-200">
+                  <div className="inline-flex items-center rounded-full bg-[#89D8BA]/50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
                     Pros
                   </div>
                   <ul className="mt-4 list-disc space-y-3 pl-5 text-sm text-[#090814]">
@@ -242,7 +246,7 @@ export default function HomePage() {
                   </ul>
                 </div>
                 <div>
-                  <div className="inline-flex items-center rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-red-900 ring-1 ring-red-200">
+                  <div className="inline-flex items-center rounded-full bg-red-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-red-900">
                     Cons
                   </div>
                   <ul className="mt-4 list-disc space-y-3 pl-5 text-sm text-[#090814]">
@@ -256,7 +260,7 @@ export default function HomePage() {
               
                 <a
                   href="https://www.reddit.com/r/consulting/"
-                  className="text-[11px] font-semibold text-[#7096D1] underline underline-offset-4"
+                  className="text-[11px] font-light uppercase text-[#BAD6EB] underline underline-offset-4 hover:text-[#7096D1]"
                 >
                   Learn More By Visiting r/consulting
                 </a>
@@ -278,12 +282,12 @@ export default function HomePage() {
           <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_2fr]">
             <Card className="bg-meteor">
               <div className="flex h-full flex-col justify-between">
-                <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+              <div className="flex w-full items-center text-xl font-bold text-galaxy">
                   <span>Change In Job Postings</span>
                   <span className="ml-auto text-2xl" aria-hidden="true">💼</span>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
-                  <span className="text-[50px] font-semibold text-[#334EAC]">60%</span>
+                  <span className="text-[50px] font-semibold text-[#7096D1]">60%</span>
                   <br /> YoY increase between H1 2024 & H1 2025, showing a rebound in hiring concentrated in specific firms, functions, and regions. 
               </p>
               <div className="mt-4">
@@ -296,7 +300,7 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Trends Impacting Recruiting</div>
+              <div className="text-xl font-bold text-galaxy">Trends Impacting Recruiting</div>
               <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-[#090814]">
                 <li><span className="font-semibold">Shift Of Roles:</span> Firms prioritize candidates with expertise in digital analytics, AI tools, and strategy execution, as seen in rising job postings for roles like Digital Analytics Consultants with productivity gains from AI driving demand for new skills.</li>
                 <li><span className="font-semibold">Sustainability and ESG demand increases:</span> ESG hiring is rebounding due to regulatory clarity, especially in Europe, with selective roles tying sustainability skills to business outcomes.</li>
@@ -307,12 +311,12 @@ export default function HomePage() {
 
           <div className="mt-6 grid gap-6 lg:grid-cols-3">
             <Card className="bg-meteor">
-              <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+              <div className="flex w-full items-center text-xl font-bold text-galaxy">
                 <span>Europe</span>
                 <span className="ml-auto text-2xl" aria-hidden="true">🇪🇺</span>
               </div>
               <p className="mt-2 text-sm text-[#090814]">
-                  <span className="text-[50px] font-semibold text-[#334EAC]">5.99%</span>
+                  <span className="text-[50px] font-semibold text-[#7096D1]">5.99%</span>
                   <br /> CAGR (2026-2033) of the strategy consulting market in Europe as the largest market in EMEA characterized by disciplined hirin. 
               </p>
               <div className="mt-4">
@@ -324,12 +328,12 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+              <div className="flex w-full items-center text-xl font-bold text-galaxy">
                 <span>United States</span>
                 <span className="ml-auto text-2xl" aria-hidden="true">🇺🇸</span>
               </div>
               <p className="mt-2 text-sm text-[#090814]">
-                  <span className="text-[50px] font-semibold text-[#334EAC]">4.94%</span>
+                  <span className="text-[50px] font-semibold text-[#7096D1]">4.94%</span>
                   <br /> CAGR (2026-2031) in US for 2025 fueled by AI, cloud migration, and cybersecurity needs, with selective hiring in strategy teams.
               </p>
               <div className="mt-4">
@@ -341,12 +345,12 @@ export default function HomePage() {
             </Card>
 
             <Card className="bg-meteor">
-              <div className="flex w-full items-center text-lg font-semibold text-galaxy">
+              <div className="flex w-full items-center text-xl font-bold text-galaxy">
                 <span>Middle East (GCC)</span>
                 <span className="ml-auto text-2xl" aria-hidden="true">🇦🇪</span>
               </div>
               <p className="mt-2 text-sm text-[#090814]">
-                  <span className="text-[50px] font-semibold text-[#334EAC]">12%</span>
+                  <span className="text-[50px] font-semibold text-[#7096D1]">12%</span>
                   <br /> Growth forecasted in GCC for 2025 driven by high demand in digital tech, AI, energy transition, and financial services.
 
 </p>
@@ -361,18 +365,18 @@ export default function HomePage() {
 
           <div className="mt-10">
             <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Who Hires Consultants</div>
-              <div className="mt-3 overflow-x-auto">
+              <div className="text-xl font-bold text-galaxy">Who Hires Consultants</div>
+              <div className="mt-6 overflow-x-auto">
                 <table className="w-full min-w-[620px] border-separate border-spacing-0 text-sm">
                   <thead>
                     <tr className="text-left">
-                      <th className="bg-[#334EAC] px-4 py-3 font-semibold text-[#FFF9F0]">
+                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FFF9F0]">
                         Category
                       </th>
-                      <th className="bg-[#334EAC] px-4 py-3 font-semibold text-[#FFF9F0]">
+                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FFF9F0]">
                         Example Firms
                       </th>
-                      <th className="bg-[#334EAC] px-4 py-3 font-semibold text-[#FFF9F0]">
+                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FFF9F0]">
                         Description
                       </th>
                     </tr>
@@ -446,7 +450,7 @@ export default function HomePage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
-                  <div className="text-lg font-semibold text-galaxy">Case Prep</div>
+                  <div className="text-xl font-bold text-galaxy">Case Prep</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
                   Practice math, exhibit analysis, brainstorming and entire cases with Casecoach.
@@ -461,7 +465,7 @@ export default function HomePage() {
                   >
                     Open Casecoach <ArrowUpRight size={16} />
                   </ButtonLink>
-                </div>
+              </div>
             </Card>
 
               <Card className="bg-meteor">
@@ -469,14 +473,14 @@ export default function HomePage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
-                  <div className="text-lg font-semibold text-galaxy">Case Books</div>
+                  <div className="text-xl font-bold text-galaxy">Case Books</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
                   Access cases based on real interview experiences in our collection.
               </p>
-                <div className="mt-3">
+              <div className="mt-3">
                   <ButtonLink
-                    href="https://hecparis.sharepoint.com/teams/HECMBAConsultingClub/Documents%20partages/Forms/AllItems.aspx"
+                  href="https://hecparis.sharepoint.com/teams/HECMBAConsultingClub/Documents%20partages/Forms/AllItems.aspx"
                     external
                     variant="secondary"
                     className="gap-2"
@@ -484,7 +488,7 @@ export default function HomePage() {
                   >
                     Access Collection <ArrowUpRight size={16} />
                   </ButtonLink>
-                </div>
+              </div>
             </Card>
 
               <Card className="bg-meteor">
@@ -492,12 +496,12 @@ export default function HomePage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <MessageCircle className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
-                  <div className="text-lg font-semibold text-galaxy">Behavioral Prep</div>
+                  <div className="text-xl font-bold text-galaxy">Behavioral Prep</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
                   Prepare and refine your answers for fit and behavioral interviews via Big Interview. 
                 </p>
-                <div className="mt-3">
+              <div className="mt-3">
                   <ButtonLink
                     href="https://hec.biginterview.com/login"
                     external
@@ -507,7 +511,7 @@ export default function HomePage() {
                   >
                     Open Big Interview <ArrowUpRight size={16} />
                   </ButtonLink>
-                </div>
+              </div>
             </Card>
 
               <Card className="bg-meteor">
@@ -515,12 +519,12 @@ export default function HomePage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <Clipboard className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
-                  <div className="text-lg font-semibold text-galaxy">Aptitude Tests</div>
+                  <div className="text-xl font-bold text-galaxy">Aptitude Tests</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
                   Run through the numerical, verbal, and logical drills part of the application stage.
                 </p>
-                <div className="mt-3">
+              <div className="mt-3">
                   <ButtonLink
                     href="https://www.practiceaptitudetest.com/"
                     external
@@ -530,9 +534,9 @@ export default function HomePage() {
                   >
                     Visit Site <ArrowUpRight size={16} />
                   </ButtonLink>
-                </div>
+              </div>
             </Card>
-            </div>
+                  </div>
 
             <Card className="bg-meteor">
               <div className="flex h-full flex-col">
@@ -540,7 +544,7 @@ export default function HomePage() {
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <Users className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
                   </span>
-                  <div className="text-lg font-semibold text-galaxy">Networking & Events</div>
+                <div className="text-xl font-bold text-galaxy">Networking & Events</div>
                 </div>
                 <p className="mt-2 text-sm text-[#090814]">
                   Learn more about consulting, your favorite companies and the process by connecting with alumni and recruiters through events and platforms. <br />
@@ -578,45 +582,44 @@ export default function HomePage() {
       {/* Contact */}
       <section id="contact" className="bg-milky-way">
         <Container className="py-14 sm:py-16">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-[10px] bg-meteor p-6">
+                <Image
+                  src="/mailbox.svg"
+                  alt="Mailbox illustration"
+                  width={520}
+                  height={320}
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            </div>
+            <div className="space-y-6">
           <SectionHeading
             kicker="Contact"
-            title="Get Involved"
-            description="For events, partnerships, and recruiting support: reach out to the club."
+                title="We'd Love to Hear From You!"
+            description="For events, partnerships, and recruiting support reach out to the club!"
           />
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">Email</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                For club operations and inquiries.
-              </p>
-              <div className="mt-4">
-                <a
-                  href="mailto:mbaclub.consulting@hec.edu"
-                  className="inline-flex items-center gap-2 rounded-lg bg-planetary px-4 py-2 text-sm font-semibold text-[#FFF9F0] hover:bg-planetary/90"
-                >
-                  mbaclub.consulting@hec.edu <ArrowRight size={16} />
-                </a>
-              </div>
-            </Card>
-
-            <Card className="bg-meteor">
-              <div className="text-lg font-semibold text-galaxy">LinkedIn</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Follow the page for announcements and updates.
-              </p>
-              <div className="mt-4">
+              <div className="flex flex-wrap gap-3">
                 <ButtonLink
                   href="https://www.linkedin.com/company/hec-paris-mba-consulting-club/"
                   external
+                  variant="primary"
+                  className="gap-2"
+                  ariaLabel="Connect on LinkedIn in a new tab"
+                >
+                  Connect on LinkedIn <MessageSquare size={16} />
+                </ButtonLink>
+                <ButtonLink
+                  href="mailto:mbaclub.consulting@hec.edu"
                   variant="secondary"
                   className="gap-2"
-                  ariaLabel="Open LinkedIn page in a new tab"
+                  ariaLabel="Email the consulting club"
                 >
-                  Open LinkedIn <ArrowRight size={16} />
+                  Email Us <Mail size={16} />
                 </ButtonLink>
               </div>
-            </Card>
+            </div>
           </div>
         </Container>
       </section>

@@ -23,7 +23,7 @@ export function ButtonLink({
     primary:
       "bg-[#334EAC] text-[#FFF9F0] hover:bg-[#081F5C] focus-visible:ring-2 focus-visible:ring-[#334EAC]",
     secondary:
-      "bg-meteor text-galaxy ring-1 ring-venus hover:bg-sky focus-visible:ring-2 focus-visible:ring-planetary",
+      "bg-[#BAD6EB] text-galaxy hover:bg-[#7096D1] hover:text-[#FFF9F0] focus-visible:ring-2 focus-visible:ring-[#081F5C]",
     ghost:
       "text-universe hover:bg-sky focus-visible:ring-2 focus-visible:ring-planetary",
   };
@@ -38,7 +38,7 @@ export function ButtonLink({
       {...props}
       aria-label={ariaLabel}
       className={clsx(
-        "inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors",
+        "inline-flex items-center justify-center rounded-[5px] px-4 py-2 text-sm font-semibold transition-colors",
         styles[variant],
         className
       )}

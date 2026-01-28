@@ -21,10 +21,10 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-venus bg-[#334EAC] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-venus bg-[#081F5C] backdrop-blur">
       <a
         href="#home"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 rounded-md bg-meteor px-3 py-2 text-sm font-semibold text-galaxy"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 rounded-[5px] bg-meteor px-3 py-2 text-sm font-semibold text-galaxy"
       >
         Skip to content
       </a>
@@ -63,7 +63,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-white hover:bg-venus/30"
+          className="md:hidden inline-flex items-center justify-center rounded-[5px] p-2 text-white hover:bg-venus/30"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -80,7 +80,7 @@ export function Navbar() {
                 <a
                   key={i.href}
                   href={i.href}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-white/90 hover:bg-venus/30 hover:text-white"
+                  className="rounded-[5px] px-3 py-2 text-sm font-medium text-white/90 hover:bg-venus/30 hover:text-white"
                   onClick={() => setOpen(false)}
                 >
                   {i.label}

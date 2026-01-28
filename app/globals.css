@@ -23,6 +23,8 @@ html {
 body {
   background: var(--color-milky-way);
   color: var(--color-galaxy);
+  font-weight: 200;
+  line-height: 1.6;
 }
 
 /* Accessible focus ring */
