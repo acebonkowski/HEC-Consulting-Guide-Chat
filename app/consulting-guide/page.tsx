@@ -84,6 +84,7 @@ const CASE_STEPS = [
       "Check assumptions as you go and segment logically.",
       "Test sensitivity at the end.",
     ],
+    tips: [],
   },
   {
     title: "Case Closing",
@@ -191,95 +192,87 @@ export default function ConsultingGuidePage() {
             description="Follow the step-by-step recruiting flow, from application to offer."
           />
 
-          <div className="mt-10 grid auto-rows-fr gap-6 md:grid-cols-2 xl:grid-cols-4">
-            <Card id="process-apply" className="flex h-full flex-col bg-meteor">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
-                01
-              </div>
-              <div className="mt-2 text-xl font-bold text-galaxy">Submit Application</div>
-              <div className="mt-4 text-sm text-[#090814]">
-                <div className="font-semibold">Required materials</div>
-                <ul className="mt-2 list-disc space-y-2 pl-5">
-                  <li>Resume</li>
-                  <li>Cover letter (recommended)</li>
-                  <li>Transcripts (undergraduate, graduate, sometimes high school)</li>
-                  <li>Standardized test scores (e.g., GMAT, often optional)</li>
-                </ul>
-                <div className="mt-4 font-semibold">Best practice</div>
-                <p className="mt-2">
-                  Apply with a meaningful referral through a separate referral link whenever possible.
-                </p>
-              </div>
-            </Card>
-
-            <Card id="process-assessment" className="flex h-full flex-col bg-meteor">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
-                02
-              </div>
-              <div className="mt-2 text-xl font-bold text-galaxy">Solve Assessment</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                You will often receive an online assessment. The format varies by company and region.
-              </p>
-              <div className="mt-4 space-y-4 text-sm text-[#090814]">
-                <div className="space-y-2">
-                  <div className="font-semibold">McKinsey – Solve</div>
-                  <InlineLink href="https://www.mckinsey.com/careers/mckinsey-digital-assessment">
-                    mckinsey.com/careers/mckinsey-digital-assessment
-                  </InlineLink>
-                  <InlineLink href="https://www.casebasix.com/pages/mckinsey-problem-solving-game-solve-full-guide">
-                    CaseBasix: Solve guide
-                  </InlineLink>
-                </div>
-                <div className="space-y-2">
-                  <div className="font-semibold">Bain – SOVA | Test Gorilla</div>
-                  <InlineLink href="https://www.casebasix.com/pages/bain-aptitude-test-sova-ultimate-guide">
-                    CaseBasix: SOVA guide
-                  </InlineLink>
-                  <InlineLink href="https://www.casebasix.com/pages/bain-testgorilla">
-                    CaseBasix: Test Gorilla guide
-                  </InlineLink>
-                </div>
-                <div className="space-y-2">
-                  <div className="font-semibold">BCG – Casey Bot</div>
-                  <InlineLink href="https://www.casebasix.com/pages/bcg-online-case-casey-chatbot-guide">
-                    CaseBasix: Casey guide
-                  </InlineLink>
-                </div>
-                <div className="space-y-2">
-                  <div className="font-semibold">Other companies</div>
-                  <p>
-                    Many use aptitude tests for quantitative, logical, and verbal skills.
+          <div className="mt-10 grid auto-rows-fr gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div id="process-apply" className="h-full">
+              <Card className="flex h-full flex-col bg-[#7096D1]/10">
+                <div className="text-xl font-light text-[#081F5C]">01</div>
+                <div className="mt-2 text-xl font-bold text-galaxy">Submit Application</div>
+                <div className="mt-4 text-sm text-[#090814]">
+                  <div className="font-semibold">Required materials</div>
+                  <ul className="mt-2 list-disc space-y-2 pl-5">
+                    <li>Resume</li>
+                    <li>Cover letter (recommended)</li>
+                    <li>Transcripts (undergraduate, graduate, sometimes high school)</li>
+                    <li>Standardized test scores (e.g., GMAT, often optional)</li>
+                  </ul>
+                  <div className="mt-4 font-semibold">Best practice</div>
+                  <p className="mt-2">
+                    Apply with a meaningful referral through a separate referral link whenever possible.
                   </p>
-                  <InlineLink href="https://www.practiceaptitudetests.com/">
-                    practiceaptitudetests.com
-                  </InlineLink>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
 
-            <Card id="process-interview" className="flex h-full flex-col bg-meteor">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
-                03
-              </div>
-              <div className="mt-2 text-xl font-bold text-galaxy">Take Interview(s)</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Every process includes at least one case interview (up to 3+). Some rounds combine
-                behavioral questions (about 10 minutes) followed by a case interview.
-              </p>
-              <p className="mt-3 text-sm text-[#090814]">
-                Based on internal HEC data, roughly{" "}
-                <span className="font-semibold">⅔ of candidates</span> go through behavioral
-                questions. You will know this format in advance.
-              </p>
-            </Card>
+            <div id="process-assessment" className="h-full">
+              <Card className="flex h-full flex-col bg-[#7096D1]/20">
+                <div className="text-xl font-light text-[#081F5C]">02</div>
+                <div className="mt-2 text-xl font-bold text-galaxy">Solve Assessment</div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  You will often receive an online assessment. The format varies by company and region.
+                </p>
+                <div className="mt-4 space-y-4 text-sm text-[#090814]">
+                  <div className="space-y-2">
+                    <div className="font-semibold">McKinsey – Solve</div>
+                    <InlineLink href="https://www.mckinsey.com/careers/mckinsey-digital-assessment">
+                      mckinsey.com/careers/mckinsey-digital-assessment
+                    </InlineLink>
+                    <InlineLink href="https://www.casebasix.com/pages/mckinsey-problem-solving-game-solve-full-guide">
+                      CaseBasix: Solve guide
+                    </InlineLink>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="font-semibold">Bain – SOVA | Test Gorilla</div>
+                    <InlineLink href="https://www.casebasix.com/pages/bain-aptitude-test-sova-ultimate-guide">
+                      CaseBasix: SOVA guide
+                    </InlineLink>
+                    <InlineLink href="https://www.casebasix.com/pages/bain-testgorilla">
+                      CaseBasix: Test Gorilla guide
+                    </InlineLink>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="font-semibold">BCG – Casey Bot</div>
+                    <InlineLink href="https://www.casebasix.com/pages/bcg-online-case-casey-chatbot-guide">
+                      CaseBasix: Casey guide
+                    </InlineLink>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="font-semibold">Other companies</div>
+                    <p>
+                      Many use aptitude tests for quantitative, logical, and verbal skills.
+                    </p>
+                    <InlineLink href="https://www.practiceaptitudetests.com/">
+                      practiceaptitudetests.com
+                    </InlineLink>
+                  </div>
+                </div>
+              </Card>
+            </div>
 
-            <Card id="process-offer" className="flex h-full flex-col bg-meteor">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
-                04
-              </div>
-              <div className="mt-2 text-xl font-bold text-galaxy">Offer</div>
-              <p className="mt-2 text-sm text-[#090814]">You receive the offer.</p>
-            </Card>
+            <div id="process-interview" className="h-full">
+              <Card className="flex h-full flex-col bg-[#7096D1]/30">
+                <div className="text-xl font-light text-[#081F5C]">03</div>
+                <div className="mt-2 text-xl font-bold text-galaxy">Crush Interview(s)</div>
+                <p className="mt-2 text-sm text-[#090814]">
+                  Every process includes at least one case interview (up to 3+). Some rounds combine
+                  behavioral questions (about 10 minutes) followed by a case interview.
+                </p>
+                <p className="mt-3 text-sm text-[#090814]">
+                  Based on internal HEC data, roughly{" "}
+                  <span className="font-semibold">⅔ of candidates</span> go through behavioral
+                  questions. You will know this format in advance.
+                </p>
+              </Card>
+            </div>
           </div>
 
           <div className="mt-10 border-t border-venus pt-10">
@@ -395,8 +388,7 @@ export default function ConsultingGuidePage() {
                     <li>Start with a theme</li>
                     <li>Keep a chronological path</li>
                     <li>End with present and future</li>
-                    <li>90–120 seconds, emphasize progression, impact, and motivation</li>
-                    <li>Avoid re-reading your CV</li>
+                    <li>90–120 seconds, emphasize impact</li>
                   </ul>
                 </div>
                 <div>
