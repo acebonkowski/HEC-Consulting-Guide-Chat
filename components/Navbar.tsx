@@ -1,16 +1,22 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { Menu, X, BookOpen } from "react-feather";
-import { NAV_ITEMS, SITE } from "@/lib/site";
+import { GUIDE_NAV_ITEMS, NAV_ITEMS, SITE } from "@/lib/site";
 import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/ButtonLink";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const items = useMemo(() => NAV_ITEMS, []);
+  const pathname = usePathname();
+  const items = useMemo(
+    () => (pathname === "/consulting-guide" ? GUIDE_NAV_ITEMS : NAV_ITEMS),
+    [pathname]
+  );
+  const skipHref = pathname === "/consulting-guide" ? "#start" : "#home";
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -23,7 +29,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-venus bg-[#081F5C] backdrop-blur">
       <a
-        href="#home"
+        href={skipHref}
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 rounded-[5px] bg-meteor px-3 py-2 text-sm font-semibold text-galaxy"
       >
         Skip to content
