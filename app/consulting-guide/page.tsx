@@ -4,10 +4,17 @@ import {
   AlertTriangle,
   ArrowRight,
   ArrowUpRight,
+  Award,
   BookOpen,
+  ChevronDown,
+  Compass,
+  Heart,
+  Shield,
+  TrendingUp,
   Clipboard,
   MessageCircle,
   Users,
+  Zap,
 } from "react-feather";
 import { Badge } from "@/components/Badge";
 import { ButtonLink } from "@/components/ButtonLink";
@@ -202,7 +209,7 @@ export default function ConsultingGuidePage() {
       </h1>
               <p className="text-base text-[#090814]">
                 A practical guide to consulting applications, interviews, and firm
-                expectations — designed to help you prepare efficiently and land the
+                expectations, designed to help you prepare efficiently and land the
                 offer.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -466,35 +473,35 @@ In any way, you will know before.
                       </div>
                       <p className="mt-3 text-sm text-[#090814]">{step.goal}</p>
                       {index === 0 ? (
-                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
                           “So the client, a European grocery retailer, is considering entering the
                           French ready-meal market. Our goal is to assess feasibility and
                           profitability, correct?”
                         </p>
                       ) : null}
                       {step.title === "Structuring the Problem" ? (
-                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
                           “To assess this opportunity, I’ll look at three key areas: first, market
                           attractiveness; second, the company’s competitive fit; and third,
                           financial feasibility…”
                         </p>
                       ) : null}
                       {step.title === "Exhibit Analysis" ? (
-                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
                           “First, the title shows [key takeaway], revenues grew 15% from the outlier
                           in Q3; comparing bars, Segment A outperforms by 2x, so I’d recommend
                           doubling down there to address the case’s profitability drop.”
                         </p>
                       ) : null}
                       {step.title === "Brainstorming" ? (
-                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
                           “I’d like to think about revenue growth across four categories:
                           customer-facing levers, product levers, channel levers, and and pricing
                           levers. Under customer levers, I see ...”
                         </p>
                       ) : null}
                       {step.title === "Case Math" ? (
-                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
                           “Let me walk you through my approach: First, I’ll calculate revenue as
                           units times price, subtract variable costs to get the contribution margin
                           before dividing fixed costs by margin per unit for breakeven. If that
@@ -502,7 +509,7 @@ In any way, you will know before.
                         </p>
                       ) : null}
                       {step.title === "Market Sizing" ? (
-                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
                           “I’ll start with France’s total population, narrow to adults aged 18+,
                           then estimate the percentage who drink coffee regularly, the share
                           consuming coffee in the morning, and the portion opting for cappuccinos
@@ -510,7 +517,7 @@ In any way, you will know before.
                         </p>
                       ) : null}
                       {step.title === "Case Closing" ? (
-                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
                           “To recap, the goal is to boost profitability for this coffee chain in
                           France. My recommendation is to launch morning cappuccino promotions
                           targeting urban adults, backed by market sizing showing 4-5M daily
@@ -602,8 +609,20 @@ In any way, you will know before.
           />
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <Card className="bg-meteor">
-              <div className="text-xl font-bold text-galaxy">STAR Approach</div>
+            <Card className="flex h-full flex-col bg-meteor">
+              <div className="flex items-start justify-between gap-4">
+                <div className="text-xl font-bold text-galaxy">STAR Approach</div>
+                <ButtonLink
+                  href="https://hec.biginterview.com/login"
+                  external
+                  variant="secondary"
+                  className="gap-2"
+                  ariaLabel="Open Practice in a new tab"
+                >
+                  <Image src="/link-2.svg" alt="" width={16} height={16} />
+                  Practice
+                </ButtonLink>
+              </div>
               <p className="mt-3 text-sm text-[#090814]">
               The <span className="font-semibold">STAR method (Situation, Task, Action, Result) </span> is a structured framework for answering behavioral interview questions, widely used in interviews to demonstrate past behaviors as predictors of future performance. It ensures <span className="font-semibold">concise, impactful stories</span> (aim for 2-3 minutes) by providing context, your role, specific actions, and measurable outcomes.
               </p>
@@ -633,7 +652,7 @@ In any way, you will know before.
                    </p>
                  </li>
               </ul>
-                <div className="mt-4 flex flex-col items-start gap-2 rounded-[10px] border border-red-300 bg-red-50/70 p-4 text-sm text-red-700">
+                <div className="mt-auto flex flex-col items-start gap-2 rounded-[10px] border border-red-300 bg-red-50/70 p-4 text-sm text-red-700">
                   <AlertTriangle size={18} />
                   <p>
                     Based on experience, we tend to spend too much time on the situation and too little on the action.
@@ -647,33 +666,33 @@ In any way, you will know before.
               <div className="mt-4 space-y-4 text-sm text-[#090814]">
                 <div>
                   <div className="font-semibold">
-                    1) Tell Me About Yourself / Walk Me Through Your CV
+                    1) Tell Me About Yourself
                   </div>
-                  <p className="mt-2">Purpose: clarity, storytelling, and coherence.</p>
+                  <p className="mt-2">Aims to assess your storytelling ability, career coherence, and fit for consulting through a concise narrative highlighting progression and impact.</p>
                   <ul className="mt-2 list-disc space-y-2 pl-5">
-                    <li>Start with a theme</li>
-                    <li>Keep a chronological path</li>
-                    <li>End with present and future</li>
-                    <li>90–120 seconds, emphasize impact</li>
+                    <li>Start with a unifying theme (e.g., "passionate problem-solver across tech and pharma")</li>
+                    <li>Follow a chronological path, emphasizing 2-3 high-impact roles with quantified results.</li>
+                    <li>End with current role and why consulting accelerates your trajectory (90-120 seconds).</li>
+                  
                   </ul>
                 </div>
                 <div>
                   <div className="font-semibold">2) Why Consulting?</div>
-                  <p className="mt-2">Purpose: motivation, realism, and self-awareness.</p>
+                  <p className="mt-2">Evaluates genuine motivation, realistic expectations of the role, and self-awareness about transferable skills.</p>
                   <ul className="mt-2 list-disc space-y-2 pl-5">
-                    <li>Learning velocity</li>
-                    <li>Structured problem-solving</li>
-                    <li>Impact &amp; teamwork</li>
-                    <li>Mention what you offer as well</li>
+                    <li>Stress learning velocity from diverse cases and top talent.</li>
+                    <li>Highlight structured problem-solving, high-impact teamwork on client problems.</li>
+                    <li>Balance with what you uniquely offer (e.g., industry expertise, analytical rigor)</li>
+                  
                   </ul>
                 </div>
                 <div>
                   <div className="font-semibold">3) Why This Firm?</div>
-                  <p className="mt-2">Purpose: understanding firm culture and fit.</p>
+                  <p className="mt-2">Tests research depth, cultural fit, and alignment between your strengths and firm-specific DNA.</p>
                   <ul className="mt-2 list-disc space-y-2 pl-5">
-                    <li>Show understanding of firm DNA</li>
-                    <li>Reference conversations or experiences</li>
-                    <li>Connect strengths to firm emphasis</li>
+                    <li>Demonstrate understanding of firm DNA (e.g., McKinsey's leadership focus, BCG's analytics).</li>
+                    <li>Reference specific conversations, reports, or experiences (e.g., "coffee chat with alum").</li>
+                    <li>Connect your skills to their emphasis (e.g., "my pharma background fits BCG's healthcare practice").</li>
                   </ul>
                 </div>
               </div>
@@ -687,45 +706,69 @@ In any way, you will know before.
                 {[
                   {
                     title: "Drive, Resilience & Grit",
-                    description: "Assesses emotional stamina and resourcefulness.",
+                    description: "Tests your perseverance through setbacks and ability to push projects forward amid obstacles, revealing emotional stamina for consulting's high-pressure demands.",
+                    example:
+                      "Tell me about a time you faced a major failure or roadblock.",
+                    icon: TrendingUp,
                   },
                   {
                     title: "Teamwork & Collaboration",
-                    description: "Focus on adaptability and supportiveness.",
+                    description: "Evaluates how you build consensus, adapt to diverse styles, and contribute to group success, key for client teams.",
+                    example: "Describe a time you worked with a difficult team member.",
+                    icon: Users,
                   },
                   {
                     title: "Leadership & Ownership",
-                    description: "Demonstrate influence without authority.",
+                    description: "Probes your capacity to inspire, influence without formal power, and take accountability like a partner.",
+                    example: "Give an example of leading a team without being the manager.",
+                    icon: Compass,
                   },
                   {
                     title: "Problem Solving & Analytical Rigor",
-                    description: "Structure thinking like a mini-case.",
+                    description: "Assesses structured thinking, hypothesis-driven analysis, and data synthesis mirroring case interviews.",
+                    example: "Walk me through how you tackled a complex business problem.",
+                    icon: Zap,
                   },
                   {
                     title: "Impact & Results Orientation",
-                    description: "Quantify outcomes.",
+                    description: "Measures your focus on delivering measurable business value, not just effort.",
+                    example: "Tell me about your biggest professional achievement.",
+                    icon: Award,
                   },
                   {
                     title: "Communication & Client Readiness",
-                    description: "Explain complex topics clearly.",
+                    description: "Gauges clarity in explaining insights to stakeholders, adapting to executives or juniors.",
+                    example: "Describe presenting a recommendation to senior leadership.",
+                    icon: MessageCircle,
                   },
                   {
                     title: "Conflict, Feedback & Self-Awareness",
-                    description: "Show growth mindset.",
+                    description: "Reveals maturity in handling disagreement, learning from critique, and self-improvement.",
+                    example: "Tell me about receiving tough feedback and how you responded.",
+                    icon: Heart,
                   },
                   {
                     title: "Values, Ethics & Judgment",
-                    description: "Demonstrate integrity under ambiguity.",
+                    description: "Tests integrity in gray areas, balancing client needs with principles under ambiguity.",
+                    example: "Share a time you faced an ethical dilemma at work.",
+                    icon: Shield,
                   },
                 ].map((item) => (
                   <details
                     key={item.title}
                     className="rounded-[10px] border border-venus bg-milky-way p-4"
                   >
-                    <summary className="cursor-pointer text-sm font-semibold text-galaxy">
-                      {item.title}
+                    <summary className="flex cursor-pointer items-center gap-3 text-sm font-semibold text-galaxy">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#7096D1]">
+                        <item.icon size={16} stroke="#FFF9F0" className="text-[#FFF9F0]" />
+                      </span>
+                      <span className="flex-1">{item.title}</span>
+                      <ChevronDown size={16} className="text-[#7096D1]" />
                     </summary>
                     <p className="mt-2 text-sm text-[#090814]">{item.description}</p>
+                    <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                      “{item.example}”
+                    </p>
                   </details>
                 ))}
               </div>
