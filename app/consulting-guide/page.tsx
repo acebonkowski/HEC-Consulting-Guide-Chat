@@ -212,21 +212,13 @@ export default function ConsultingGuidePage() {
                 expectations, designed to help you prepare efficiently and land the
                 offer.
               </p>
-              <div className="flex flex-wrap gap-3">
-                <ButtonLink href="#process" variant="primary" className="h-10 gap-2">
-                  Start the Process <ArrowRight size={16} />
-                </ButtonLink>
-                <ButtonLink href="#case-interview" variant="secondary" className="h-10 gap-2">
-                  Case Interview <BookOpen size={16} />
-                </ButtonLink>
-              </div>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 -z-10 rounded-[10px] bg-sky blur-2xl" />
               <div className="relative overflow-hidden rounded-[10px] bg-meteor p-6">
                 <Image
-                  src="/header-illustration.svg"
-                  alt="Consulting preparation illustration"
+                  src="/steps.svg"
+                  alt="Application steps illustration"
                   width={520}
                   height={320}
                   className="h-auto w-full object-contain"
@@ -567,16 +559,19 @@ In any way, you will know before.
                   title: "Framework Overview",
                   description:
                     "Quick refreshers on classic case frameworks and when to adapt them.",
+                  href: "#",
                 },
                 {
                   title: "Industry Breakdown",
                   description:
                     "Key drivers, economics, and trends across common case industries.",
+                  href: "/industry-breakdown",
                 },
                 {
                   title: "Market Sizing Numbers",
                   description:
                     "Core figures and benchmarks to speed up structured sizing math.",
+                  href: "#",
                 },
               ].map((item) => (
                 <Card key={item.title} className="bg-meteor">
@@ -585,7 +580,7 @@ In any way, you will know before.
                   <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
                   <div className="mt-4">
                     <ButtonLink
-                      href="#"
+                      href={item.href}
                       variant="ghost"
                       className="flex w-full items-center !px-0 !py-0 font-bold text-[#334EAC] underline underline-offset-4"
                     >
