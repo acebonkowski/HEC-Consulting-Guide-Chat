@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import {
+  AlertTriangle,
   ArrowRight,
   ArrowUpRight,
   BookOpen,
@@ -383,6 +384,14 @@ export default function ConsultingGuidePage() {
     Based on our internal HEC data, merely 66% of candidates go through behavioral questions.  
 In any way, you will know before.
                 </p>
+                <div className="mt-4 flex flex-col items-start gap-2 rounded-[10px] border border-red-300 bg-red-50/70 p-4 text-sm text-red-700">
+                  <AlertTriangle size={18} />
+                  <p>
+                    Companies switch their interview processes. For Bain London, candidates had to
+                    additionally prepare a presentation, and McKinsey has recently prompted
+                    applicants to use their own AI.
+                  </p>
+                </div>
               </Card>
             </div>
           </div>
@@ -594,6 +603,46 @@ In any way, you will know before.
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <Card className="bg-meteor">
+              <div className="text-xl font-bold text-galaxy">STAR Approach</div>
+              <p className="mt-3 text-sm text-[#090814]">
+              The <span className="font-semibold">STAR method (Situation, Task, Action, Result) </span> is a structured framework for answering behavioral interview questions, widely used in interviews to demonstrate past behaviors as predictors of future performance. It ensures <span className="font-semibold">concise, impactful stories</span> (aim for 2-3 minutes) by providing context, your role, specific actions, and measurable outcomes.
+              </p>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-[#090814]">
+                 <li>
+                   <span className="font-semibold">Situation:</span> Describe the context or challenge briefly.
+                   <p className="mt-2 pl-4 text-sm text-[#334EAC]">
+                     “Our team faced a 20% revenue drop due to market shifts”
+                   </p>
+                 </li>
+                 <li>
+                   <span className="font-semibold">Task:</span> Outline your specific responsibility.
+                   <p className="mt-2 pl-4 text-sm text-[#334EAC]">
+                     “As lead, I needed to identify causes and reverse the trend in 90 days”
+                   </p>
+                 </li>
+                 <li>
+                   <span className="font-semibold">Action:</span> Detail steps you took, focusing on your decisions and rationale.
+                   <p className="mt-2 pl-4 text-sm text-[#334EAC]">
+                     “I broke down drivers into revenue/volume/price, prioritized via data analysis, and led cross-team implementation”
+                   </p>
+                 </li>
+                 <li>
+                   <span className="font-semibold">Result:</span> Quantify impact and learnings.
+                   <p className="mt-2 pl-4 text-sm text-[#334EAC]">
+                     “Achieved 15% growth, saved $2M, and the framework was adopted firm-wide”
+                   </p>
+                 </li>
+              </ul>
+                <div className="mt-4 flex flex-col items-start gap-2 rounded-[10px] border border-red-300 bg-red-50/70 p-4 text-sm text-red-700">
+                  <AlertTriangle size={18} />
+                  <p>
+                    Based on experience, we tend to spend too much time on the situation and too little on the action.
+                  </p>
+                </div>
+              
+            </Card>
+
+            <Card className="bg-meteor">
               <div className="text-xl font-bold text-galaxy">The “Golden Three”</div>
               <div className="mt-4 space-y-4 text-sm text-[#090814]">
                 <div>
@@ -628,23 +677,6 @@ In any way, you will know before.
                   </ul>
                 </div>
               </div>
-            </Card>
-
-            <Card className="bg-meteor">
-              <div className="text-xl font-bold text-galaxy">STAR Approach</div>
-              <p className="mt-3 text-sm text-[#090814]">
-                Consulting firms want evidence of how you think, act, and lead. Use
-                the STAR method to structure behavioral answers:
-              </p>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-[#090814]">
-                <li>Situation</li>
-                <li>Task</li>
-                <li>Action</li>
-                <li>Result</li>
-              </ul>
-              <p className="mt-4 text-sm text-[#090814]">
-                Aim for 2–3 minute answers focused on decision-making.
-              </p>
             </Card>
           </div>
 
