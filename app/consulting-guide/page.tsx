@@ -120,6 +120,29 @@ const CASE_STEPS: {
   },
 ];
 
+const PRACTICE_LINKS: Record<string, { label: string; href: string }> = {
+  "Structuring the Problem": {
+    label: "Practice Structuring",
+    href: "https://casecoach.com/c/drills/structuring",
+  },
+  Brainstorming: {
+    label: "Practice Brainstorming",
+    href: "https://casecoach.com/c/drills/creativity",
+  },
+  "Exhibit Analysis": {
+    label: "Practice Exhibit Analysis",
+    href: "https://casecoach.com/c/drills/chart",
+  },
+  "Market Sizing": {
+    label: "Practice Market Sizing",
+    href: "https://casecoach.com/c/drills/market-sizing",
+  },
+  "Case Math": {
+    label: "Practice Case Math",
+    href: "https://casecoach.com/c/drills/case-math",
+  },
+};
+
 function SectionHeading({
   kicker,
   title,
@@ -403,34 +426,32 @@ In any way, you will know before.
                 aria-hidden="true"
               />
               <div className="flex flex-col gap-6" aria-label="Case interview steps">
-                {CASE_STEPS.map((step, index) => (
+                {CASE_STEPS.map((step, index) => {
+                  const practiceLink = PRACTICE_LINKS[step.title];
+                  return (
                   <div key={step.title} className="relative pl-10">
                     <span
                       className="absolute left-[6px] top-6 h-4 w-4 rounded-full bg-[#334EAC] ring-4 ring-[#EDF4FA]"
                       aria-hidden="true"
                     />
                     <Card className="bg-meteor">
-                      {step.title === "Case Math" ? (
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="text-xl font-light uppercase text-[#081F5C]">
-                            STEP {index + 1}
-                          </div>
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="text-lg font-light text-[#081F5C]">
+                          {String(index + 1).padStart(2, "0")}
+                        </div>
+                        {practiceLink ? (
                           <ButtonLink
-                            href="https://casecoach.com/c/drills/case-math"
+                            href={practiceLink.href}
                             external
                             variant="secondary"
                             className="gap-2"
-                            ariaLabel="Open Practice Case Math in a new tab"
+                            ariaLabel={`Open ${practiceLink.label} in a new tab`}
                           >
                             <Image src="/link-2.svg" alt="" width={16} height={16} />
-                            Practice Case Math
+                            {practiceLink.label}
                           </ButtonLink>
-                        </div>
-                      ) : (
-                        <div className="text-xl font-light uppercase text-[#081F5C]">
-                          STEP {index + 1}
-                        </div>
-                      )}
+                        ) : null}
+                      </div>
                       <div className="mt-2 text-lg font-semibold text-galaxy">
                         {step.title}
                       </div>
@@ -517,25 +538,46 @@ In any way, you will know before.
                       ) : null}
                     </Card>
                   </div>
-                ))}
+                );
+                })}
               </div>
             </div>
           </div>
 
           <div className="mt-10 border-t border-venus pt-10">
-            <div className="text-xl font-bold text-galaxy">Additional Case Resources</div>
-            <div className="mt-4 grid gap-3 text-sm text-[#090814] sm:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3">
               {[
-                "Framework Overview (subsite not included yet)",
-                "Industry Breakdown (subsite not included yet)",
-                "Sizing Information to Remember (subsite not included yet)",
-              ].map((label) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center gap-2 font-semibold text-[#334EAC] underline underline-offset-4"
-                >
-                  {label} <ArrowRight size={14} />
-                </span>
+                {
+                  title: "Framework Overview",
+                  description:
+                    "Quick refreshers on classic case frameworks and when to adapt them.",
+                },
+                {
+                  title: "Industry Breakdown",
+                  description:
+                    "Key drivers, economics, and trends across common case industries.",
+                },
+                {
+                  title: "Market Sizing Numbers",
+                  description:
+                    "Core figures and benchmarks to speed up structured sizing math.",
+                },
+              ].map((item) => (
+                <Card key={item.title} className="bg-meteor">
+                  <div className="text-xl font-bold text-galaxy">{item.title}</div>
+                  <p className="mt-2 text-sm text-[#090814]">{item.description}</p>
+                  <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
+                  <div className="mt-4">
+                    <ButtonLink
+                      href="#"
+                      variant="ghost"
+                      className="flex w-full items-center !px-0 !py-0 font-bold text-[#334EAC] underline underline-offset-4"
+                    >
+                      <span className="flex-1 text-left">Learn More</span>
+                      <ArrowRight size={16} className="ml-auto" />
+                    </ButtonLink>
+                  </div>
+                </Card>
               ))}
             </div>
           </div>
