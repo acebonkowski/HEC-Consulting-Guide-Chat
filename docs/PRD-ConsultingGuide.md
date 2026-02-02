@@ -1,5 +1,4 @@
 
-
 # Product Requirements Document (PRD)
 ## Consulting Guide – HEC Paris MBA Consulting Club
 

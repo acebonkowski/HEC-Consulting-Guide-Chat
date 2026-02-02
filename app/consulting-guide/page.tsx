@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -18,7 +19,12 @@ export const metadata = {
     "A complete guide to consulting applications, case interviews, and fit interview preparation.",
 };
 
-const CASE_STEPS = [
+const CASE_STEPS: {
+  title: string;
+  goal: string;
+  bestPractices: ReactNode[];
+  tips?: ReactNode[];
+}[] = [
   {
     title: "Case Opening & Clarifying Questions",
     goal:
@@ -26,21 +32,24 @@ const CASE_STEPS = [
     bestPractices: [
       "Reformulate the case in your own words to confirm alignment.",
       "Clarify the objective: profit growth, market share, ROI, or another success measure.",
-      "Use ROLSPCD for clarity: Reformulate, Objective, Location, Strategy/Time, Product, Competition, Distribution.",
+      <>
+        Use <strong>ROLSPCD</strong> for clarity: Reformulate, Objective, Location,
+        Strategy/Time, Product, Competition, Distribution.
+      </>,
     ],
     tips: [
-      "Ask clarifying questions that help your framework, not data prematurely.",
-      "Show structured communication and curiosity.",
+      "Choose clarifying questions that help your framework rather than asking for data prematurely.",
+      "This phase is also an opportunity to show structured communication and business curiosity.",
     ],
   },
   {
     title: "Structuring the Problem",
     goal:
-      "Present a MECE structure in about 90 seconds that fits the client situation.",
-    bestPractices: [
-      "Use familiar frameworks as inspiration, but tailor to the case.",
-      "Announce structure clearly: market attractiveness, competitive fit, financial feasibility.",
-    ],
+      "You have about 90 seconds to design and present a MECE structure (Mutually Exclusive, Collectively Exhaustive). This ensures problem breakdowns into non-overlapping categories that fully cover the issue, a key McKinsey principle for structured analysis in consulting.",
+      bestPractices: [
+        "Use familiar frameworks as inspiration, but tailor to the case.",
+      "Announce structure clearly diving into the top-level category first before expanding on its components",
+      ],
     tips: [
       "Start with high-level buckets before drilling down.",
       "Communicate visually while you speak.",
@@ -48,40 +57,54 @@ const CASE_STEPS = [
   },
   {
     title: "Case Math",
-    goal: "Solve operational math, market sizing, and valuation cleanly.",
+    goal: "Case interviews test a broad array of math topics, from basic arithmetic like addition, subtraction, multiplication, and division to percentages for growth rates and margins, ratios, weighted averages, probability, market sizing, and financial formulas such as profitability, ROI, and CAGR. Valuation questions often require calculating Net Present Value to assess investment viability by discounting future cash flows, alongside perpetuity growth approximations. Breakeven analysis determines units needed to cover costs using fixed costs divided by contribution margin per unit, with related metrics like payback period. ",
     bestPractices: [
-      "Clarify numbers before calculating.",
-      "Walk through your setup aloud and think out loud.",
+      "Clarify numbers.",
+      "Walk through your setup aloud.",
+      "Think out loud.",
       "Sense-check results and link back to the case.",
+      "Round smartly and keep arithmetic concise.",
+      "Tie numbers back to the case, and conclude with a clear recommendation.",
     ],
-    tips: ["Round smartly and keep arithmetic concise."],
+    tips: ["Round smartly and keep arithmetic concise.", 
+      "Label units clearly (e.g., $k, millions) and double-check arithmetic aloud.",]
   },
   {
     title: "Brainstorming",
-    goal: "Generate ideas quickly with structure and relevance.",
+    goal: "Brainstorming occurs early when interviewers pose open-ended questions like generating growth ideas or market entry options, expecting structured, creative output without a single right answer.",
     bestPractices: [
       "Take 15–20 seconds to structure.",
       "Aim for 5–6 ideas across 2–3 MECE buckets.",
       "Present ideas crisply.",
     ],
-    tips: ["Always link ideas back to feasibility and the objective."],
+    tips: ["Always link ideas back to feasibility and the objective.",
+      "Structure ideas upfront with a MECE framework (e.g., customer segments, channels, geography) before listing specifics.",
+      "Verbalize your approach first to demonstrate structured thinking.",
+      "Dare to be creative and challenge the status quo, but always connect back to the case objective.",
+    ],
   },
   {
     title: "Exhibit Analysis",
-    goal: "Extract insights from charts, tables, or graphs.",
-    bestPractices: [
-      "Describe the exhibit briefly.",
-      "Highlight one key insight.",
-      "Analyze causes or implications and tie back to the question.",
+    goal: "In case interviews, candidates encounter exhibits like bar charts, line graphs, pie charts, scatterplots, waterfall charts, bubble charts, histograms, Mekko charts, tables with numbers or text, and maps overlaid with data such as facilities or population. These test quick analysis of trends, outliers, comparisons, and business insights.",
+      bestPractices: [
+        "Describe the exhibit briefly.",
+        "Highlight a key insight.",
+        "Analyze causes or implications.",
+        "Tie back to the case question.",
+      ],
+    tips: [
+      "Derive actionable business insights instead of superficial data descriptions, always tying findings to the case objective.",
+      "Spot and quantify outliers, trends, and key patterns (e.g., via percentages or growth rates). Do brief calculations on the fly to support your analysis.",
+      "Clarify ambiguities upfront, such as units, legends, or scales, before drawing conclusions."
     ],
-    tips: ["Do not narrate the chart; interpret it."],
   },
   {
     title: "Market Sizing",
-    goal: "Estimate market size with a clear, testable approach.",
+    goal: "In MBB case interviews, market sizing tests your ability to estimate demand logically under time pressure, often for unfamiliar products like annual coffee cups in France. Always use a top-down approach first, starting broad (e.g., total population, narrow by age/income/usage %) as it's preferred for clarity and structure. Follow with a bottom-up sense check to validate. Memorizing key numbers (see link below) speeds you up and boosts credibility.",
     bestPractices: [
       "Clarify what you are sizing and set up the formula first.",
-      "Check assumptions as you go and segment logically.",
+      "Check assumptions as you go. Don‘t be afraid to ask for information.",
+      "Segment, segment, segment! By age, gender, income, usage frequency, etc.",
       "Test sensitivity at the end.",
     ],
     tips: [],
@@ -90,12 +113,12 @@ const CASE_STEPS = [
     title: "Case Closing",
     goal: "Deliver a confident, structured recommendation.",
     bestPractices: [
-      "Summarize analysis and state your recommendation directly.",
-      "Support with rationale, add one risk & mitigation, and outline next steps.",
+      "Recap the objective, state your clear recommendation first, then 2-3 key analytical supports (math, sizing, exhibits).",
+      "Cover top 1-2 risks with mitigations, and outline 2-3 next steps (e.g., pilot, further analysis).",
     ],
-    tips: ["Sound confident, but stay flexible to feedback."],
+    tips: ["Make sure to practice this extensively! It‘s your last chance to leave an impression!."],
   },
-] as const;
+];
 
 function SectionHeading({
   kicker,
@@ -197,18 +220,45 @@ export default function ConsultingGuidePage() {
               <Card className="flex h-full flex-col bg-[#7096D1]/10">
                 <div className="text-xl font-light text-[#081F5C]">01</div>
                 <div className="mt-2 text-xl font-bold text-galaxy">Submit Application</div>
-                <div className="mt-4 text-sm text-[#090814]">
-                  <div className="font-semibold">Required materials</div>
+                <div className="mt-4 flex h-full flex-col text-sm text-[#090814]">
+                  <div className="font-semibold">Fill out the application form on the company's website including:</div>
                   <ul className="mt-2 list-disc space-y-2 pl-5">
                     <li>Resume</li>
                     <li>Cover letter (recommended)</li>
-                    <li>Transcripts (undergraduate, graduate, sometimes high school)</li>
-                    <li>Standardized test scores (e.g., GMAT, often optional)</li>
+                    <li>Transcripts (including undergraduate, graduate degrees & sometimes high-school degrees)</li>
+                    <li>tandardized test scores (e.g., GMAT – often optional)</li>
                   </ul>
-                  <div className="mt-4 font-semibold">Best practice</div>
-                  <p className="mt-2">
-                    Apply with a meaningful referral through a separate referral link whenever possible.
-                  </p>
+                <p className="mt-2">
+                  Ideally, apply with a meaningful referral through a separate referral link.
+                </p>
+                <div className="mt-auto flex flex-col gap-3 pt-4">
+                  <ButtonLink href="#" variant="primary" className="w-full justify-between gap-2">
+                    <span className="inline-flex flex-1 items-center gap-2 text-left">
+                      <Image
+                        src="/openai-icon.svg"
+                        alt=""
+                        width={16}
+                        height={16}
+                        className="brightness-0 invert"
+                      />
+                      Assess Your Resume
+                    </span>
+                    <ArrowUpRight size={16} />
+                  </ButtonLink>
+                  <ButtonLink href="#" variant="primary" className="w-full justify-between gap-2">
+                    <span className="inline-flex flex-1 items-center gap-2 text-left">
+                      <Image
+                        src="/openai-icon.svg"
+                        alt=""
+                        width={16}
+                        height={16}
+                        className="brightness-0 invert"
+                      />
+                      Check Your Cover Letter
+                    </span>
+                    <ArrowUpRight size={16} />
+                  </ButtonLink>
+                </div>
                 </div>
               </Card>
             </div>
@@ -218,41 +268,77 @@ export default function ConsultingGuidePage() {
                 <div className="text-xl font-light text-[#081F5C]">02</div>
                 <div className="mt-2 text-xl font-bold text-galaxy">Solve Assessment</div>
                 <p className="mt-2 text-sm text-[#090814]">
-                  You will often receive an online assessment. The format varies by company and region.
+                  You will often receive an online assessment. The exact format varies by company and region.
                 </p>
                 <div className="mt-4 space-y-4 text-sm text-[#090814]">
-                  <div className="space-y-2">
-                    <div className="font-semibold">McKinsey – Solve</div>
-                    <InlineLink href="https://www.mckinsey.com/careers/mckinsey-digital-assessment">
-                      mckinsey.com/careers/mckinsey-digital-assessment
-                    </InlineLink>
-                    <InlineLink href="https://www.casebasix.com/pages/mckinsey-problem-solving-game-solve-full-guide">
-                      CaseBasix: Solve guide
-                    </InlineLink>
-                  </div>
-                  <div className="space-y-2">
+                <div className="flex flex-col gap-2">
+                <div className="font-semibold">McKinsey – SOLVE</div>
+                  <ButtonLink
+                    href="https://www.casebasix.com/pages/mckinsey-problem-solving-game-solve-full-guide"
+                    external
+                    variant="secondary"
+                    className="w-fit gap-2"
+                    ariaLabel="Guide for McKinsey's SOLVE"
+                  >
+                    <Image src="/link-2.svg" alt="" width={16} height={16} />
+                    Guide for McKinsey's "SOLVE"
+                  </ButtonLink>
+                </div>
+                <div className="space-y-2">
                     <div className="font-semibold">Bain – SOVA | Test Gorilla</div>
-                    <InlineLink href="https://www.casebasix.com/pages/bain-aptitude-test-sova-ultimate-guide">
-                      CaseBasix: SOVA guide
-                    </InlineLink>
-                    <InlineLink href="https://www.casebasix.com/pages/bain-testgorilla">
-                      CaseBasix: Test Gorilla guide
-                    </InlineLink>
+                  <div className="flex flex-col gap-2">
+                    <ButtonLink
+                      href="https://www.casebasix.com/pages/bain-aptitude-test-sova-ultimate-guide"
+                      external
+                      variant="secondary"
+                      className="w-fit gap-2"
+                      ariaLabel="Open Bain SOVA guide"
+                    >
+                      <Image src="/link-2.svg" alt="" width={16} height={16} />
+                      Guide for Bain‘s "SOVA
+                    </ButtonLink>
+                    <ButtonLink
+                      href="https://www.casebasix.com/pages/bain-testgorilla"
+                      external
+                      variant="secondary"
+                      className="w-fit gap-2"
+                      ariaLabel="Open Bain Test Gorilla guide"
+                    >
+                      <Image src="/link-2.svg" alt="" width={16} height={16} />
+                      Guide for Bain‘s "Test Gorilla"
+                    </ButtonLink>
                   </div>
-                  <div className="space-y-2">
-                    <div className="font-semibold">BCG – Casey Bot</div>
-                    <InlineLink href="https://www.casebasix.com/pages/bcg-online-case-casey-chatbot-guide">
-                      CaseBasix: Casey guide
-                    </InlineLink>
                   </div>
+                <div className="flex flex-col gap-2">
+                <div className="font-semibold">BCG‘s – Casey</div>
+                  <ButtonLink
+                    href="https://www.casebasix.com/pages/bcg-online-case-casey-chatbot-guide"
+                    external
+                    variant="secondary"
+                    className="w-fit gap-2"
+                    ariaLabel="Open BCG Casey guide"
+                  >
+                    <Image src="/link-2.svg" alt="" width={16} height={16} />
+                    Guide for BCG's "Casey"
+                  </ButtonLink>
+                </div>
                   <div className="space-y-2">
                     <div className="font-semibold">Other companies</div>
                     <p>
-                      Many use aptitude tests for quantitative, logical, and verbal skills.
+                      Alternatively, companies may use aptitude tests for quantitative, logical, and verbal skills.
                     </p>
-                    <InlineLink href="https://www.practiceaptitudetests.com/">
-                      practiceaptitudetests.com
-                    </InlineLink>
+                  <div className="flex flex-col gap-2">
+                    <ButtonLink
+                      href="https://www.practiceaptitudetests.com/"
+                      external
+                      variant="secondary"
+                      className="w-fit gap-2"
+                      ariaLabel="Open Practice Aptitude Tests"
+                    >
+                      <Image src="/link-2.svg" alt="" width={16} height={16} />
+                      Practice Aptitude Tests
+                    </ButtonLink>
+                  </div>
                   </div>
                 </div>
               </Card>
@@ -263,36 +349,39 @@ export default function ConsultingGuidePage() {
                 <div className="text-xl font-light text-[#081F5C]">03</div>
                 <div className="mt-2 text-xl font-bold text-galaxy">Crush Interview(s)</div>
                 <p className="mt-2 text-sm text-[#090814]">
-                  Every process includes at least one case interview (up to 3+). Some rounds combine
-                  behavioral questions (about 10 minutes) followed by a case interview.
+                In any process, you will have at least <span className="font-semibold">one case interview (ranging up to 3+). </span> Sometimes there are multiple rounds in one day, where you have:<br />
                 </p>
-                <p className="mt-3 text-sm text-[#090814]">
-                  Based on internal HEC data, roughly{" "}
-                  <span className="font-semibold">⅔ of candidates</span> go through behavioral
-                  questions. You will know this format in advance.
+                 <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-[#090814]">
+                   <li>A handful of behavioral questions (approx. 10 minutes)</li>
+                   <li>Followed by a case interview (approx. 30 minutes)</li>
+                 </ul>
+                
+                <p className="mt-2 text-sm text-[#090814]">
+    Based on our internal HEC data, merely 66% of candidates go through behavioral questions.  
+In any way, you will know before.
                 </p>
               </Card>
             </div>
           </div>
 
           <div className="mt-10 border-t border-venus pt-10">
-            <Card className="bg-meteor">
-              <div className="text-xl font-bold text-galaxy">Additional Information</div>
-              <p className="mt-2 text-sm text-[#090814]">
-                Use these resources to strengthen your application materials.
-              </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <ButtonLink href="#" variant="secondary" className="gap-2">
-                  Assess Your Resume <ArrowUpRight size={16} />
-                </ButtonLink>
-                <ButtonLink href="#" variant="secondary" className="gap-2">
-                  Check Your Cover Letter <ArrowUpRight size={16} />
-                </ButtonLink>
+            <Card className="w-full bg-meteor md:w-1/3">
+              <div className="text-xl font-bold text-galaxy">
+                Resume &amp; Cover Letter Best Practices
               </div>
+              <p className="mt-2 text-sm text-[#090814]">
+                Practical guidance to refine your application materials before you submit.
+              </p>
+              <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
               <div className="mt-4">
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#334EAC] underline underline-offset-4">
-                  Resume &amp; Cover Letter Best Practices <ArrowRight size={14} />
-                </span>
+                <ButtonLink
+                  href="#"
+                  variant="ghost"
+                  className="flex w-full items-center !px-0 !py-0 font-bold text-[#334EAC] underline underline-offset-4"
+                >
+                  <span className="flex-1 text-left">Learn More</span>
+                  <ArrowRight size={16} className="ml-auto" />
+                </ButtonLink>
               </div>
             </Card>
           </div>
@@ -304,46 +393,132 @@ export default function ConsultingGuidePage() {
           <SectionHeading
             kicker="Case Interview"
             title="Master Every Step of the Case"
-            description="Scroll through each step of a classic case interview. Each slide focuses on goals, best practices, and tips."
+            description="Work through each step of a classic case interview. Each card focuses on goals, best practices, and tips."
           />
 
           <div className="mt-10">
-            <div
-              className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4"
-              aria-label="Case interview steps carousel"
-            >
-              {CASE_STEPS.map((step, index) => (
-                <Card
-                  key={step.title}
-                  className="min-w-[280px] snap-start bg-meteor sm:min-w-[340px]"
-                >
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
-                    Step {index + 1}
+            <div className="relative">
+              <span
+                className="absolute left-3 top-4 h-full border-l-2 border-dashed border-[#334EAC]"
+                aria-hidden="true"
+              />
+              <div className="flex flex-col gap-6" aria-label="Case interview steps">
+                {CASE_STEPS.map((step, index) => (
+                  <div key={step.title} className="relative pl-10">
+                    <span
+                      className="absolute left-[6px] top-6 h-4 w-4 rounded-full bg-[#334EAC] ring-4 ring-[#EDF4FA]"
+                      aria-hidden="true"
+                    />
+                    <Card className="bg-meteor">
+                      {step.title === "Case Math" ? (
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="text-xl font-light uppercase text-[#081F5C]">
+                            STEP {index + 1}
+                          </div>
+                          <ButtonLink
+                            href="https://casecoach.com/c/drills/case-math"
+                            external
+                            variant="secondary"
+                            className="gap-2"
+                            ariaLabel="Open Practice Case Math in a new tab"
+                          >
+                            <Image src="/link-2.svg" alt="" width={16} height={16} />
+                            Practice Case Math
+                          </ButtonLink>
+                        </div>
+                      ) : (
+                        <div className="text-xl font-light uppercase text-[#081F5C]">
+                          STEP {index + 1}
+                        </div>
+                      )}
+                      <div className="mt-2 text-lg font-semibold text-galaxy">
+                        {step.title}
+                      </div>
+                      <p className="mt-3 text-sm text-[#090814]">{step.goal}</p>
+                      {index === 0 ? (
+                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                          “So the client, a European grocery retailer, is considering entering the
+                          French ready-meal market. Our goal is to assess feasibility and
+                          profitability, correct?”
+                        </p>
+                      ) : null}
+                      {step.title === "Structuring the Problem" ? (
+                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                          “To assess this opportunity, I’ll look at three key areas: first, market
+                          attractiveness; second, the company’s competitive fit; and third,
+                          financial feasibility…”
+                        </p>
+                      ) : null}
+                      {step.title === "Exhibit Analysis" ? (
+                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                          “First, the title shows [key takeaway], revenues grew 15% from the outlier
+                          in Q3; comparing bars, Segment A outperforms by 2x, so I’d recommend
+                          doubling down there to address the case’s profitability drop.”
+                        </p>
+                      ) : null}
+                      {step.title === "Brainstorming" ? (
+                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                          “I’d like to think about revenue growth across four categories:
+                          customer-facing levers, product levers, channel levers, and and pricing
+                          levers. Under customer levers, I see ...”
+                        </p>
+                      ) : null}
+                      {step.title === "Case Math" ? (
+                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                          “Let me walk you through my approach: First, I’ll calculate revenue as
+                          units times price, subtract variable costs to get the contribution margin
+                          before dividing fixed costs by margin per unit for breakeven. If that
+                          sounds reasonable, I’d love to go ahead and calculate.”
+                        </p>
+                      ) : null}
+                      {step.title === "Market Sizing" ? (
+                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                          “I’ll start with France’s total population, narrow to adults aged 18+,
+                          then estimate the percentage who drink coffee regularly, the share
+                          consuming coffee in the morning, and the portion opting for cappuccinos
+                          specifically.”
+                        </p>
+                      ) : null}
+                      {step.title === "Case Closing" ? (
+                        <p className="mt-3 w-3/4 pl-8 text-sm text-[#334EAC]">
+                          “To recap, the goal is to boost profitability for this coffee chain in
+                          France. My recommendation is to launch morning cappuccino promotions
+                          targeting urban adults, backed by market sizing showing 4-5M daily
+                          opportunities and breakeven math at 20k units/month. Risks include supply
+                          chain volatility and competition, so next steps are pilot testing in
+                          Paris and sensitivity analysis on costs.”
+                        </p>
+                      ) : null}
+                      <div className="mt-4 text-sm text-[#090814]">
+                        <div className="font-semibold">Best practices</div>
+                        {step.title === "Case Math" || step.title === "Exhibit Analysis" ? (
+                          <ol className="mt-2 list-decimal space-y-2 pl-5">
+                            {step.bestPractices.map((item, itemIndex) => (
+                              <li key={`best-${index}-${itemIndex}`}>{item}</li>
+                            ))}
+                          </ol>
+                        ) : (
+                          <ul className="mt-2 list-disc space-y-2 pl-5">
+                            {step.bestPractices.map((item, itemIndex) => (
+                              <li key={`best-${index}-${itemIndex}`}>{item}</li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                      {step.tips?.length ? (
+                        <div className="mt-4 text-sm text-[#090814]">
+                          <div className="font-semibold">Tips</div>
+                          <ul className="mt-2 list-disc space-y-2 pl-5">
+                            {step.tips.map((item, itemIndex) => (
+                              <li key={`tip-${index}-${itemIndex}`}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : null}
+                    </Card>
                   </div>
-                  <div className="mt-2 text-lg font-semibold text-galaxy">
-                    {step.title}
-                  </div>
-                  <p className="mt-3 text-sm text-[#090814]">{step.goal}</p>
-                  <div className="mt-4 text-sm text-[#090814]">
-                    <div className="font-semibold">Best practices</div>
-                    <ul className="mt-2 list-disc space-y-2 pl-5">
-                      {step.bestPractices.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  {step.tips?.length ? (
-                    <div className="mt-4 text-sm text-[#090814]">
-                      <div className="font-semibold">Tips</div>
-                      <ul className="mt-2 list-disc space-y-2 pl-5">
-                        {step.tips.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
-                </Card>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
