@@ -131,7 +131,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <BarChart2 className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <BarChart2 className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Analytical Problem‑Solving</span>
                   </div>
@@ -143,7 +143,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <MessageCircle className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <MessageCircle className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Communication</span>
                   </div>
@@ -154,7 +154,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Users className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Users className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Teamwork & Leadership</span>
                   </div>
@@ -165,7 +165,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Clipboard className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Clipboard className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Project Management</span>
                   </div>
@@ -177,7 +177,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Zap className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Zap className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Learning Agility</span>
                   </div>
@@ -188,7 +188,7 @@ export default function HomePage() {
                 <div className="flex h-full flex-col gap-3 rounded-[10px] bg-meteor p-4 ring-1 ring-venus">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Target className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Target className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                     </span>
                     <span className="text-lg font-semibold text-galaxy">Client Orientation</span>
               </div>
@@ -370,13 +370,13 @@ export default function HomePage() {
                 <table className="w-full min-w-[620px] border-separate border-spacing-0 text-sm">
                   <thead>
                     <tr className="text-left">
-                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FFF9F0]">
+                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FCFDFF]">
                         Category
                       </th>
-                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FFF9F0]">
+                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FCFDFF]">
                         Example Firms
                       </th>
-                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FFF9F0]">
+                      <th className="bg-[#081F5C] px-4 py-3 font-semibold text-[#FCFDFF]">
                         Description
                       </th>
                     </tr>
@@ -448,7 +448,7 @@ export default function HomePage() {
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <BookOpen className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Case Prep</div>
                 </div>
@@ -471,7 +471,7 @@ export default function HomePage() {
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <BookOpen className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Case Books</div>
                 </div>
@@ -494,7 +494,7 @@ export default function HomePage() {
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <MessageCircle className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <MessageCircle className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Behavioral Prep</div>
                 </div>
@@ -517,7 +517,7 @@ export default function HomePage() {
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Clipboard className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Clipboard className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Aptitude Tests</div>
                 </div>
@@ -542,7 +542,7 @@ export default function HomePage() {
               <div className="flex h-full flex-col">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Users className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Users className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                 <div className="text-xl font-bold text-galaxy">Networking & Events</div>
                 </div>

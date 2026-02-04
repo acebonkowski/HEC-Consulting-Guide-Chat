@@ -61,7 +61,7 @@ Home | The Role | The Market | Key Resources | Contact | **Consulting Guide (CTA
 | Venus | `#BAD6EB` | Subtle dividers, secondary backgrounds, hover states |
 | Sky | `#D0E3FF` | Section background blocks to separate content |
 | Meteor | `#F7F2EB` | Card backgrounds and neutral content panels |
-| Milky Way | `#FFF9F0` | Main page background for warmth and readability |
+| Milky Way | `#FCFDFF` | Main page background for warmth and readability |
 
 All color combinations must meet **WCAG 2.1 AA contrast requirements**.
 

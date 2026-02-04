@@ -1,14 +1,18 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import {
   AlertTriangle,
   ArrowDownRight,
   ArrowLeft,
+  ArrowRight,
   BarChart2,
   ChevronDown,
   Tag,
   TrendingUp,
   Users,
 } from "react-feather";
+import { ButtonLink } from "@/components/ButtonLink";
+import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
 
 export const metadata = {
@@ -44,7 +48,7 @@ type Industry = {
 const INDUSTRIES: Industry[] = [
   {
     title: "Airlines & Transportation",
-    image: "/industry-placeholder.svg",
+    image: "/airlines.jpg",
     sections: [
       {
         title: "Players",
@@ -134,7 +138,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Automotive & Industrials",
-    image: "/industry-placeholder.svg",
+    image: "/automotive.jpg",
     sections: [
       {
         title: "Players",
@@ -222,7 +226,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Oil & Gas, Power & Utilities",
-    image: "/industry-placeholder.svg",
+    image: "/oil-gas.jpg",
     sections: [
       {
         title: "Players",
@@ -305,7 +309,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Financial Services & Banking",
-    image: "/industry-placeholder.svg",
+    image: "/financial-services.jpg",
     sections: [
       {
         title: "Players",
@@ -381,7 +385,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Insurance",
-    image: "/industry-placeholder.svg",
+    image: "/insurance.jpg",
     sections: [
       {
         title: "Players",
@@ -455,7 +459,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Healthcare",
-    image: "/industry-placeholder.svg",
+    image: "/healthcare.jpg",
     sections: [
       {
         title: "Players",
@@ -527,7 +531,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Pharma & Life Sciences",
-    image: "/industry-placeholder.svg",
+    image: "/life-sciences.jpg",
     sections: [
       {
         title: "Players",
@@ -607,7 +611,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Consumer & Retail",
-    image: "/industry-placeholder.svg",
+    image: "/consumer.jpg",
     sections: [
       {
         title: "Players",
@@ -686,7 +690,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Technology & Media",
-    image: "/industry-placeholder.svg",
+    image: "/technology.jpg",
     sections: [
       {
         title: "Players",
@@ -762,7 +766,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Private Equity",
-    image: "/industry-placeholder.svg",
+    image: "/private-equity.jpg",
     sections: [
       {
         title: "Players",
@@ -832,7 +836,7 @@ const INDUSTRIES: Industry[] = [
   },
   {
     title: "Public Sector & Non-Profit",
-    image: "/industry-placeholder.svg",
+    image: "/public.jpg",
     sections: [
       {
         title: "Players",
@@ -966,24 +970,23 @@ function IndustrySectionCard({ section }: { section: IndustrySection }) {
       header: "text-[#1E7A5C]",
       line: "bg-[#1E7A5C]",
       bullet: "bg-[#1E7A5C]",
-      container: "border-[#77D9B5] bg-white",
+      container: "border-[#77D9B5]",
     },
     risk: {
       header: "text-[#C2185B]",
       line: "bg-[#C2185B]",
       bullet: "bg-[#C2185B]",
-      container: "border-[#F2A0BE] bg-white",
+      container: "border-[#F2A0BE]",
     },
   } as const;
 
   const styles = toneStyles[tone];
-
   return (
-    <div
+    <Card
       className={
         isCallout
-          ? `rounded-2xl border px-5 py-4 ${styles.container}`
-          : "rounded-2xl"
+          ? `bg-[#FCFDFF] border ${styles.container}`
+          : "bg-[#FCFDFF]"
       }
     >
       <div className={`flex items-center gap-2 text-sm font-semibold ${styles.header}`}>
@@ -1057,7 +1060,7 @@ function IndustrySectionCard({ section }: { section: IndustrySection }) {
           );
         })}
       </ul>
-    </div>
+    </Card>
   );
 }
 
@@ -1073,15 +1076,15 @@ function IndustryCard({ industry }: { industry: Industry }) {
   );
 
   return (
-    <details className="group rounded-[22px] border border-[#D9D9D9] bg-[#FFF9F0]">
-      <summary className="relative flex cursor-pointer list-none items-center justify-between gap-4 overflow-hidden rounded-[22px] bg-[#0B0B0B] px-6 py-5 text-white">
+    <details className="group rounded-[10px] bg-[#FCFDFF] shadow-sm">
+      <summary className="relative flex min-h-[140px] cursor-pointer list-none items-end justify-between gap-4 overflow-hidden rounded-[10px] bg-[#0B0B0B] px-6 pb-6 pt-10 text-white group-open:rounded-b-none">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `linear-gradient(90deg, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0) 100%), url('${industry.image}')`,
           }}
         />
-        <div className="relative z-10 flex w-full items-center justify-between gap-4">
+        <div className="relative z-10 flex w-full items-end justify-between gap-4">
           <h3 className="text-xl font-semibold sm:text-2xl">{industry.title}</h3>
           <ChevronDown
             size={20}
@@ -1089,7 +1092,7 @@ function IndustryCard({ industry }: { industry: Industry }) {
           />
         </div>
       </summary>
-      <div className="border-t border-[#E2E2E2] px-6 py-6">
+      <div className="border-t border-[#E2E2E2] bg-[#FCFDFF] px-6 py-6">
         <div className="space-y-8">
           <div className="space-y-8">
             {fullSections.map((section) => (
@@ -1142,15 +1145,27 @@ export default function IndustryBreakdownPage() {
             </span>
           </div>
 
-          <div className="mt-8 max-w-3xl">
-            <h1 className="text-3xl font-semibold tracking-tight text-galaxy sm:text-4xl">
-              Industry Breakdown
-            </h1>
-            <p className="mt-4 text-base text-[#090814] sm:text-lg">
-              A quick-reference library of industry snapshots to help you frame
-              cases fast: players, key concepts, revenue drivers, cost drivers,
-              trends, and risks.
-            </p>
+          <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-3xl">
+              <h1 className="text-3xl font-semibold tracking-tight text-galaxy sm:text-4xl">
+                Industry Breakdown
+              </h1>
+              <p className="mt-4 text-base text-[#090814] sm:text-lg">
+                A quick-reference library of industry snapshots to help you frame
+                cases fast: players, key concepts, revenue drivers, cost drivers,
+                trends, and risks.
+              </p>
+            </div>
+            <ButtonLink
+              href="https://notebooklm.google.com/notebook/42ae5d31-8105-4f4c-8789-c7fde8c5edda"
+              external
+              variant="secondary"
+              className="w-fit gap-2 rounded-[12px] px-5 py-2 text-base"
+              ariaLabel="Open Take Quiz"
+            >
+              <Image src="/link-2.svg" alt="" width={18} height={18} />
+              Take Quiz
+            </ButtonLink>
           </div>
         </Container>
       </section>
@@ -1161,6 +1176,47 @@ export default function IndustryBreakdownPage() {
             {INDUSTRIES.map((industry) => (
               <IndustryCard key={industry.title} industry={industry} />
             ))}
+          </div>
+
+          <div className="mt-10 border-t border-venus pt-10">
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  title: "Framework Overview",
+                  description:
+                    "Quick refreshers on classic case frameworks and when to adapt them.",
+                  href: "/consulting-guide",
+                },
+                {
+                  title: "CV & Cover Letter Tips",
+                  description:
+                    "Practical guidance to refine your application materials before you submit.",
+                  href: "/consulting-guide#process-interview",
+                },
+                {
+                  title: "Market Sizing Numbers",
+                  description:
+                    "Core figures and benchmarks to speed up structured sizing math.",
+                  href: "/consulting-guide#case-interview",
+                },
+              ].map((item) => (
+                <Card key={item.title} className="bg-[#FCFDFF]">
+                  <div className="text-xl font-bold text-galaxy">{item.title}</div>
+                  <p className="mt-2 text-sm text-[#090814]">{item.description}</p>
+                  <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
+                  <div className="mt-4">
+                    <ButtonLink
+                      href={item.href}
+                      variant="ghost"
+                      className="flex w-full items-center !px-0 !py-0 font-bold text-[#334EAC] underline underline-offset-4"
+                    >
+                      <span className="flex-1 text-left">Learn More</span>
+                      <ArrowRight size={16} className="ml-auto" />
+                    </ButtonLink>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
         </Container>
       </section>

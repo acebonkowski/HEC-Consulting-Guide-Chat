@@ -755,7 +755,7 @@ In any way, you will know before.
                   >
                     <summary className="flex cursor-pointer items-center gap-3 text-sm font-semibold text-galaxy">
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#7096D1]">
-                        <item.icon size={16} stroke="#FFF9F0" className="text-[#FFF9F0]" />
+                        <item.icon size={16} stroke="#FCFDFF" className="text-[#FCFDFF]" />
                       </span>
                       <span className="flex-1">{item.title}</span>
                       <ChevronDown size={16} className="text-[#7096D1]" />
@@ -785,7 +785,7 @@ In any way, you will know before.
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <BookOpen className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Case Prep</div>
                 </div>
@@ -808,7 +808,7 @@ In any way, you will know before.
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <BookOpen className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <BookOpen className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Case Books</div>
                 </div>
@@ -832,9 +832,9 @@ In any way, you will know before.
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
                     <MessageCircle
-                      className="text-[#FFF9F0]"
+                      className="text-[#FCFDFF]"
                       size={18}
-                      stroke="#FFF9F0"
+                      stroke="#FCFDFF"
                     />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Behavioral Prep</div>
@@ -858,7 +858,7 @@ In any way, you will know before.
               <Card className="bg-meteor">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Clipboard className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Clipboard className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Aptitude Tests</div>
                 </div>
@@ -883,7 +883,7 @@ In any way, you will know before.
               <div className="flex h-full flex-col">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7096D1]">
-                    <Users className="text-[#FFF9F0]" size={18} stroke="#FFF9F0" />
+                    <Users className="text-[#FCFDFF]" size={18} stroke="#FCFDFF" />
                   </span>
                   <div className="text-xl font-bold text-galaxy">Networking & Events</div>
                 </div>
