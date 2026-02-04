@@ -1,4 +1,4 @@
-# The Industry Breakdown
+np# The Industry Breakdown
 The Consulting Club Presents
 Case Interview Preparation
 Airlines & Transportation

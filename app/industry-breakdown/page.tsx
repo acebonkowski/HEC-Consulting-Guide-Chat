@@ -17,10 +17,22 @@ export const metadata = {
     "Quick-reference industry snapshots for case interview prep: players, economics, trends, and risks.",
 };
 
+type SectionLayout = "full" | "half" | "callout";
+type SectionTone = "default" | "trend" | "risk";
+
 type IndustrySection = {
   title: string;
   icon: ReactNode;
-  items: string[];
+  items: Array<
+    | string
+    | {
+        label: string;
+        description?: string;
+        subitems: string[];
+      }
+  >;
+  layout?: SectionLayout;
+  tone?: SectionTone;
 };
 
 type Industry = {
@@ -38,66 +50,84 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Airlines: legacy, low-cost carriers (LCC), regional, cargo",
-          "Airports and ground handling providers",
-          "OEMs and lessors: Airbus, Boeing, aircraft leasing firms",
-          "GDS, OTAs, and meta-search platforms",
-          "Regulators: FAA/EASA, IATA",
-          "Loyalty and credit-card partners (AMEX, Visa)",
+          {
+            label: "Airline Types",
+            description:
+              "Segment airline types before analyzing: different models react differently to fuel prices, demand shocks, and regulation.",
+            subitems: [
+              "Network / legacy carriers: hub-and-spoke networks; connectivity from combining origin-destination flows; higher fixed costs, complex operations, unionized labor, weaker cost flexibility.",
+              "Low-cost / ultra-low-cost carriers (LCC/ULCC): win on cost per seat mile; single aircraft type, fast turnarounds, minimal service; profitability depends on volume and ancillaries, not premium pricing.",
+              "Regional airlines: feed passengers into hubs for major carriers; low margins; labor shortages are existential; often dependent on capacity purchase agreements (CPAs).",
+              "Cargo players: integrators run time-critical networks; passenger airlines rely on belly cargo as margin enhancer; cargo demand is cyclical and tied to global trade.",
+            ],
+          },
+          "Aircraft OEMs and engine OEMs: long-cycle, capital-intensive bottlenecks; delivery delays constrain airline growth; engine maintenance issues can ground planes and destroy capacity; industry profitability is often supply-constrained, not demand-constrained.",
+          "Aircraft lessors: own large share of global fleets; airlines lease to preserve balance-sheet flexibility; lease rates usually USD-denominated -> FX risk; leasing shifts risk but increases exposure to interest rates and currency swings; lease obligations do not disappear in downturns.",
+          "Distribution stack (GDS, OTAs, direct): traditional GDS charge per booking; airlines push direct sales to reduce distribution costs, control pricing/bundling, and sell ancillaries more effectively; distribution is a margin lever.",
+          "Airports and air navigation service providers: control slots, gates, runway access; ATC capacity limits flight volumes; many airports have monopolistic pricing power; capacity constraints cap growth even on profitable routes.",
+          "Regulators: safety regulators are non-negotiable; competition authorities manage slots and mergers; consumer protection covers delays and refunds; regulation fixes parts of the cost structure and limits strategic freedom.",
+          "Loyalty program partners: airlines sell miles to banks and partners; loyalty is one of the highest-margin businesses; airlines are also data and financial intermediaries.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Utilization: high fixed costs mean utilization drives profit",
-          "Network economics: hub-and-spoke vs point-to-point, spill effects",
-          "Revenue management: dynamic pricing, fare classes, overbooking",
-          "Ancillary economics: key margin drivers beyond tickets",
-          "Distribution power: direct vs GDS/OTA; NDC shift",
+          "Utilization economics: aircraft and crews are mostly fixed costs; profitability hinges on keeping planes flying; one grounded plane destroys margin fast.",
+          "Interview signal: always talk about load factor and utilization before pricing.",
+          "Revenue management: prices change constantly to maximize total revenue, not seat prices; overbooking is rational because no-shows are predictable; network effects mean a flight can be profitable even if one leg is not.",
+          "Ancillary revenue: bags, seats, priority boarding, food, Wi-Fi; especially critical for LCCs; high margin, low incremental cost.",
+          "Interview signal: ancillaries are structural, not optional.",
+          "FX and USD cost base: fuel, leases, maintenance in USD; revenue often in local currency; a strengthening USD can wipe out margins even with stable demand.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Ticket revenue: sold seats vs capacity",
-          "Yield: fare mix, competition, seasonality",
-          "Ancillaries: bags, seat selection, change fees, priority boarding",
-          "Cargo: belly cargo and dedicated carriers",
-          "Loyalty economics: co-branded card partners and miles sales",
+          "Passenger yield: price per seat.",
+          "Load factor: seats filled.",
+          "Ancillaries: bags, seats, priority boarding, food, Wi-Fi.",
+          "Cargo: belly cargo and dedicated carriers.",
+          "Loyalty monetization: selling miles to partners.",
+          "Interview shortcut: Profit ≈ (Yield x Load Factor x Capacity) + Ancillaries - Fuel - Labor - Fixed Costs.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Fuel: largest variable cost; hedging matters",
-          "Asset heaviness: ownership/leases and depreciation",
-          "Maintenance: reliability and OEM parts",
-          "Labor: pilots, cabin crew, ground ops, unions",
-          "Airport and navigation fees",
-          "Distribution fees: GDS vs direct booking",
+          "Fuel: largest variable cost; volatility matters more than absolute level.",
+          "Labor: pilots are scarce; unions reduce flexibility.",
+          "Maintenance: aging fleets increase cost non-linearly.",
+          "Airport and ATC fees: quasi-fixed, often rising.",
+          "Distribution fees: controllable through channel shift.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Fuel volatility and oil prices",
-          "Demand shocks and underutilization",
-          "Regulatory shifts and route approvals",
-          "Weather-related disruptions",
+          "Aircraft and engine supply constraints: OEM and engine issues cap capacity growth; airlines keep older planes longer -> higher maintenance; supply discipline can prop up pricing even when demand softens.",
+          "Distribution and retailing modernization: shift from selling seats to selling offers; personalization, bundling, dynamic pricing.",
+          "Sustainability pressure: SAF mandates and emissions pricing increase cost with limited near-term substitutes.",
+          "Industry consolidation: fewer players -> more pricing power; regulators slow but rarely reverse the trend.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Low-cost carrier expansion",
-          "NDC distribution changeover risk",
-          "Sustainable aviation fuel and efficiency pressure",
-          "Ancillary growth dependence",
+          "Fuel price shocks: hedging helps but does not eliminate risk; sudden spikes compress margins immediately.",
+          "Labor shortages: pilot supply is the hardest constraint; wage inflation is sticky downward.",
+          "Demand shocks: pandemics, recessions, geopolitical events; airlines are high beta to macro cycles.",
+          "Regulatory risk: environmental rules, passenger compensation laws, slot reallocations.",
         ],
       },
     ],
@@ -110,64 +140,82 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "OEMs: design, build, and sell vehicles",
-          "Tier 1/2/3 suppliers (e.g., Bosch)",
-          "Battery suppliers and charging ecosystem",
-          "Rental, ride-hailing, and MaaS players",
-          "Regulators and public infrastructure bodies",
+          {
+            label: "OEMs",
+            description:
+              "Design, engineer, assemble, and market vehicles; sell mostly via dealer networks (agency model emerging but limited); bear brand risk, recall risk, and platform R&D cost; asset-heavy with thin margins on new car sales; profitability depends on scale, mix, and aftersales.",
+            subitems: [
+              "Tier 1 suppliers: deliver complete systems (powertrain, braking, electronics); highly dependent on OEM volumes and specs; operate on lower margins and suffer most from OEM price pressure, late design changes, and volume volatility.",
+              "Tier 2/3 suppliers: provide components, materials, sub-assemblies; highly dependent on OEM volumes and specs; operate on lower margins and suffer most from OEM price pressure, late design changes, and volume volatility.",
+            ],
+          },
+          "Battery suppliers and charging ecosystem: batteries are a huge share of EV cost; charging availability affects EV adoption more than vehicle specs; vertical integration vs outsourcing battery supply is a strategic make-or-break decision.",
+          "Rental, ride-hailing, and MaaS players: large fleet buyers; influence demand mix; sensitive to depreciation and residual values; stabilize volume but compress margins and affect brand perception.",
+          "Regulators and public infrastructure: emissions standards, safety rules, subsidies; charging infrastructure rollout often state-driven; regulation can force massive CAPEX shifts faster than market demand.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Scale and capacity utilization drive fixed-cost absorption",
-          "Mix management: segment, geography, and trim mix",
-          "Footprint optimization and supply-chain efficiency",
-          "Warranty/recall sensitivity; quality matters",
-          "After-sales and financing are hidden profit pools",
+          "Scale and capacity utilization: plants have huge fixed costs; underutilized plants destroy margins.",
+          "Interview signal: volume is often more important than per-unit margin in the short term.",
+          "Volume vs margin trade-off: OEMs may cut prices to keep plants running; discounts protect utilization but damage brand and residual values.",
+          "Mix management: profit varies massively by vehicle size (SUV vs compact), powertrain (ICE vs EV), geography (US/China/EU), trim level; selling fewer cars at a better mix can outperform growth strategies.",
+          "Fixed-cost absorption: high utilization spreads fixed costs over more units; supply chain efficiency directly impacts margin.",
+          "Warranty and recall sensitivity: small quality issues -> massive financial exposure; tail risks dominate expected profits; automotive has asymmetric downside risk.",
+          "Aftersales and financing (hidden profit pools): parts, servicing, warranties, financing; high-margin, recurring, and less cyclical.",
+          "Interview signal: OEMs increasingly behave like service companies; automotive profit is made after the sale, not at the sale.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "New vehicle sales: volume and average selling price",
-          "Used vehicle sales",
-          "Aftersales parts and service",
-          "Financing and leasing",
-          "Subscriptions/software and data monetization",
+          "New vehicle sales: volume x ASP x mix.",
+          "Used vehicles: buffer during downturns.",
+          "Aftersales: parts and service (often highest-margin, recurring).",
+          "Financing and leasing: interest spread + residual value control.",
+          "Software and subscriptions: OTA features, connectivity.",
+          "Data monetization: emerging, still limited.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Materials: steel, aluminum, batteries, electronics",
-          "Labor and manufacturing overhead",
-          "Warranty and recalls",
-          "R&D: EV platforms and autonomous driving",
-          "Logistics and inventory carrying costs",
+          "Materials: steel, aluminum, batteries (lithium, nickel), semiconductors.",
+          "Labor: less flexible than assumed.",
+          "Warranty and recalls: unpredictable but catastrophic.",
+          "R&D: EV platforms, software, autonomy.",
+          "Manufacturing overhead: plants, tooling, depreciation.",
+          "Logistics and inventory: inventory carry is expensive.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Tariffs and trade policy shifts",
-          "China EV competition and margin pressure",
-          "EV adoption and autonomous driving advances",
-          "Software monetization and OTA features",
-          "MaaS adoption growth",
+          "EV transition: capex heavy; uncertain elasticity; margin-dilutive short term.",
+          "China competition: cost-advantaged EV challengers compress margins.",
+          "Software monetization push via OTA subscriptions (consumer resistance risk).",
+          "MaaS adoption shifting ownership assumptions.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Energy and metal availability constraints",
-          "Warranty and recall exposures",
-          "Price cuts vs utilization trade-offs",
+          "Tariffs and trade policy fragment supply chains.",
+          "Warranty/recall events (one issue can wipe years of profit).",
+          "Commodity volatility (battery metals, energy).",
+          "Demand cyclicality (rates, confidence).",
         ],
       },
     ],
@@ -180,65 +228,77 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Majors and independent oil companies",
-          "Oilfield services, midstream operators, traders",
-          "National oil companies and regulators",
-          "Generators and independent power producers",
-          "TSO/DSO regulated grid operators",
-          "Off-takers: households, industrials, data centers",
+          "Majors vs independents: majors are integrated across upstream/midstream/downstream; diversification smooths earnings; independents are upstream-heavy, higher beta to oil prices, leaner but riskier; integration reduces volatility but dilutes pure upside.",
+          "Oilfield services: provide drilling/completion/equipment; paid per activity; volume/capex-cycle plays that suffer when E&P capex is cut.",
+          "Midstream operators: pipelines/storage/processing; often contract-based or regulated; cash flow stability depends on utilization and contract structure.",
+          "Traders: arbitrage location/time/quality; thin margins, big volumes.",
+          "NOCs and regulators: control reserves; objectives mix profit and politics; geopolitics can override commercial logic.",
+          "Generators / IPPs: merchant vs contracted (PPA) revenue models; risk profile is defined by price exposure.",
+          "Transmission (TSO) and distribution (DSO): natural monopolies; regulated returns on RAB; utilities are finance-like with regulation defining economics.",
+          "Retailers: thin margins, churn, procurement risk.",
+          "Regulators: set allowed returns, tariffs, and reliability.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Price takers: global benchmarks and marginal pricing",
-          "Oil & gas value chain: upstream → midstream → downstream",
-          "Power value chain: generation → transmission → distribution → retail",
-          "Scarcity and ancillary services shape power pricing",
+          "Value chain: upstream exploration and production (high risk, high margin), midstream process/pipelines/storage (low risk, steady), downstream refining/marketing (spread-driven).",
+          "Interview signal: always locate the problem in the chain.",
+          "Price taker reality: global benchmarks set prices; firms influence realized price differentials, volume, and hedging.",
+          "Lifting cost: extraction cost per barrel is a key competitiveness metric; low lifting-cost assets survive downturns, high-cost assets get shut in.",
+          "Marginal pricing: the last unit dispatched sets price; scarcity spikes matter.",
+          "CAPEX vs OPEX: renewables have high capex and low opex; thermal has fuel risk.",
+          "Grid bottleneck: generation can outpace transmission; congestion caps renewable growth.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Oil & gas: price × volume and product mix",
-          "Refining spreads and midstream tariffs",
-          "Trading (volatile but meaningful)",
-          "Power generation: MWh × price or PPA contracts",
-          "Networks: regulated returns on RAB",
-          "Retail: customer count × usage × margin",
+          "Oil and gas: price x volume and product mix.",
+          "Refining margins (crack spreads) and midstream fees.",
+          "Trading gains (volatile but meaningful).",
+          "Power generation: MWh x price or PPA contracts.",
+          "Networks: regulated returns on RAB.",
+          "Retail: customer count x usage x margin.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "O&G capex: exploration, drilling, maintenance",
-          "Logistics and lifting costs",
-          "Carbon taxes and compliance costs",
-          "Power capex and fuel opex",
-          "Grid renewal, expansion, and outage costs",
-          "Retail procurement, billing, and bad debt",
+          "Oil and gas: capex (exploration/drilling), opex (lifting), logistics, carbon costs.",
+          "Power: generation capex/fuel (thermal), grid capex/maintenance, retail procurement/bad debt.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Energy transition and decarbonization",
-          "Electrification and renewables growth",
-          "Massive grid capex cycle",
-          "Falling renewable capex with grid bottlenecks",
+          "Capital discipline and transition-driven capex reallocation.",
+          "Localization and security of supply.",
+          "Electrification and decarbonization.",
+          "Massive grid capex cycle.",
+          "Falling renewable LCOE with rising system integration costs.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Oil price shocks and demand substitutes",
-          "Regulatory and political shifts",
-          "Equipment age and safety events",
+          "Oil price shocks and political/regulatory intervention.",
+          "Safety/environmental incidents.",
+          "Asset stranding.",
+          "Regulatory resets.",
+          "Reliability failures/outages.",
+          "Political backlash to price increases.",
         ],
       },
     ],
@@ -251,58 +311,70 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Retail, corporate, and investment banks",
-          "Payment networks, fintechs, core banking vendors",
-          "Regulators and central banks",
-          "Credit bureaus and rating agencies",
+          "Retail banks: deposits, consumer credit, mortgages.",
+          "Corporate banks: lending, cash management, trade finance.",
+          "Investment banks: underwriting, M&A advisory, trading.",
+          "Payment networks and fintechs: rails vs interface/innovation.",
+          "Core banking vendors: infrastructure layer.",
+          "Regulators and central banks: capital rules, liquidity, monetary policy.",
+          "Credit bureaus and rating agencies.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Net interest margin (NIM) drives profitability",
-          "Capital and liquidity constraints",
-          "Balance-sheet business: assets generate yield",
-          "Risk and credit cycle exposure",
+          "Balance-sheet business: assets generate yield; liabilities fund them.",
+          "Net interest margin (NIM): loan yield minus deposit cost (relative to assets).",
+          "Deposit betas: how much deposit rates move with market rates.",
+          "Constraint heaviness: capital, liquidity, compliance constrain growth.",
+          "Credit cycle: growth today can be loss tomorrow.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Net interest income across loan products",
-          "Fee income: payments, wealth, advisory, M&A",
-          "Underwriting and arbitrage profits",
+          "Net interest margin (NIM).",
+          "Fee income: payments, wealth/asset management, advisory, underwriting.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Opex: labor, branches, tech, compliance",
-          "Funding costs and deposit betas",
-          "Credit losses and risk provisions",
-          "Regulatory expenses and fines",
+          "Labor and branches.",
+          "Tech infrastructure.",
+          "Compliance.",
+          "Funding costs.",
+          "Credit losses and provisions.",
+          "Fines.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Challenger and digital banks",
-          "Expansion of payment options (BNPL)",
-          "Mobile-first digitization",
-          "Decentralization and crypto",
+          "Digitization and branch rationalization.",
+          "Challenger banks/fintech unbundling.",
+          "Expansion of payment options (including BNPL).",
+          "Decentralization/crypto (select pockets).",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Business cycle and central bank dependency",
-          "Default risks by product and segment",
-          "Regulatory pressure and compliance overhead",
+          "Business cycle sensitivity and central bank dependency.",
+          "Default risk by product/segment.",
+          "Regulatory tightening.",
+          "Tech debt and cyber risk.",
         ],
       },
     ],
@@ -315,63 +387,68 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Insurers and policyholders",
-          "Brokers and agents",
-          "Reinsurers",
-          "Regulators",
-          "Investors and asset managers",
-          "Claims providers",
+          "Insurers: offer products, manage risk.",
+          "Policyholders: buy coverage.",
+          "Brokers/agents: distribution.",
+          "Reinsurers: transfer/share tail risk.",
+          "Regulators: solvency and consumer protection.",
+          "Investors/asset managers: invest premiums.",
+          "Claims providers: settle claims.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Risk pooling and underwriting",
-          "Premiums and claims economics",
-          "Reserving and solvency requirements",
-          "Reinsurance and investment returns",
+          "Risk pooling and underwriting: price risk correctly.",
+          "Premiums and claims: core P&L.",
+          "Reserving and solvency: capital buffers for future claims.",
+          "Reinsurance and investments: shape risk and returns.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Premium growth and coverage expansion",
-          "Pricing and underwriting discipline",
-          "Product mix and specialized policies",
-          "Retention and cross-sell",
-          "Market expansion",
+          "Premiums.",
+          "Investment income.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Claims payouts",
-          "Underwriting and acquisition costs",
-          "Operational and administrative overhead",
-          "Regulatory and compliance costs",
-          "Reinsurance premiums",
+          "Claims payouts.",
+          "Underwriting/acquisition.",
+          "Operations/admin.",
+          "Compliance/capital.",
+          "Reinsurance premiums.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Digital and insurtech automation",
-          "ESG and sustainability integration",
-          "Regulatory evolution and transparency",
-          "Customer-centric product design",
+          "Digital and insurtech automation/AI.",
+          "ESG and climate factor incorporation.",
+          "Customer-centric, flexible products; personalization.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Underwriting and catastrophe risk",
-          "Market and investment volatility",
-          "Liquidity pressure in large events",
+          "Underwriting risk: mispriced policies.",
+          "Market/investment risk.",
+          "Liquidity risk: cash for claims.",
+          "Regulatory evolution.",
+          "Catastrophe risk.",
         ],
       },
     ],
@@ -384,62 +461,66 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Providers: hospitals, clinics, labs",
-          "Payers: private insurers and public payers",
-          "PBMs (US-heavy)",
-          "Suppliers: pharma, medtech, diagnostics, EMR",
-          "Regulators: reimbursement and quality rules",
+          "Providers: hospitals, clinics, labs.",
+          "Payers: private insurers and public programs.",
+          "PBMs: formulary/rebate dynamics (US-heavy).",
+          "Suppliers: pharma, medtech, diagnostics, EMR vendors.",
+          "Regulators: reimbursement rules, quality, budgets.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Provider vs payer power dynamics",
-          "Occupancy and readmissions drive economics",
-          "Throughput: ED → bed → treatment → discharge",
-          "Pricing and frequency both matter",
-          "Revenue cycle: coding, billing, collections",
+          "Power dynamic: providers control delivery and have limited pricing power; payers control pricing and access.",
+          "Occupancy: bed occupancy, ALOS, readmissions are key.",
+          "Throughput economics: ED -> bed -> treatment -> discharge.",
+          "Pricing and frequency: utilization management can matter as much as price.",
+          "Revenue cycle: coding -> billing -> collections.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Provider revenue: volume × reimbursement × service mix",
-          "Ancillary services: labs, imaging, procedures",
-          "Payer revenue: premiums and public subsidies",
-          "Investment income on float",
+          "Providers: volume x reimbursement (commercial often higher than public) x service line mix x complexity.",
+          "Payers: premiums (members x rate), subsidies, investment income on float.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Labor: nurses, physicians, agency staffing",
-          "Medical supplies and implants",
-          "Facilities and equipment (high fixed cost)",
-          "IT/EMR and administrative overhead",
-          "Payer medical claims and reinsurance",
+          "Providers: labor (nurses/physicians, overtime, agency staffing), supplies/implants, facilities/equipment (24/7 fixed cost), IT/EMR and admin.",
+          "Payers: medical claims, reinsurance, admin/tech.",
+          "Core equations: Provider profit = Volume x Reimbursement - Cost. Payer profit = Premiums - Claims - Admin.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Labor shortages and wage pressure",
-          "Cybersecurity and privacy focus",
-          "Claims and care automation",
-          "AI in coding, diagnostics, throughput",
-          "Shift to outpatient and home care",
+          "Labor shortage and wage pressure.",
+          "Cybersecurity and privacy concerns.",
+          "Automation of claims and care management.",
+          "AI for coding/diagnostics/throughput (slow adoption due governance).",
+          "Shift from inpatient to outpatient/home.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Supplier dependency and shortages",
-          "Slow governance adoption for AI",
+          "Workforce constraints.",
+          "Reimbursement cuts.",
+          "Supplier dependency.",
+          "Cyber events.",
         ],
       },
     ],
@@ -452,62 +533,74 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Pharma and biotech manufacturers",
-          "Regulators: FDA, EMA",
-          "HTA bodies and payers",
-          "PBMs (US-heavy) and distributors",
-          "CROs and CDMOs/CMOs",
+          "Pharma/biotech manufacturers.",
+          "Regulators: FDA (US), EMA (EU).",
+          "HTA bodies: value assessment influencing reimbursement (EU-heavy).",
+          "Payers/providers.",
+          "PBMs: rebates/formularies (US-heavy).",
+          "Distributors: wholesalers, retail and specialty pharmacies.",
+          "CROs: run trials.",
+          "CDMOs/CMOs: outsourced development/manufacturing.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Patent- and access-driven business models",
-          "Blockbuster logic: few winners fund many failures",
-          "Product selection depends on market size and pipeline success",
-          "LOE: post-patent generic erosion",
+          "Patent- and access-driven business: buy future revenue via R&D risk; monetize in limited exclusivity window; win/lose on access more than marketing.",
+          "Blockbuster logic: few winners fund many failures.",
+          "Product selection: market size, reimbursement, time-to-market, success probability, safety, cannibalization.",
+          "LOE: loss of exclusivity -> generic/biosimilar erosion.",
+          "Gross-to-net leakage: rebates/chargebacks/discounts vs list price.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Drug sales based on patient pool and adherence",
-          "Indication expansion and label growth",
-          "Launch sequencing by country and payer segment",
-          "Time to LOE and exclusivity window",
+          "Eligible patient pool -> diagnosed -> treated -> adherence/persistence.",
+          "Price x volume; indication expansion; launch sequencing.",
+          "Simplified profit logic: Profit ≈ Patent life x Price x Volume - R&D.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "R&D and clinical trial failures",
-          "Manufacturing complexity (biologics, sterile)",
-          "Sales and marketing by country",
-          "Gross-to-net leakage: rebates and discounts",
-          "Medical affairs and pharmacovigilance",
+          "R&D (trial costs + failures).",
+          "Manufacturing (biologics/sterile complex).",
+          "Sales and marketing (varies by country).",
+          "Pharmacovigilance/medical affairs.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Wearables and real-world evidence",
-          "Value-based arrangements and pricing experiments",
-          "Therapy-area focus (oncology, immunology)",
-          "Manufacturing localization and resilience",
+          "Patent cliffs and generic erosion.",
+          "Pricing/policy risk and transparency.",
+          "Supply constraints (sterile capacity, quality failures).",
+          "M&A/licensing to refill pipelines.",
+          "Therapy-area focus: oncology/immunology/specialty.",
+          "Real-world data (wearables) and analytics.",
+          "Value-based arrangements (pay-for-performance experiments).",
+          "Manufacturing localization/resilience.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Patent cliffs and generic/biosimilar erosion",
-          "Pricing policy risk and transparency pressure",
-          "Supply constraints and quality failures",
-          "M&A/licensing to refill pipelines",
+          "Regulatory setbacks and R&D failure.",
+          "Net price compression.",
+          "Supply disruptions.",
+          "LOE cliff.",
         ],
       },
     ],
@@ -520,63 +613,73 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Brands and CPG manufacturers",
-          "Retailers and private-label owners",
-          "Distributors and wholesalers",
-          "Marketplaces (e.g., Amazon)",
-          "Logistics carriers and 3PLs",
-          "Digital channels and creators",
+          "Brands/CPG manufacturers.",
+          "Retailers: shelf power, pricing, promotions, private label.",
+          "Distributors/wholesalers.",
+          "Marketplaces (e.g., Amazon): fees + ranking power can erode brand pricing.",
+          "Logistics carriers/3PLs.",
+          "Digital channels: social platforms, creators/influencers (demand shaping).",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Store productivity: sales per sqft and traffic",
-          "SKU and assortment management",
-          "Margin pressure and price wars",
-          "Inventory turnover and forecasting",
+          "Store productivity: sales/sqft, sales/traffic, traffic per labor hour, inventory turnover, same-store sales.",
+          "SKUs: complexity drives inventory and forecasting issues.",
+          "Margin pressure: low-margin category except luxury; price wars/promo spirals.",
+          "Loss leadership: strategic margin sacrifice for share.",
+          "Returns economics: reverse logistics can wipe out margin (especially apparel/e-com).",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Traffic and conversion rates",
-          "Purchase volume and basket size",
-          "Margin split with distributors",
-          "Bundling and cross-selling",
+          "Traffic x conversion.",
+          "Basket size and price.",
+          "Purchase frequency.",
+          "Bundling/cross-sell.",
+          "Margin split across channels.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "COGS and labor",
-          "Returns and reverse logistics",
-          "Inventory carrying costs",
-          "Distribution and last-mile delivery",
-          "Real estate, tech, and overhead",
+          "COGS.",
+          "Labor.",
+          "Returns/reverse logistics.",
+          "Inventory holding/markdowns.",
+          "Distribution/last-mile.",
+          "Real estate, tech, overhead.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Omnichannel dominance (BOPIS, ship-from-store)",
-          "Private label expansion",
-          "Personalization via data",
-          "Influencer-driven demand",
+          "Omnichannel dominance: BOPIS, ship-from-store.",
+          "Private label rise.",
+          "Personalization via data.",
+          "Influencer-driven seasonality and volatility.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Demand volatility and inflation hangover",
-          "Returns explosion and margin leakage",
-          "Inventory mis-forecasting and markdowns",
-          "Dependency on retail partners",
+          "Price wars and promo spirals.",
+          "Demand volatility (confidence, inflation).",
+          "Returns explosion (abuse + leakage).",
+          "Inventory mis-forecasting (markdowns + cash squeeze).",
+          "Dependency on retailers/marketplaces.",
         ],
       },
     ],
@@ -589,63 +692,70 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Software and platform companies",
-          "Cloud providers and infrastructure vendors",
-          "App stores and OS gatekeepers",
-          "Advertisers and agencies",
-          "Right holders and content creators",
-          "Regulators overseeing speech and competition",
+          "Software/platform companies: distribute content or provide services.",
+          "Cloud providers: infrastructure and AI/compute stack.",
+          "App store/OS gatekeepers: distribution control.",
+          "Advertisers/agencies: monetize attention.",
+          "Right holders: music/sports/content.",
+          "Creators/influencers/brands.",
+          "Regulators: copyright, competition, speech.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Scale and data drive monetization models",
-          "Network effects and switching costs",
-          "Churn rate and retention economics",
-          "Freemium and attention economics",
-          "Subscription-model trade-offs",
+          "Scale and data economics: marginal cost low, fixed cost high.",
+          "Network effects and switching costs: value increases with users; churn is critical.",
+          "Freemium/attention economics: trade-off ads vs UX.",
+          "Subscription model mechanics: retention, ARPU, expansion.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Subscriptions and ARPU growth",
-          "Transaction fees and take rates",
-          "Expansion revenue and upsell",
-          "Advertising and content licensing",
+          "Profit (tech): users x ARPU - fixed costs - variable costs.",
+          "Profit (media): audience x monetization - content costs - operating costs.",
+          "Subscriptions (volume x ARPU), transaction fees/take rate, expansion revenue, ads, licensing.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Infrastructure and capex (servers, cloud)",
-          "R&D and product development",
-          "Content costs and creator payouts",
-          "Marketing, growth, and support",
-          "Platform moderation and compliance",
+          "Infrastructure/cloud/capex (especially AI).",
+          "R&D and product development.",
+          "Content and creator payouts.",
+          "Marketing/growth/support.",
+          "Moderation and compliance.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Short-form video dominance",
-          "AI-heavy features and agentic workflows",
-          "Creator monetization expansion",
-          "Cloud cost optimization",
+          "Short-form video dominance.",
+          "Creator monetization expansion.",
+          "Cloud cost optimization.",
+          "AI-heavy features and agentic functionality (ROI uncertainty).",
+          "Subscription fatigue.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Growth saturation and rising content costs",
-          "Subscription fatigue",
-          "Regulatory pressure and scrutiny",
+          "Growth saturation; rising content costs.",
+          "Regulatory pressure.",
+          "Cloud cost blowouts.",
+          "AI bubble narrative/misallocated capex.",
         ],
       },
     ],
@@ -658,59 +768,64 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Private equity funds (GPs)",
-          "Limited partners (pensions, insurers, sovereign funds)",
-          "Portfolio companies",
-          "Financing providers and private credit",
-          "Legal and financial advisors",
-          "Regulators (SEC, FCA, EU)",
+          "PE funds (GPs): raise capital, acquire, drive value creation, exit.",
+          "LPs: pensions, insurers, sovereign funds, endowments.",
+          "Portfolio companies.",
+          "Financing providers: banks and private credit.",
+          "Advisors: legal/financial/M&A.",
+          "Regulators: SEC/FCA/EU.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Value-creation focus with operational improvement",
-          "Portfolio logic: a few wins offset underperformers",
-          "Investment selection based on sector attractiveness",
-          "Exit timing and multiple expansion drive returns",
+          "Value-creation focus: improve operations/scale/strategy; monetize via exit.",
+          "Portfolio logic: few outsized successes offset underperformers.",
+          "Exit and multiple expansion: timing plus operational/financial enhancements drive value at sale.",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Entry multiple and leverage structure",
-          "Operational and margin improvements",
-          "Exit multiple and timing",
+          "EBITDA growth (ops/pricing).",
+          "Leverage (capital structure).",
+          "Exit multiple and timing.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Financing and interest costs",
-          "Transaction, legal, and advisory fees",
-          "Operational transformation spend",
+          "Financing cost and covenant risk.",
+          "Integration/execution cost.",
+          "Fees and transaction costs.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Sector specialization and repeatable playbooks",
-          "ESG and digital value-creation focus",
-          "Financing innovation and private credit growth",
+          "Sector focus/specialization.",
+          "ESG and digital transformation in portfolios.",
+          "Financing innovation: private credit, minority deals, creative structures.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Execution and integration risk",
-          "Market and exit risk",
-          "Financial leverage risk",
-          "Regulatory and ESG risk",
+          "Execution risk (ops underperformance).",
+          "Market/exit risk (multiple compression).",
+          "Financial/leverage risk (liquidity).",
+          "Regulatory/ESG risk.",
         ],
       },
     ],
@@ -723,67 +838,75 @@ const INDUSTRIES: Industry[] = [
         title: "Players",
         icon: <Users size={18} />,
         items: [
-          "Governments, municipalities, and SOEs",
-          "International organizations (UN, World Bank, EU)",
-          "NGOs and foundations",
-          "Private partners and investors",
-          "Beneficiaries: citizens and communities",
-          "Regulators, auditors, donors, taxpayers",
+          "Governments: ministries, municipalities, SOEs.",
+          "International organizations: UN agencies, World Bank, EU bodies.",
+          "NGOs and foundations.",
+          "Private partners: consulting firms, investors, corporates.",
+          "Beneficiaries: citizens, communities.",
+          "Regulators, auditors, donors, taxpayers.",
         ],
       },
       {
         title: "Key Concepts",
         icon: <Tag size={18} />,
         items: [
-          "Impact focus over profit maximization",
-          "Power dynamics: funders vs executors vs beneficiaries",
-          "Program efficiency ratio and cost-per-beneficiary",
-          "Political feasibility and stakeholder management",
-          "Funding cyclicality and uncertainty",
+          "Power dynamic: funders decide priorities; executors face operational reality; beneficiaries often lack voice.",
+          "Impact focus: do not optimize profit; define outcomes and maximize.",
+          "Program efficiency ratio (PER) and cost-per-beneficiary.",
+          "Political feasibility and stakeholder management as constraints.",
+          "Funding cyclicality and uncertainty.",
+          "Impact equation: Impact = Outcomes Achieved / Resources Used (outcomes: lives improved, services delivered, emissions reduced; resources: budget, staff, time, political capital).",
         ],
       },
       {
         title: "Revenue Drivers",
         icon: <TrendingUp size={18} />,
+        layout: "half",
         items: [
-          "Government budgets and tax revenue",
-          "Domestic and international grants",
-          "Donations and membership fees",
-          "Endowment returns",
-          "Public–private partnerships",
+          "Government budget (taxes/transfers/debt).",
+          "Grants.",
+          "Donations.",
+          "Membership fees.",
+          "Endowment returns.",
+          "PPPs.",
         ],
       },
       {
         title: "Cost Drivers",
         icon: <ArrowDownRight size={18} />,
+        layout: "half",
         items: [
-          "Program delivery costs",
-          "Staff and administration",
-          "Compliance, reporting, and audits",
-          "Infrastructure and IT",
-          "Monitoring and evaluation",
+          "Program delivery.",
+          "Staff/admin.",
+          "Compliance/reporting/audits.",
+          "Infrastructure/IT.",
+          "Monitoring and evaluation.",
         ],
       },
       {
         title: "Trends",
         icon: <BarChart2 size={18} />,
+        layout: "callout",
+        tone: "trend",
         items: [
-          "Digital government and GovTech",
-          "Outcome-based funding",
-          "ESG-linked public–private partnerships",
-          "AI and data for service delivery",
-          "Localization of aid execution",
+          "Digital government and GovTech.",
+          "Outcome-based funding.",
+          "ESG-linked PPPs.",
+          "AI and data for service delivery.",
+          "Localization of aid.",
+          "Increased scrutiny on admin overhead.",
         ],
       },
       {
         title: "Risks",
         icon: <AlertTriangle size={18} />,
+        layout: "callout",
+        tone: "risk",
         items: [
-          "Budget cuts and funding volatility",
-          "Political shifts and policy reversals",
-          "Bureaucracy, corruption, misuse of funds",
-          "Capacity constraints at local level",
-          "Scrutiny of administrative overhead",
+          "Budget cuts and volatility.",
+          "Political shifts and policy reversals.",
+          "Bureaucracy/corruption/misuse.",
+          "Local capacity constraints.",
         ],
       },
     ],
@@ -791,28 +914,167 @@ const INDUSTRIES: Industry[] = [
 ];
 
 function IndustrySectionCard({ section }: { section: IndustrySection }) {
+  const toApaTitleCase = (value: string) => {
+    const smallWords = new Set([
+      "a",
+      "an",
+      "and",
+      "as",
+      "at",
+      "but",
+      "by",
+      "for",
+      "from",
+      "in",
+      "nor",
+      "of",
+      "on",
+      "or",
+      "per",
+      "the",
+      "to",
+      "up",
+      "via",
+      "with",
+    ]);
+
+    return value
+      .split(/\s+/)
+      .map((word, index, words) => {
+        if (!word) return word;
+        const lower = word.toLowerCase();
+        const isFirst = index === 0;
+        const isLast = index === words.length - 1;
+        if (!isFirst && !isLast && smallWords.has(lower)) {
+          return lower;
+        }
+        return lower.charAt(0).toUpperCase() + lower.slice(1);
+      })
+      .join(" ");
+  };
+
+  const tone = section.tone ?? "default";
+  const isCallout = section.layout === "callout";
+  const toneStyles = {
+    default: {
+      header: "text-[#334EAC]",
+      line: "bg-[#334EAC]",
+      bullet: "bg-[#081F5C]",
+      container: "",
+    },
+    trend: {
+      header: "text-[#1E7A5C]",
+      line: "bg-[#1E7A5C]",
+      bullet: "bg-[#1E7A5C]",
+      container: "border-[#77D9B5] bg-white",
+    },
+    risk: {
+      header: "text-[#C2185B]",
+      line: "bg-[#C2185B]",
+      bullet: "bg-[#C2185B]",
+      container: "border-[#F2A0BE] bg-white",
+    },
+  } as const;
+
+  const styles = toneStyles[tone];
+
   return (
-    <div>
-      <div className="inline-flex items-center gap-2 rounded-full bg-[#334EAC] px-3 py-1 text-sm font-semibold text-[#FFF9F0]">
-        <span className="text-[#FFF9F0]">{section.icon}</span>
-        {section.title}
+    <div
+      className={
+        isCallout
+          ? `rounded-2xl border px-5 py-4 ${styles.container}`
+          : "rounded-2xl"
+      }
+    >
+      <div className={`flex items-center gap-2 text-sm font-semibold ${styles.header}`}>
+        <span className={styles.header}>{section.icon}</span>
+        <span>{section.title}</span>
       </div>
+      <div className={`mt-2 h-px w-full ${styles.line}`} />
       <ul className="mt-3 space-y-2 text-sm text-[#090814]">
-        {section.items.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#081F5C]" />
-            <span>{item}</span>
-          </li>
-        ))}
+        {section.items.map((item) => {
+          if (typeof item !== "string") {
+            return (
+              <li key={item.label} className="flex gap-2">
+                <span className={`mt-2 h-1.5 w-1.5 rounded-full ${styles.bullet}`} />
+                <div>
+                  <span className="font-semibold">
+                    {toApaTitleCase(item.label)}
+                  </span>
+                  {item.description ? (
+                    <span className="text-[#090814]">: {item.description}</span>
+                  ) : null}
+                  <ul className="mt-2 space-y-1 pl-4 text-sm text-[#090814]">
+                    {item.subitems.map((subitem) => {
+                      const [label, ...rest] = subitem.split(":");
+                      const detail = rest.join(":").trim();
+                      const hasLabel = rest.length > 0;
+
+                      return (
+                        <li key={subitem} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#4C6FBF]" />
+                          <span>
+                            {hasLabel ? (
+                              <>
+                                <strong className="font-semibold">
+                                  {toApaTitleCase(label.trim())}:
+                                </strong>{" "}
+                                {detail}
+                              </>
+                            ) : (
+                              subitem
+                            )}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </li>
+            );
+          }
+
+          const [label, ...rest] = item.split(":");
+          const detail = rest.join(":").trim();
+          const hasLabel = rest.length > 0;
+
+          return (
+            <li key={item} className="flex gap-2">
+              <span className={`mt-2 h-1.5 w-1.5 rounded-full ${styles.bullet}`} />
+              <span>
+                {hasLabel ? (
+                  <>
+                    <strong className="font-semibold">
+                      {toApaTitleCase(label.trim())}:
+                    </strong>{" "}
+                    {detail}
+                  </>
+                ) : (
+                  item
+                )}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
 }
 
 function IndustryCard({ industry }: { industry: Industry }) {
+  const fullSections = industry.sections.filter(
+    (section) => section.layout !== "half" && section.layout !== "callout",
+  );
+  const halfSections = industry.sections.filter(
+    (section) => section.layout === "half",
+  );
+  const calloutSections = industry.sections.filter(
+    (section) => section.layout === "callout",
+  );
+
   return (
-    <details className="group rounded-[18px] border border-venus bg-milky-way">
-      <summary className="relative flex cursor-pointer list-none items-center justify-between gap-4 overflow-hidden rounded-[18px] border border-venus bg-[#0B0B0B] px-6 py-5 text-white">
+    <details className="group rounded-[22px] border border-[#D9D9D9] bg-[#FFF9F0]">
+      <summary className="relative flex cursor-pointer list-none items-center justify-between gap-4 overflow-hidden rounded-[22px] bg-[#0B0B0B] px-6 py-5 text-white">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center"
           style={{
@@ -827,11 +1089,27 @@ function IndustryCard({ industry }: { industry: Industry }) {
           />
         </div>
       </summary>
-      <div className="border-t border-venus px-6 py-6">
-        <div className="grid gap-8 md:grid-cols-2">
-          {industry.sections.map((section) => (
-            <IndustrySectionCard key={section.title} section={section} />
-          ))}
+      <div className="border-t border-[#E2E2E2] px-6 py-6">
+        <div className="space-y-8">
+          <div className="space-y-8">
+            {fullSections.map((section) => (
+              <IndustrySectionCard key={section.title} section={section} />
+            ))}
+          </div>
+          {halfSections.length > 0 ? (
+            <div className="grid gap-8 md:grid-cols-2">
+              {halfSections.map((section) => (
+                <IndustrySectionCard key={section.title} section={section} />
+              ))}
+            </div>
+          ) : null}
+          {calloutSections.length > 0 ? (
+            <div className="grid gap-8 md:grid-cols-2">
+              {calloutSections.map((section) => (
+                <IndustrySectionCard key={section.title} section={section} />
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </details>
