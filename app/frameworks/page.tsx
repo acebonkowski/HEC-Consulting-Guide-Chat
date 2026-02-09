@@ -10,8 +10,10 @@ export const metadata = {
     "MECE consulting frameworks with descriptions, example prompts, and tips.",
 };
 
+type none = string;
+
 type FrameworkSection = {
-  title: string;
+  title: none;
   items: Array<string | { label: string; items: string[] }>;
 };
 
@@ -20,6 +22,7 @@ type Framework = {
   description: string;
   examplePrompt: string;
   frameworkSections: FrameworkSection[];
+  formulaLines?: string[];
   guidingNote?: string[];
   decisionFlow?: string[];
   tips: string[];
@@ -29,13 +32,17 @@ const FRAMEWORKS: Framework[] = [
   {
     title: "Profitability",
     description:
-      "A foundational framework to decompose profitability problems or build financial intuition from first principles, using the formula PROFIT = REVENUE - COSTS = VOLUME * PRICE – (VOLUME * VARIABLE COSTS + FIXED COSTS).",
+      "A foundational framework to decompose profitability problems or build financial intuition from first principles.",
+    formulaLines: [
+      "PROFIT = REVENUE - COSTS",
+      "= VOLUME * PRICE – (VOLUME * VARIABLE COSTS + FIXED COSTS)",
+    ],
     examplePrompt:
       "A media company reports flat revenues but declining profits across several business units. Management wants a clear breakdown of where value is being lost and which segments matter most.",
     frameworkSections: [
       {
         title: "Revenue",
-        items: ["Unit volume × price per unit"],
+        items: ["Unit Volume", "Price per Unit"],
       },
       {
         title: "Cost",
@@ -50,67 +57,55 @@ const FRAMEWORKS: Framework[] = [
           },
         ],
       },
-      {
-        title: "Segmentation Lens",
-        items: ["By products", "Distribution channels", "Geography", "Customer type", "Industry vertical"],
-      },
-    ],
-    guidingNote: [
-      "Identify leverage point & ask “why”",
-      "If volume issue → benchmark competition",
+     
     ],
     tips: [
-      "Always sanity-check magnitudes.",
-      "Segment early if numbers feel “too averaged.”",
-      "Use this as a base before applying advanced frameworks.",
+      "Identify leverage point early (e.g., volume decline & ask “why”",
+      "Segment early by products, distribution channels, geography, customer type, industry vertical",
+      "If volume is the issue, benchmark the competition to understand whether this is an industry-wide trend",
     ],
   },
   {
-    title: "Organic vs Inorganic Growth",
+    title: "Growth",
     description:
       "Helps decide how a company should grow and through which levers, balancing speed, control, risk, and cost.",
     examplePrompt:
       "A mid-sized industrial company has set a target to double revenues in five years. The board wants to understand whether this growth should come from acquisitions, partnerships, or internal expansion.",
     frameworkSections: [
       {
-        title: "Organic (= own capabilities & efforts)",
+        title: "Organic (= Own Capabilities & Efforts)",
         items: [
-          "Inside core (= existing sources)",
-          "Improve product, new distribution channels, quality, price, marketing",
-          "Outside core (= new sources)",
-          "New segments",
-          "New geography (e.g. Asia)",
-          "New product to segments",
-          "Entirely new business",
+            {
+                label: "Inside Core (= Existing Sources):",
+                items: ["Improve product, new distribution channels, quality, price, marketing, ..."],
+              },
         ],
       },
       {
-        title: "Inorganic (= external efforts)",
+        title: "Inorganic (= External Efforts)",
         items: [
           {
             label: "Acquisition",
-            items: ["Immediate revenue boost", "Synergies & control", "BUT costly + integration"],
+            items: ["Immediate revenue boost, potential synergies & high degree of control BUT costly + integration can be difficult"],
           },
           {
-            label: "JV / shared resources",
-            items: ["Risk sharing", "BUT limited control & scaling risk"],
+            label: "Joint Venture",
+            items: ["Risk is shared at cost of limited control & potential scaling risk"],
           },
           {
             label: "Partnership",
-            items: ["Fast & cheap", "BUT no control, time risk"],
+            items: ["Fast & cheap BUT no control and time risk"],
           },
         ],
       },
     ],
-    guidingNote: ["Understand what to grow (revenue, profit, quantity, etc.) & prioritize organic levers"],
     tips: [
-      "Organic = control, inorganic = speed. Say this explicitly.",
-      "Match growth method to capital availability.",
-      "Integration risk often dominates inorganic outcomes.",
+     "Understand what to grow (revenue, profit, quantity, etc.) & prioritize organic levers",
+      "Explicitely ask whether the company considers internal growth or external growth. If so, make sure to assess the trade-offs (e.g., speed, cost, control, ...)",
     ],
   },
   {
-    title: "Market Expansion / Growth Decision",
+    title: "Market Entry",
     description:
       "Used to evaluate whether expansion makes sense given demand dynamics, supply constraints, and economics.",
     examplePrompt:
@@ -256,7 +251,7 @@ const FRAMEWORKS: Framework[] = [
     ],
   },
   {
-    title: "Competitor Response / Strategic Threat",
+    title: "Competitive Response",
     description:
       "This framework helps decide how to respond to a competitor’s move by assessing impact, intent, capabilities, and response options.",
     examplePrompt:
@@ -375,13 +370,6 @@ const FRAMEWORKS: Framework[] = [
         ],
       },
     ],
-    decisionFlow: [
-      "Identify current pricing strategy & alternatives",
-      "Brainstorm value-added revenue opportunities",
-      "Compare financial effects of alternatives",
-      "Recommend profit-maximizing strategy",
-      "Understand risks",
-    ],
     tips: [
       "Pricing is behavioral as much as financial—mention psychology.",
       "Always discuss implementation feasibility.",
@@ -389,7 +377,7 @@ const FRAMEWORKS: Framework[] = [
     ],
   },
   {
-    title: "Operations Improvement / Process Redesign",
+    title: "Operations Improvement",
     description:
       "This framework diagnoses operational inefficiencies and identifies concrete levers to improve cost, speed, capacity, or productivity.",
     examplePrompt:
@@ -465,6 +453,77 @@ function SectionHeading({
   );
 }
 
+const TITLE_CASE_EXCEPTIONS = new Set([
+  "a",
+  "an",
+  "and",
+  "as",
+  "at",
+  "but",
+  "by",
+  "for",
+  "from",
+  "in",
+  "into",
+  "nor",
+  "of",
+  "on",
+  "or",
+  "over",
+  "per",
+  "the",
+  "to",
+  "up",
+  "via",
+  "vs",
+  "with",
+  "e.g.",
+  "etc.",
+]);
+
+function toApaTitleCase(value: string) {
+  const words = value.split(" ");
+  return words
+    .map((word, index) => {
+      if (!word) return word;
+      const leadingMatch = word.match(/^[^A-Za-z0-9]+/);
+      const trailingMatch = word.match(/[^A-Za-z0-9]+$/);
+      const leading = leadingMatch ? leadingMatch[0] : "";
+      const trailing = trailingMatch ? trailingMatch[0] : "";
+      const core = word.slice(leading.length, word.length - trailing.length);
+      if (!core) return word;
+      const lowerCore = core.toLowerCase();
+      const isFirst = index === 0;
+      const isLast = index === words.length - 1;
+
+      if (/[0-9]/.test(core)) {
+        return `${leading}${core}${trailing}`;
+      }
+      if (core.toUpperCase() === core && core.length > 1) {
+        return `${leading}${core}${trailing}`;
+      }
+      if (core.includes("&") || core.includes("/") || core.includes(".")) {
+        return `${leading}${core}${trailing}`;
+      }
+
+      const parts = core.split("-");
+      const casedParts = parts.map((part, partIndex) => {
+        if (!part) return part;
+        const lowerPart = part.toLowerCase();
+        const shouldLower =
+          !isFirst &&
+          !isLast &&
+          TITLE_CASE_EXCEPTIONS.has(lowerPart) &&
+          partIndex === 0;
+        if (shouldLower) return lowerPart;
+        return lowerPart.charAt(0).toUpperCase() + lowerPart.slice(1);
+      });
+
+      return `${leading}${casedParts.join("-")}${trailing}`;
+    })
+    .join(" ");
+}
+
 function renderSectionItems(
   items: FrameworkSection["items"],
   sectionIndex: number
@@ -480,7 +539,7 @@ function renderSectionItems(
             <span className="font-semibold">
               {sectionIndex + 1}.{itemIndex + 1}.
             </span>{" "}
-            {item}
+            {toApaTitleCase(item)}
           </div>
         ) : (
           <div
@@ -488,11 +547,11 @@ function renderSectionItems(
             className="rounded-[16px] bg-[#BAD6EB] px-4 py-3 text-sm text-[#081F5C]"
           >
             <div className="font-semibold">
-              {sectionIndex + 1}.{itemIndex + 1}. {item.label}
+              {sectionIndex + 1}.{itemIndex + 1}. {toApaTitleCase(item.label)}
             </div>
             <ul className="mt-2 list-disc space-y-2 pl-5">
               {item.items.map((subitem) => (
-                <li key={subitem}>{subitem}</li>
+                <li key={subitem}>{toApaTitleCase(subitem)}</li>
               ))}
             </ul>
           </div>
@@ -559,6 +618,13 @@ export default function FrameworksPage() {
                     <p className="mt-2 text-sm text-[#090814]">
                       {framework.description}
                     </p>
+                    {framework.formulaLines?.length ? (
+                      <div className="mt-3 space-y-1 text-sm font-semibold text-[#081F5C]">
+                        {framework.formulaLines.map((line) => (
+                          <div key={line}>{line}</div>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="rounded-[10px] border border-venus bg-milky-way p-4 text-sm text-[#090814]">
@@ -567,31 +633,17 @@ export default function FrameworksPage() {
                   </div>
 
                   <div>
-                    <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
-                      Framework
-                    </div>
                     <div className={getFrameworkGridClass(framework.frameworkSections.length)}>
                       {framework.frameworkSections.map((section, sectionIndex) => (
                         <div key={section.title} className="space-y-3">
                           <div className="rounded-[16px] bg-[#334EAC] px-4 py-3 text-sm font-semibold text-[#FCFDFF]">
-                            {sectionIndex + 1}. {section.title}
+                            {sectionIndex + 1}. {toApaTitleCase(section.title)}
                           </div>
                           {renderSectionItems(section.items, sectionIndex)}
                         </div>
                       ))}
                     </div>
                   </div>
-
-                  {framework.guidingNote ? (
-                    <div className="rounded-[10px] border border-venus bg-[#EDF4FA] p-4 text-sm text-[#090814]">
-                      <div className="font-semibold text-galaxy">Guiding note</div>
-                      <ul className="mt-2 list-disc space-y-2 pl-5">
-                        {framework.guidingNote.map((note) => (
-                          <li key={note}>{note}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
 
                   {framework.decisionFlow ? (
                     <div className="rounded-[10px] border border-venus bg-[#EDF4FA] p-4 text-sm text-[#090814]">
@@ -610,9 +662,11 @@ export default function FrameworksPage() {
                       Framework Tips
                     </div>
                     <ul className="mt-2 list-disc space-y-2 pl-5">
-                      {framework.tips.map((tip) => (
-                        <li key={tip}>{tip}</li>
-                      ))}
+                      {[...(framework.guidingNote ?? []), ...framework.tips].map(
+                        (tip) => (
+                          <li key={tip}>{tip}</li>
+                        )
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -626,36 +680,43 @@ export default function FrameworksPage() {
         <Container className="py-14 sm:py-16">
           <SectionHeading
             title="Additional resources"
-            description="A few curated references to deepen your framework thinking."
+            description="A few curated references to deepen your framework thinking. The books mentioned are linked as a free PDF. To access the newer versions, you can purchase recent launches on your platform of choice!"
           />
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "Structuring Case Interviews Like a Consultant",
+                title: "The 5 Ways to Be MECE",
                 description:
-                  "A concise article on building MECE structures and leading with hypotheses.",
-                href: "#",
+                  "Learn to come up with your own MECE frameworks to never run out of structures.",
+                href: "https://www.craftingcases.com/the-5-ways-to-be-mece/",
+                flair: "Article",
               },
               {
-                title: "Case in Point (Marc P. Cosentino)",
+                title: "Case in Point (2013)",
                 description:
-                  "A classic playbook covering frameworks, question types, and interview practice.",
-                href: "#",
+                  "A classic consulting interview guide with frameworks, cases, and practice tips.",
+                href: "https://club.zriveapp.com/app/uploads/2023/04/Case-in-Point-2013.pdf",
+                flair: "Book",
               },
               {
-                title: "Crack the Case System (David Ohrvall)",
+                title: "Crack the Case (2005)",
                 description:
-                  "A practical guide with detailed frameworks and step-by-step case walkthroughs.",
-                href: "#",
+                  "David Ohrvall’s case interview playbook with structured methods and practice cases.",
+                href: "https://wp.stolaf.edu/pipercenter/files/2015/06/Crack-the-Case-2005-Edition.pdf",
+                flair: "Book",
               },
             ].map((item) => (
               <Card key={item.title} className="bg-meteor">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
+                  {item.flair}
+                </span>
                 <div className="text-xl font-bold text-galaxy">{item.title}</div>
                 <p className="mt-2 text-sm text-[#090814]">{item.description}</p>
                 <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
                 <div className="mt-4">
                   <ButtonLink
                     href={item.href}
+                    external
                     variant="ghost"
                     className="flex w-full items-center !px-0 !py-0 font-bold text-[#334EAC] underline underline-offset-4"
                   >
