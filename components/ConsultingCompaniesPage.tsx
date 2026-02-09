@@ -2,7 +2,16 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Briefcase, HelpCircle, Layers, Users, X } from "react-feather";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Briefcase,
+  HelpCircle,
+  Layers,
+  Search,
+  Users,
+  X,
+} from "react-feather";
 import { Badge } from "@/components/Badge";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Card } from "@/components/Card";
@@ -78,13 +87,13 @@ const COMPANIES: Company[] = [
     category: "MBB",
     image: "/company-backgrounds/boston-consulting-group.jpg",
     description:
-      "Strategy leader known for classic frameworks and strong digital and AI capabilities.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1963 by Bruce Henderson as the management consulting arm of Boston Safe Deposit and Trust.",
-          "Known for creating classic strategy frameworks such as the growth-share matrix and experience curve.",
+          "BCG was founded in 1963 by Bruce Henderson as the management consulting arm of Boston Safe Deposit and Trust.",
+          "Since then, it has been known for creating classic strategy frameworks such as the growth-share matrix and experience curve.",
         ],
       },
       {
@@ -94,26 +103,26 @@ const COMPANIES: Company[] = [
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Industries: Tech, Media & Telecom; health care; industrial goods; consumer; energy; financial institutions and insurance; public sector; principal investors & private equity; travel, cities & infrastructure.",
-          "Functions: Corporate finance & strategy; marketing, sales & pricing; people & organization; operations; tech & digital advantage; global advantage; social impact; risk & compliance; climate & sustainability.",
+          "Industries: Tech, Media & Telecom, Health Care, Industrial Goods, Consumer, Energy, Finance & Insurance, Public Sector, PE & Infrastructure",
+          "Functions: Corporate Finance & Strategy, Marketing, Sales & Pricing, People & Organization, Operations, Tech & Digital Advantage, Global Advantage, Social Impact, Risk & Compliance, Climate & Sustainability",
         ],
       },
       {
         title: "Structure / different arms",
         items: [
-          "Core BCG (strategy & operations).",
-          "BCG X (build / AI / design unit with technologists, scientists, engineers, designers).",
-          "BCG Platinion (architecture, cyber, enterprise solutions advisory).",
+          "Core BCG (Strategy & Operations).",
+          "BCG X (Build/AI/Design unit with technologists, scientists, engineers, designers).",
+          "BCG Platinion (Architecture, cyber, enterprise solutions advisory).",
           "Digital and AI integrated through BCG X and digital-tagged consultants across practices.",
         ],
       },
       {
         title: "Mission, culture & values",
         items: [
-          "Purpose: “Unlocking the potential of those who advance the world.”",
-          "Purpose principles: challenge & innovate; look ahead & collaborate; analyze & identify; act with integrity; serve & empower.",
-          "Values: integrity, respect for the individual, partnership, clients-come-first, strategic perspective, expanding the art of the possible, long-term value delivered, diversity, and social impact.",
-          "Culture: strong apprenticeship and feedback, structured teaming rituals (Case Connects, surveys), explicit focus on growth mindset, team trust, and sustained impact.",
+          "Unlocking the potential of those who advance the world",
+          "Purpose Principles: Challenge & Innovate | Look Ahead & Collaborate | Analyze & Identify | Act with Integrity | Serve & Empower.",
+          "Values: integrity |  respect for the individual | partnership | clients-come-first | strategic perspective | expanding the art of the possible | long-term value delivered | diversity, and social impact.",
+          "Culture: strong apprenticeship and feedback, structured teaming rituals (e.g., Case Connects, surveys), explicit focus on growth mindset, team trust, and sustained impact",
         ],
       },
       {
@@ -131,13 +140,13 @@ const COMPANIES: Company[] = [
     category: "MBB",
     image: "/company-backgrounds/bain.jpg",
     description:
-      "Results-focused firm with deep private equity exposure and tight home-office culture.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1973 by Bill Bain and colleagues leaving BCG under the motto “results, not reports,” often accepting equity or tied economics.",
-          "Built around deep client relationships and private equity support.",
+          "Bain was founded in 1973 by Bill Bain and colleagues, leaving BCG under the motto “results, not reports,”. Back in time their huge differeniator wasoften accepting equity or tied economics.",
+          "Additionally, the company was built around deep client relationships and private equity support.",
         ],
       },
       {
@@ -163,9 +172,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Purpose: help clients create such high levels of value that together they set new standards of excellence.",
-          "“True North” values: passion & commitment, honesty & openness, practical orientation, “one team” globally.",
-          "Tied economics: fee structures linked to client results and outcomes.",
+          "Help clients create such high levels of value that together they set new standards of excellence.",
+          "“True North” Values: passion & commitment | honesty & openness | practical orientation | “one team” globally.",
+          "Tied Economics: fee structures linked to client results and outcomes.",
           "Culture: strong mentorship, home-office staffing model, very cohesive “Bainie” identity, heavy results focus.",
         ],
       },
@@ -184,13 +193,13 @@ const COMPANIES: Company[] = [
     category: "Big 4",
     image: "/company-backgrounds/deloitte.webp",
     description:
-      "Deloitte’s strategy arm with strong implementation exposure and scale.",
+      "Monitor Deloitte is Deloitte’s strategy arm with strong implementation exposure and scale.",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Monitor Group founded 1983 by HBS professors including Michael Porter; known for competitive strategy work.",
-          "Acquired by Deloitte in 2013 after financial difficulties and integrated as Monitor Deloitte, the global strategy practice.",
+          "The Monitor Group was founded in 1983 by HBS professors including Michael Porter; known for his competitive strategy work.",
+          "It was later acquired by Deloitte in 2013 after financial difficulties and integrated as Monitor Deloitte, the global strategy practice of Deloitte.",
         ],
       },
       {
@@ -202,8 +211,8 @@ const COMPANIES: Company[] = [
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in corporate/competitive strategy, growth and innovation, customer & marketing, and public sector.",
-          "Leverages Deloitte’s strengths in financial services, TMT, consumer, and government.",
+          "Industries: Strong in corporate/competitive strategy, growth and innovation, customer & marketing, and public sector.",
+          "Functions: Leverages Deloitte’s strengths in financial services, TMT, consumer, and government.",
         ],
       },
       {
@@ -216,9 +225,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Deloitte-wide purpose: “making an impact that matters” for clients and society.",
-          "Values: integrity, outstanding value to markets & clients, commitment to each other, cultural diversity and inclusion.",
-          "Culture: mix of strategy-firm and Big-4 corporate; often more local staffing and slightly more predictable lifestyle than pure strategy houses.",
+          "Making an impact that matters” for clients and society.",
+          "Values: Lead the way | Serve with integrity | Take care of each other | Foster inclusion | Collaborate for measurable impact.",
+          "Culture: Mix of strategy-firm and Big-4 corporate, often more local staffing and slightly more predictable lifestyle than pure strategy houses.",
         ],
       },
       {
@@ -236,25 +245,25 @@ const COMPANIES: Company[] = [
     category: "Big 4",
     image: "/company-backgrounds/strategy&.webp",
     description:
-      "PwC’s strategy arm combining Booz heritage with global advisory scale.",
+      "Strategy& is PwC’s strategy arm combining Booz heritage with global advisory scale.",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Traces back to Booz & Company (originally part of Booz Allen Hamilton’s commercial practice), an early pioneer in management consulting.",
+          "It‘s founding traces back to Booz & Company (originally part of Booz Allen Hamilton’s commercial practice), an early pioneer in management consulting. It was acquired by PwC in 2014 and rebranded as Strategy&",
           "Acquired by PwC in 2014 and rebranded as Strategy&.",
         ],
       },
       {
         title: "Offices & countries",
         items: [
-          "Integrated into PwC’s global network (150+ countries), with strategy hubs in North America, Europe (notably Germany), and the Middle East.",
+          "Integrated into PwC’s global network (150 countries), with strategy hubs in North America, Europe (notably Germany), and the Middle East.",
         ],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in industrials, aerospace & defense, public sector, and sovereign work (Middle East in particular).",
+          "Industries: Strong in industrials, aerospace & defense, public sector, and sovereign work (Middle East in particular).",
           "Functions: corporate and business unit strategy, operating model and organization, operations and transformation, deals and commercial strategy.",
         ],
       },
@@ -268,8 +277,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Combines PwC purpose (build trust in society and solve important problems) with Booz-heritage “practical strategists” mindset.",
-          "Culture: varies by region; some offices are more strategy-like, others more Big-4; Middle East and DACH are strong flagship regions.",
+          "Build trust in society and solve important problems.",
+          "Culture: Culture is built on a dual commitment: trusted leadership and distinctive outcomes. Professionals are expected to lead with integrity, inclusion, and accountability, while consistently translating that leadership into high-quality, practical results for clients and society.",
+          "Values: Act with integrity | Make a difference | Care | Work together | Reimagine the possible.",
         ],
       },
       {
@@ -283,30 +293,29 @@ const COMPANIES: Company[] = [
     ],
   },
   {
-    name: "EY-Parthenon",
+    name: "EY Parthenon",
     category: "Big 4",
     image: "/company-backgrounds/EY.webp",
     description:
-      "EY’s dedicated strategy brand with strong PE and sector focus.",
+      "EY-Parthenon is EY’s dedicated strategy brand with strong PE and sector focus.",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Parthenon Group founded 1991 as a boutique strategy firm; began integrating with EY from 2014 onwards.",
-          "EY-Parthenon is now EY’s dedicated global strategy brand.",
+          "The Parthenon Group was founded in 1991 as a boutique strategy firm. It began integrating with EY from 2014 onwards and is now EY’s dedicated global strategy brand.",
         ],
       },
       {
         title: "Offices & countries",
         items: [
-          "Embedded in EY’s 150+ country network with strategy offices across the Americas, EMEIA, and Asia-Pacific (large hubs in US, UK, Germany, India, etc.).",
+          "Embedded in EY’s 120-country network with strategy offices across the Americas, EMEIA, and Asia-Pacific (large hubs in US, UK, Germany, India, etc.).",
         ],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in education, consumer/retail, and private equity/commercial due diligence.",
-          "Functions: growth strategy, portfolio strategy, M&A strategy, commercial due diligence, value creation, sector-specific strategy (e.g., education).",
+          "Industries: Strong in education, consumer/retail, and private equity/commercial due diligence.",
+          "Functions: growth strategy, portfolio strategy, M&A strategy, commercial due diligence, value creation, sector-specific strategy.",
         ],
       },
       {
@@ -319,8 +328,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "EY purpose: “building a better working world,” with values around integrity, respect, teaming, and inclusiveness.",
-          "Culture: deal-heavy in some offices (PE focus), more Big-4 corporate in others; strong emphasis on teaming and early responsibility.",
+          "Building a better working world.",
+          "Values: Build trust and confidence in the capital markets | Develop outstanding leaders | Team to deliver on promises to all stakeholders.",
+          "Culture: Purpose-led and people-first, empowering teams with the right mindsets and skills to navigate what’s next.",
         ],
       },
       {
@@ -338,40 +348,41 @@ const COMPANIES: Company[] = [
     category: "Big 4",
     image: "/company-backgrounds/KMPG.jpg",
     description:
-      "Global Strategy Group with strong financial services and public sector work.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "KPMG formed via merger of several accounting firms in 1987; consulting and strategy offerings expanded over time.",
-          "Global Strategy Group (GSG) is KPMG’s dedicated strategy practice within its advisory arm.",
+          "KPMG was initially formed via merger of several accounting firms in 1987 with its consulting and strategy offerings expandingover time.",
+          "The Global Strategy Group (GSG) is KPMG’s dedicated strategy practice within its advisory arm with strong financial services and public sector work.",
         ],
       },
       {
         title: "Offices & countries",
         items: [
-          "Presence in over 140 countries; GSG operates in most major markets but is smaller than audit and tax.",
+          "Presence in over 143 countries; GSG operates in most major markets but is smaller than audit and tax.",
         ],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in financial services, public sector, infrastructure, and regulated industries.",
+          "Industries: Strong in financial services, public sector, infrastructure, and regulated industries.",
           "Functions: corporate strategy, growth, deals & transaction strategy, cost reduction, risk and regulatory strategy.",
         ],
       },
       {
         title: "Structure / different arms",
         items: [
-          "GSG within KPMG Advisory; works closely with Deal Advisory, Risk Consulting, and Management Consulting.",
+          "GSG within KPMG Advisory works closely with Deal Advisory, Risk Consulting, and Management Consulting.",
           "Additional specialist units in cyber, tech, and forensic work.",
         ],
       },
       {
         title: "Mission, culture & values",
         items: [
-          "Purpose: inspiring confidence and empowering change, with values of integrity, excellence, courage, together, and for better.",
-          "Culture: more local and corporate than MBB; often slightly better work-life balance, with variation by office.",
+          "Inspire Confidence. Empower Change.",
+          "Values: Integrity | Excellence | Courage | Together | For Better.",
+          "Culture: values-led and trust-focused, with emphasis on doing what is right and continuous improvement.",
         ],
       },
       {
@@ -389,13 +400,13 @@ const COMPANIES: Company[] = [
     category: "Tier 2",
     image: "/company-backgrounds/OliverWyman.webp",
     description:
-      "Analytically rigorous firm with deep financial services specialization.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1984; later merged with other units and integrated into Marsh & McLennan.",
-          "Known for specialization in financial services and risk.",
+          "Founded 1984, Oliver Wyman later merged with other units and integrated into Marsh & McLennan.",
+          "Today it is known for its deep specialization in financial services and risk.",
         ],
       },
       {
@@ -405,7 +416,7 @@ const COMPANIES: Company[] = [
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Very strong in financial services (banking, insurance, capital markets); also active in retail, transportation, energy, and public sector.",
+          "Industries: Very strong in financial services (banking, insurance, capital markets); also active in retail, transportation, energy, and public sector.",
           "Functions: risk management, strategy, pricing, digital and analytics, organizational effectiveness, operations.",
         ],
       },
@@ -419,8 +430,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Positions itself as a specialist, analytically rigorous firm delivering breakthrough impact in chosen sectors.",
-          "Culture: high responsibility early, especially in FS; entrepreneurial and meritocratic, with travel similar to MBB and leaner teams.",
+          "Big moments. Bold moves. Real impact, together.",
+          "Values: Be Brave | Lead With Heart | Strive For Breakthroughs | Work As One | Own Our Impact.",
+          "Culture: Entrepreneurial and inclusive, built around courage, heart, and unified teamwork.",
         ],
       },
       {
@@ -438,13 +450,13 @@ const COMPANIES: Company[] = [
     category: "Tier 2",
     image: "/company-backgrounds/kearney.jpg",
     description:
-      "Generalist strategy firm with strong operations and supply chain focus.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Origin in early split from McKinsey; A.T. Kearney later acquired by EDS and then became independent again after a management buyout in 2005.",
-          "Rebranded to “Kearney” in recent years.",
+          "Kearney's origin is in its early split from McKinsey. Then called A.T. Kearney, it was later acquired by EDS and then became independent again after a management buyout in 2005.",
+          "After being rebranded to “Kearney” in recent years, it has become a generalist strategy firm with strong operations and supply chain focus.",
         ],
       },
       {
@@ -456,7 +468,7 @@ const COMPANIES: Company[] = [
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Generalist across industries but particularly strong in operations & supply chain, industrials, and consumer.",
+          "Industries: Generalist across industries but particularly strong in operations & supply chain, industrials, and consumer.",
           "Functions: operations, procurement, transformation, strategy, implementation.",
         ],
       },
@@ -470,7 +482,8 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Emphasizes genuine collaboration, “down-to-earth” consultants, and client intimacy.",
+          "Be the difference of purpose for our clients, people, communities, and the planet by pursuing sustainable positive results in everything we do, as established in our principle of “essential rightness.",
+          "Values: Curiosity and drive to explore new ground | Generosity of spirit to care deeply about the well-being of others | Boldness to be distinctive and break from the status quo | Solidarity to be a winning team that supports each other and their well-being | Passion and presence to be your best self.",
           "Culture: relationship-oriented, slightly less formal than MBB, with more regional than global travel in many offices.",
         ],
       },
@@ -489,13 +502,12 @@ const COMPANIES: Company[] = [
     category: "Tier 2",
     image: "/company-backgrounds/roland-berger.jpg",
     description:
-      "European strategy champion with deep DACH and France presence.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1967 in Germany by Roland Berger as a European strategy firm.",
-          "First major global strategy house originating from Europe.",
+          "Founded 1967 in Germany by Roland Berger, the firm is an European strategy champion with deep DACH and France presence, being the first major global strategy house originating from Europe.",
         ],
       },
       {
@@ -507,7 +519,7 @@ const COMPANIES: Company[] = [
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in industrials, automotive & mobility, energy, and public sector in Europe.",
+          "Industries: Strong in industrials, automotive & mobility, energy, and public sector in Europe.",
           "Functions: corporate strategy, restructuring, performance improvement, transformation, digital strategy.",
         ],
       },
@@ -521,8 +533,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Positions itself as a “European champion” with deep regional expertise and entrepreneurial mindset.",
-          "Culture: high autonomy, strong local networks, and a more entrepreneurial feel in DACH/France.",
+            "Help organizations, businesses and entrepreneurs to reimagine their reality and shift the world towards a new sustainable paradigm.",
+          "Values: Entrepreneurship | Excellence | Empathy.",
+          "Culture: Entrepreneurial, excellence-driven, and empathetic in how teams work with clients and each other.",
         ],
       },
       {
@@ -540,23 +553,23 @@ const COMPANIES: Company[] = [
     category: "Tier 2",
     image: "/company-backgrounds/lek-consulting.jpg",
     description:
-      "Specialist strategy firm with strong healthcare and PE exposure.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1983 in London by three Bain partners: James Lawrence, Iain Evans, and Richard Koch.",
-          "Built a strong reputation in strategy and transaction support.",
+          "Founded 1983 in London by three Bain partners, L.E.K. is a specialist strategy firm with strong healthcare and PE exposure.",
+          "Over time, it built a strong reputation in strategy and transaction support.",
         ],
       },
       {
         title: "Offices & countries",
-        items: ["Around 20+ offices across Europe, the Americas, and Asia-Pacific."],
+        items: ["Active in 12 countries across Europe, the Americas, and Asia-Pacific."],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in life sciences & healthcare, aviation, consumer, and private equity/commercial due diligence.",
+          "Industries: Strong in life sciences & healthcare, aviation, consumer, and private equity/commercial due diligence.",
           "Functions: corporate strategy, market entry, pricing and growth, transaction support.",
         ],
       },
@@ -570,8 +583,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Emphasizes rigorous analysis and deep specialization, especially in healthcare and PE.",
-          "Culture: demanding hours in some offices, but strong analytical development and early responsibility.",
+            "Unleashing momentum by illuminating the pattern in the noise, challenging what’s possible and inspiring the confidence that drives conviction.",
+          "Values: Excellence | Collaboration | Enablement | Empowerment | Drive.",
+          "Culture: Collaborative and high-performing, with a strong emphasis on development and inclusion.",
         ],
       },
       {
@@ -588,13 +602,13 @@ const COMPANIES: Company[] = [
     category: "Restructuring & Performance",
     image: "/company-backgrounds/alvarez-marsal.jpg",
     description:
-      "Hands-on turnaround and restructuring specialist with PE ties.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1983 by Tony Alvarez II and Bryan Marsal.",
-          "Gained global prominence via major bankruptcy and restructuring mandates.",
+          "Founded 1983 by Tony Alvarez II and Bryan Marsal, Alvarez & Marsal is a hands-on turnaround and restructuring specialist with PE ties.",
+          "It gained global prominence via major bankruptcy and restructuring mandates, often working as operators as well as advisors.",
         ],
       },
       {
@@ -606,22 +620,23 @@ const COMPANIES: Company[] = [
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Specializes in turnaround & restructuring, performance improvement, disputes & investigations, and transaction advisory.",
-          "Sector coverage is broad but skewed toward distressed industries and PE portfolios.",
+          "Industries: Specializes in turnaround & restructuring, performance improvement, disputes & investigations, and transaction advisory.",
+          "Functions:Sector coverage is broad but skewed toward distressed industries and PE portfolios.",
         ],
       },
       {
         title: "Structure / different arms",
         items: [
-          "Service lines: Corporate Performance Improvement, Turnaround & Restructuring, Disputes & Investigations, Transaction Advisory, Tax, etc.",
+          "Service Lines: Corporate Performance Improvement, Turnaround & Restructuring, Disputes & Investigations, Transaction Advisory, Tax, etc.",
           "Often takes interim management roles (CFO/CRO), working as operators as well as advisors.",
         ],
       },
       {
         title: "Mission, culture & values",
         items: [
-          "Very results-oriented, “hands-on” and focused on immediate impact in high-stakes situations.",
-          "Culture: entrepreneurial, high-pressure, high-pay; tight links with PE and creditors.",
+            "Providing practical solutions to the unique problems of companies, investors and government entities.",
+          "Values: Integrity | Quality | Objectivity | Fun | Personal Reward | Inclusive Diversity.",
+          "Culture: entrepreneurial, high-pressure, high-pay, tight links with private equity and creditors.",
         ],
       },
       {
@@ -639,40 +654,40 @@ const COMPANIES: Company[] = [
     category: "Restructuring & Performance",
     image: "/company-backgrounds/alixpartners.webp",
     description:
-      "High-stakes performance improvement and restructuring specialist.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1981 by Jay Alix, initially focused on corporate restructuring.",
-          "Associated with major restructurings and bankruptcies (e.g., automotive and industrial cases).",
+          "AlixPartnersis a high-stakes performance improvement and restructuring specialist, founded in 1981 by Jay Alix, initially focused on corporate restructuring. It is now a global leader in restructuring and performance improvement, and is associated with major restructurings and bankruptcies (e.g., automotive and industrial cases).",
         ],
       },
       {
         title: "Offices & countries",
         items: [
-          "25+ offices across North America, Europe, Middle East, and Asia.",
+          "11+ countries across North America, Europe, Middle East, and Asia.",
         ],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Specializes in turnaround & restructuring, performance improvement, financial advisory, investigations, and digital transformation.",
-          "Strong in automotive, retail, manufacturing, and consumer sectors.",
+          "Functions: Specializes in turnaround & restructuring, performance improvement, financial advisory, investigations, and digital transformation.",
+          "Industries: Strong in automotive, retail, manufacturing, and consumer sectors.",
         ],
       },
       {
         title: "Structure / different arms",
         items: [
-          "Service lines: Turnaround & Restructuring, Performance Improvement, Risk & Disputes, Digital, Transaction Advisory.",
+          "Service Lines: Turnaround & Restructuring, Performance Improvement, Risk & Disputes, Digital, Transaction Advisory.",
           "Teams integrate financial, operational, and legal aspects; often small, senior-heavy.",
         ],
       },
       {
         title: "Mission, culture & values",
         items: [
-          "Brand promise around “when it really matters” – high-stakes, time-critical situations.",
-          "Culture: intense, hands-on, high expectations; compensation aligned with stakes and complexity.",
+          "Results. Fast. Together. When it really matters.",
+          "Values: Commitment | Professionalism | Teamwork | Common Sense | Personal Respect | Communication",
+          "Culture: intense, hands-on, high expectations, compensation aligned with stakes and complexity.",
         ],
       },
       {
@@ -689,13 +704,13 @@ const COMPANIES: Company[] = [
     category: "Specialists",
     image: "/company-backgrounds/simon-kucher.jpg",
     description:
-      "Pricing and revenue growth specialist with commercial focus.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1985 in Bonn, Germany, by Hermann Simon and colleagues.",
-          "Built global reputation as a pricing and revenue growth specialist.",
+          "Founded 1985 in Bonn, Germany, Simon-Kucher is a pricing and revenue growth specialist with a global reputation.",
+          
         ],
       },
       {
@@ -705,8 +720,8 @@ const COMPANIES: Company[] = [
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Core strength: pricing, marketing, sales, and revenue growth management across industries (CPG, SaaS, FS, industrials, healthcare, etc.).",
-          "Projects often focus on monetization, subscription models, and commercial strategy.",
+          "Industries: Core strength: pricing, marketing, sales, and revenue growth management across industries (CPG, SaaS, FS, industrials, healthcare, etc.).",
+          "Functions: Projects often focus on monetization, subscription models, and commercial strategy.",
         ],
       },
       {
@@ -719,14 +734,15 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Focus on “unlocking better growth” through smart monetization rather than cost cutting.",
+          "We unlock a better kind of growth that creates opportunity for everyone.",
+          "Values: Create Positive Impact | Foster an Entrepreneurial Spirit | Unlock the Power of Opportunity | Value Authentic Relationships",
           "Culture: analytical but commercial, often slightly better W-L-B than top generalist strategy firms; strong European flavor in many offices.",
         ],
       },
       {
         title: "When to choose Simon-Kucher?",
         items: [
-          "You want to become a pricing / commercial strategy expert.",
+          "You want to become a pricing/commercial strategy expert.",
           "You like the idea of being the “pricing person” for future employers (CPG, SaaS, marketplaces).",
           "You’re fine with a more focused niche and somewhat narrower brand vs generalist firms.",
         ],
@@ -738,26 +754,25 @@ const COMPANIES: Company[] = [
     category: "Specialists",
     image: "/company-backgrounds/FTI.webp",
     description:
-      "Advisory firm strong in disputes, restructuring, and strategic communications.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Originated in the 1980s as Forensic Technologies International, focusing on litigation support.",
-          "Expanded via acquisitions into a global consulting and advisory firm.",
+          "FTI originated in the 1980s as Forensic Technologies International, focusing on litigation support. Over time, it expanded via acquisitions into a global consulting and advisory firm, skilled in disputes, restructuring, and strategic communications.",
         ],
       },
       {
         title: "Offices & countries",
         items: [
-          "Around 30+ countries with key hubs in the US, UK, continental Europe, and Asia.",
+          "30+ offices with key hubs in the US, UK, continental Europe, and Asia.",
         ],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Segments: Corporate Finance & Restructuring, Forensic & Litigation Consulting, Economic Consulting, Strategic Communications, Technology.",
-          "Especially strong in regulated industries, litigation, investigations, and crisis communications.",
+          "Functions: Corporate Finance & Restructuring, Forensic & Litigation Consulting, Economic Consulting, Strategic Communications, Technology.",
+          "Industries: Especially strong in regulated industries, litigation, investigations, and crisis communications.",
         ],
       },
       {
@@ -770,7 +785,8 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Mission: help organizations manage change, mitigate risk, and resolve disputes.",
+          "Help organizations manage change, mitigate risk, and resolve disputes.",
+          "Values: Integrity | Creativity | Achievement | Respect | Empathy",
           "Culture: expert-driven, cross-disciplinary (law, economics, accounting, communications), more “advisory” than classic strategy.",
         ],
       },
@@ -787,27 +803,27 @@ const COMPANIES: Company[] = [
   {
     name: "OC&C Strategy Consultants",
     category: "Specialists",
-    image: "/company-backgrounds/OC&C.jpeg",
+    image: "/company-backgrounds/OC&C.jpg",
     description:
-      "Pure-play strategy boutique with strong consumer and PE DD focus.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1987 in London as a pure-play strategy boutique.",
-          "Expanded across Europe, US, and Asia with selective mergers.",
+          "Founded 1987 in London as a pure-play strategy boutique, OC&C Strategy Consultants is a specialist strategy firm with strong consumer and PE DD focus.",
+          "Over time, it expanded across Europe, US, and Asia with selective mergers.",
         ],
       },
       {
         title: "Offices & countries",
         items: [
-          "Around 10–15 offices across the UK, continental Europe, the US, and China.",
+          "11+ countries across the UK, continental Europe, the US, and China.",
         ],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in retail, consumer, media & entertainment, TMT, B2B services, and private equity/commercial DD.",
+          "Industries: Strong in retail, consumer, media & entertainment, TMT, B2B services, and private equity/commercial DD.",
           "Functions: corporate strategy, growth, portfolio, commercial due diligence, pricing, and sometimes organization.",
         ],
       },
@@ -821,8 +837,8 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Emphasis on “smart thinking, not large teams” – lean, analytical engagements.",
-          "Culture: small-firm feel, high intellectual bar, largely European; lifestyle depends heavily on office and sector.",
+          "Values: Uncommon Sense™ | Relentless Pursuit of the Right Answer | Creative, Practical, Actionable Strategies.",
+          "Culture: Lean, analytical, and client‑embedded teams focused on solving complex problems with rigor and creativity.",
         ],
       },
       {
@@ -840,19 +856,19 @@ const COMPANIES: Company[] = [
     category: "Large Tech & Implementation",
     image: "/company-backgrounds/accenture.jpg",
     description:
-      "Global strategy and technology powerhouse with massive scale.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Originated as the consulting arm of Arthur Andersen; rebranded as Accenture in 2001 after separation.",
-          "Grew into one of the world’s largest technology and consulting companies.",
+          "Accenture is a global strategy and technology powerhouse with massive scale that Originated as the consulting arm of Arthur Andersen. After sepeation, it rebranded as Accenture in 2001.",
+          "Over time, it grew into one of the world’s largest technology and consulting companies.",
         ],
       },
       {
         title: "Offices & countries",
         items: [
-          "Operations in over 200 cities across roughly 50+ countries; several hundred thousand employees globally.",
+          "200+ offices across roughly 50+ countries; several hundred thousand employees globally.",
         ],
       },
       {
@@ -874,9 +890,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Purpose: deliver on the promise of technology and human ingenuity.",
-          "Values: client value creation, one global network, respect for the individual, integrity, stewardship, best people.",
-          "Culture: very large-company and tech-oriented; travel and hours vary widely by role (strategy vs. tech vs. operations).",
+          "Deliver on the promise of technology and human ingenuity.",
+          "Values: client value creation | one global network | respect for the individual | integrity | stewardship | best people.",
+          "Culture: very large-company and tech-oriented, travel and hours vary widely by role (strategy vs. tech vs. operations).",
         ],
       },
       {
@@ -894,13 +910,13 @@ const COMPANIES: Company[] = [
     category: "Large Tech & Implementation",
     image: "/company-backgrounds/capgemini.webp",
     description:
-      "European tech and digital transformation leader with strong engineering base.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "Founded 1967 in Grenoble, France, as Sogeti; expanded and rebranded to Capgemini.",
-          "Grew through acquisitions (including parts of Ernst & Young Consulting) into a major IT and consulting player.",
+          "Founded 1967 in Grenoble, France, as Sogeti, Capgemini is a European tech and digital transformation leader with a strong engineering base. Over time, it expanded and rebranded to Capgemini.",
+          "Camgemini grew through acquisitions (including parts of Ernst & Young Consulting) into a major IT and consulting player.",
         ],
       },
       {
@@ -925,8 +941,9 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Purpose centered on leveraging technology for inclusive and sustainable futures.",
-          "Culture: strong European base, engineering-heavy; often more local staffing and less travel than classic strategy firms.",
+          "With you, we create and deliver business and technology solutions that fit your needs and drive the results you want",
+          "Values: Honesty | Boldness | Team Spirit | Modesty | Trust | Freedom | Fun",
+          "Culture: strong European base, engineering-heavy, often more local staffing and less travel than classic strategy firms.",
         ],
       },
       {
@@ -944,23 +961,23 @@ const COMPANIES: Company[] = [
     category: "Large Tech & Implementation",
     image: "/company-backgrounds/IBM-consulting.jpg",
     description:
-      "Enterprise tech transformation consultancy integrated with IBM’s platform.",
+      "",
     sections: [
       {
         title: "Brief history",
         items: [
-          "IBM has consulted for decades; IBM Global Business Services rebranded to IBM Consulting in 2021.",
-          "Focused on hybrid cloud, AI, and deep enterprise IT transformations.",
+          "IBM has consulted for decades, but IBM Global Business Services rebranded themselves to IBM Consulting in 2021.",
+          "As an Enterprise tech transformation consultancy integrated with IBM’s platform, the company is focused on hybrid cloud, AI, and deep enterprise IT transformations.",
         ],
       },
       {
         title: "Offices & countries",
-        items: ["Global footprint in ~170 countries in line with IBM’s presence."],
+        items: ["100+ offices across ~170 countries in line with IBM’s presence."],
       },
       {
         title: "Industry & area focus / specialization",
         items: [
-          "Strong in industries with complex legacy IT: financial services, public sector, industrials, telecom, and others.",
+          "Industries: Strong in industries with complex legacy IT: financial services, public sector, industrials, telecom, and others.",
           "Functions: digital strategy, cloud modernization, AI & analytics, process and enterprise transformation.",
         ],
       },
@@ -974,7 +991,8 @@ const COMPANIES: Company[] = [
       {
         title: "Mission, culture & values",
         items: [
-          "Purpose: apply intelligence, reason, and science to improve business and society.",
+          "Be a catalyst that makes the world work better.",
+          "Values: Excellence in Your Work | Service to the Customer",
           "Culture: tech-company feel, focused on solution architecture and delivery; mix of consultants and technical specialists.",
         ],
       },
@@ -1032,25 +1050,94 @@ function getMissionQuote(items?: string[]) {
   return quote ?? items[0];
 }
 
-function renderBoldLabel(text: string) {
+function capitalizeFirst(value: string) {
+  if (!value) return value;
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function formatSpacing(text: string) {
+  return text
+    .replace(/\u00a0/g, " ")
+    .replace(/\s*\|\s*/g, " | ")
+    .replace(/,\s*/g, ", ")
+    .replace(/\s+/g, " ");
+}
+
+function formatIndustriesAndFunctions(text: string) {
+  const cleaned = formatSpacing(text.replace(/;/g, " I "));
+  const withTitleCase = cleaned
+    .split(" ")
+    .map((word) => {
+      if (!word) return word;
+      const leadingMatch = word.match(/^[^A-Za-z0-9]+/);
+      const trailingMatch = word.match(/[^A-Za-z0-9]+$/);
+      const leading = leadingMatch ? leadingMatch[0] : "";
+      const trailing = trailingMatch ? trailingMatch[0] : "";
+      const core = word.slice(leading.length, word.length - trailing.length);
+      if (!core) return word;
+      if (core.toUpperCase() === core && core.length > 1) {
+        return `${leading}${core}${trailing}`;
+      }
+      const parts = core.split("-");
+      const casedParts = parts.map((part) => {
+        if (!part) return part;
+        return part.charAt(0).toUpperCase() + part.slice(1);
+      });
+      return `${leading}${casedParts.join("-")}${trailing}`;
+    })
+    .join(" ");
+  return formatSpacing(withTitleCase.replace(/\bI\b/g, " I "));
+}
+
+function formatBullet(text: string, sectionTitle: string) {
+  const withoutSemicolons = formatSpacing(text.replace(/;/g, " I "));
+  if (
+    sectionTitle.toLowerCase().includes("industry") ||
+    sectionTitle.toLowerCase().includes("values") ||
+    withoutSemicolons.toLowerCase().startsWith("industries:") ||
+    withoutSemicolons.toLowerCase().startsWith("functions:") ||
+    withoutSemicolons.toLowerCase().startsWith("values:")
+  ) {
+    return formatIndustriesAndFunctions(withoutSemicolons);
+  }
+  return capitalizeFirst(withoutSemicolons.trim());
+}
+
+function renderBoldLabel(text: string, sectionTitle: string) {
   const parts = text.split(":");
   if (parts.length < 2) return text;
   const label = parts.shift() ?? "";
   const rest = parts.join(":").trim();
   if (!label) return text;
+  if (label.trim().toLowerCase() === "culture") {
+    return (
+      <>
+        <strong className="font-bold">{capitalizeFirst(label)}:</strong>{" "}
+        {capitalizeFirst(rest.toLowerCase())}
+      </>
+    );
+  }
   return (
     <>
-      <strong>{label}:</strong> {rest}
+      <strong className="font-bold">{capitalizeFirst(label)}:</strong>{" "}
+      {formatBullet(rest, sectionTitle)}
     </>
   );
 }
 
 export function ConsultingCompaniesPage() {
   const [activeCompany, setActiveCompany] = useState<Company | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const groupedCompanies = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    const filtered = query
+      ? COMPANIES.filter((company) =>
+          company.name.toLowerCase().includes(query)
+        )
+      : COMPANIES;
     const byCategory = new Map<string, Company[]>();
-    COMPANIES.forEach((company) => {
+    filtered.forEach((company) => {
       if (!byCategory.has(company.category)) byCategory.set(company.category, []);
       byCategory.get(company.category)!.push(company);
     });
@@ -1060,7 +1147,7 @@ export function ConsultingCompaniesPage() {
         companies: byCategory.get(category)!,
       })
     );
-  }, []);
+  }, [searchQuery]);
 
   const flatCompanies = useMemo(
     () => groupedCompanies.flatMap((group) => group.companies),
@@ -1101,36 +1188,61 @@ export function ConsultingCompaniesPage() {
         <section className="bg-sky/40 border-b border-venus">
           <Container className="py-14 sm:py-16">
             <div className="space-y-10">
-              {groupedCompanies.map((group) => (
-                <div key={group.category} className="space-y-4">
-                  <Badge>{group.category}</Badge>
-                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {group.companies.map((company) => (
-                      <button
-                        key={company.name}
-                        type="button"
-                        onClick={() => setActiveCompany(company)}
-                        className="text-left"
-                        aria-label={`Open ${company.name} details`}
-                      >
-                        <div className="relative overflow-hidden rounded-[18px]">
-                          <Image
-                            src={company.image}
-                            alt=""
-                            width={560}
-                            height={360}
-                            className="h-48 w-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/30" />
-                          <div className="absolute bottom-4 left-4 text-lg font-semibold text-white">
-                            {company.name}
-                          </div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
+              <div className="flex w-full justify-end">
+                <div className="relative w-full max-w-[360px]">
+                  <input
+                    type="search"
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    placeholder="Search companies"
+                    className="w-full rounded-full border border-[#081F5C] bg-transparent px-4 py-2 pr-10 text-sm text-[#081F5C] placeholder:text-[#081F5C]/50 focus:outline-none focus:ring-2 focus:ring-[#334EAC]"
+                    aria-label="Search companies by name"
+                  />
+                  <Search
+                    size={16}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-[#081F5C]"
+                    aria-hidden="true"
+                  />
                 </div>
-              ))}
+              </div>
+              {groupedCompanies.length ? (
+                groupedCompanies.map((group) => (
+                  <div key={group.category} className="space-y-4">
+                    <Badge>{group.category}</Badge>
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                      {group.companies.map((company) => (
+                        <button
+                          key={company.name}
+                          type="button"
+                          onClick={() => setActiveCompany(company)}
+                          className="text-left"
+                          aria-label={`Open ${company.name} details`}
+                        >
+                          <div className="relative overflow-hidden rounded-[18px]">
+                            <Image
+                              src={company.image}
+                              alt=""
+                              width={560}
+                              height={360}
+                              className="h-48 w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/30" />
+                            <div className="absolute bottom-4 left-4 text-lg font-semibold text-white">
+                              {company.name}
+                            </div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <Card className="bg-meteor">
+                  <div className="text-sm font-semibold text-[#081F5C]">
+                    Oh no... there are no results for your search.
+                  </div>
+                </Card>
+              )}
             </div>
           </Container>
         </section>
@@ -1224,9 +1336,14 @@ export function ConsultingCompaniesPage() {
               </button>
             </div>
             <div className="max-h-[70vh] overflow-y-auto p-6">
-              <p className="text-sm text-[#090814]">{activeCompany.description}</p>
+              <p className="text-sm text-[#090814]">
+                {formatBullet(activeCompany.description, "description")}
+              </p>
               <div className="mt-4 text-sm text-[#090814]">
-                {getSection(activeCompany, "Brief history")?.items.join(" ")}
+                {formatBullet(
+                  getSection(activeCompany, "Brief history")?.items.join(" ") ?? "",
+                  "Brief history"
+                )}
               </div>
 
               <div className="mt-6 grid gap-6 sm:grid-cols-2">
@@ -1251,12 +1368,16 @@ export function ConsultingCompaniesPage() {
                     </div>
                     <div className="mt-2 h-px w-full bg-[#334EAC]" />
                     <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-[#090814]">
-                      {getSection(
-                        activeCompany,
-                        "Industry & area focus / specialization"
-                      )?.items.map((item) => (
-                      <li key={item}>{renderBoldLabel(item)}</li>
-                      ))}
+                    {getSection(
+                      activeCompany,
+                      "Industry & area focus / specialization"
+                    )?.items.map((item) => (
+                      <li key={item}>
+                        {item.includes(":")
+                          ? renderBoldLabel(item, "Industry & area focus / specialization")
+                          : formatBullet(item, "Industry & area focus / specialization")}
+                      </li>
+                    ))}
                     </ul>
                   </div>
 
@@ -1267,11 +1388,15 @@ export function ConsultingCompaniesPage() {
                     </div>
                     <div className="mt-2 h-px w-full bg-[#334EAC]" />
                     <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-[#090814]">
-                      {getSection(activeCompany, "Structure / different arms")?.items.map(
-                        (item) => (
-                        <li key={item}>{renderBoldLabel(item)}</li>
-                        )
-                      )}
+                    {getSection(activeCompany, "Structure / different arms")?.items.map(
+                      (item) => (
+                        <li key={item}>
+                          {item.includes(":")
+                            ? renderBoldLabel(item, "Structure / different arms")
+                            : formatBullet(item, "Structure / different arms")}
+                        </li>
+                      )
+                    )}
                     </ul>
                   </div>
                 </div>
@@ -1283,15 +1408,24 @@ export function ConsultingCompaniesPage() {
                   </div>
                   <div className="mt-2 h-px w-full bg-[#334EAC]" />
                   <p className="mt-4 text-2xl font-light text-[#334EAC]">
-                    “{getMissionQuote(
-                      getSection(activeCompany, "Mission, culture & values")?.items
-                    )}”
+                    “
+                    {formatBullet(
+                      getMissionQuote(
+                        getSection(activeCompany, "Mission, culture & values")?.items
+                      ),
+                      "Mission, culture & values"
+                    )}
+                    ”
                   </p>
                   <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-[#090814]">
                     {getSection(activeCompany, "Mission, culture & values")?.items
                       .slice(1)
                       .map((item) => (
-                        <li key={item}>{renderBoldLabel(item)}</li>
+                        <li key={item}>
+                          {item.includes(":")
+                            ? renderBoldLabel(item, "Mission, culture & values")
+                            : formatBullet(item, "Mission, culture & values")}
+                        </li>
                       ))}
                   </ul>
                 </div>
@@ -1304,7 +1438,11 @@ export function ConsultingCompaniesPage() {
                   <div className="mt-2 h-px w-full bg-[#334EAC]" />
                   <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-[#090814]">
                     {getWhenToChooseSection(activeCompany)?.items.map((item) => (
-                      <li key={item}>{renderBoldLabel(item)}</li>
+                      <li key={item}>
+                        {item.includes(":")
+                          ? renderBoldLabel(item, "When to choose")
+                          : formatBullet(item, "When to choose")}
+                      </li>
                     ))}
                   </ul>
                 </div>
