@@ -1124,25 +1124,14 @@ export default function IndustryBreakdownPage() {
     <main className="bg-sky/40">
       <section className="border-b border-venus">
         <Container className="py-10 sm:py-12">
-          <div className="flex items-center gap-3 text-sm text-[#081F5C]">
+          <div className="mb-16">
             <a
               href="/consulting-guide"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#081F5C] hover:text-[#334EAC]"
+              className="inline-flex items-center text-sm font-semibold text-[#081F5C] no-underline"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={18} className="mr-2 text-[#081F5C]" />
               Back
             </a>
-            <span className="text-[#7096D1]">/</span>
-            <a
-              href="/consulting-guide"
-              className="text-sm font-medium text-[#081F5C] hover:text-[#334EAC]"
-            >
-              Consulting Guide
-            </a>
-            <span className="text-[#7096D1]">/</span>
-            <span className="text-sm font-semibold text-[#081F5C]">
-              Industry Breakdown
-            </span>
           </div>
 
           <div className="mt-8 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">

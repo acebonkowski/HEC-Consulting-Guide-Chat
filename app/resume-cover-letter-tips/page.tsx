@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight } from "react-feather";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "react-feather";
 import { Badge } from "@/components/Badge";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Card } from "@/components/Card";
@@ -479,6 +479,15 @@ export default function ResumeCoverLetterTipsPage() {
         <Container className="py-14 sm:py-16">
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
             <div className="max-w-3xl space-y-4">
+              <div className="mb-16">
+                <a
+                  href="/consulting-guide"
+                  className="inline-flex items-center text-sm font-semibold text-[#081F5C] no-underline"
+                >
+                  <ArrowLeft size={18} className="mr-2 text-[#081F5C]" />
+                  Back
+                </a>
+              </div>
               <Badge>Resume &amp; Cover Letter</Badge>
               <h1 className="text-3xl font-semibold tracking-tight text-galaxy sm:text-5xl">
                 Resume &amp; Cover Letter Best Practices

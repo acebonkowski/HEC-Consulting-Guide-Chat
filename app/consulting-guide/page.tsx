@@ -559,7 +559,7 @@ In any way, you will know before.
                   title: "Framework Overview",
                   description:
                     "Quick refreshers on classic case frameworks and when to adapt them.",
-                  href: "#",
+                  href: "/frameworks",
                 },
                 {
                   title: "Industry Breakdown",
@@ -571,7 +571,7 @@ In any way, you will know before.
                   title: "Market Sizing Numbers",
                   description:
                     "Core figures and benchmarks to speed up structured sizing math.",
-                  href: "#",
+                  href: "/market-sizing",
                 },
               ].map((item) => (
                 <Card key={item.title} className="bg-meteor">
