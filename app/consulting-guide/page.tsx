@@ -406,7 +406,7 @@ In any way, you will know before.
               <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
               <div className="mt-4">
                 <ButtonLink
-                  href="#"
+                  href="/resume-cover-letter-tips"
                   variant="ghost"
                   className="flex w-full items-center !px-0 !py-0 font-bold text-[#334EAC] underline underline-offset-4"
                 >
