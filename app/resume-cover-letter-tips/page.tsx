@@ -4,6 +4,7 @@ import { Badge } from "@/components/Badge";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
+import { PivotSlider, type PivotSection } from "@/components/PivotSlider";
 
 export const metadata = {
   title: "Resume & Cover Letter Tips | HEC MBA Consulting Club",
@@ -20,7 +21,7 @@ const SKILL_GROUPS = [
     skills: [
       {
         priority: "Priority 1",
-        title: "Analytical & Problem-Solving Skills (Priority 1)",
+        title: "Analytical & Problem-Solving Skills",
         description:
           "Ability to break down ambiguous problems, build and test hypotheses with data, and derive evidence-based, actionable recommendations.",
         phrases: [
@@ -44,7 +45,7 @@ const SKILL_GROUPS = [
       },
       {
         priority: "Priority 1",
-        title: "Communication & Presentation Skills (Priority 1)",
+        title: "Communication & Presentation Skills",
         description:
           "Ability to turn complex analysis into clear, compelling stories and deliver them effectively to senior, diverse audiences.",
         phrases: [
@@ -63,7 +64,7 @@ const SKILL_GROUPS = [
       },
       {
         priority: "Priority 1",
-        title: "Collaboration & Teamwork (Priority 1)",
+        title: "Collaboration & Teamwork",
         description:
           "Ability to work effectively with diverse, cross-functional, and multicultural teams, building trust and co-creating solutions.",
         phrases: [
@@ -86,7 +87,7 @@ const SKILL_GROUPS = [
     skills: [
       {
         priority: "Priority 2",
-        title: "Project & Time Management Skills (Priority 2)",
+        title: "Project & Time Management Skills",
         description:
           "Ability to own and drive projects end-to-end, manage multiple priorities under pressure, and deliver high-quality outputs on time.",
         phrases: [
@@ -104,7 +105,7 @@ const SKILL_GROUPS = [
       },
       {
         priority: "Priority 2",
-        title: "Adaptability & Learning Agility (Priority 2)",
+        title: "Adaptability & Learning Agility",
         description:
           "Ability to adjust quickly to changing business needs, thrive under pressure, and continuously learn from feedback.",
         phrases: [
@@ -121,7 +122,7 @@ const SKILL_GROUPS = [
       },
       {
         priority: "Priority 2",
-        title: "Client Orientation & Relationship Management (Priority 2)",
+        title: "Client Orientation & Relationship Management",
         description:
           "Ability to focus on client impact, tailor solutions to client needs, support implementation, and influence senior stakeholders.",
         phrases: [
@@ -143,7 +144,7 @@ const SKILL_GROUPS = [
     skills: [
       {
         priority: "Priority 3",
-        title: "Leadership & People Development (Priority 3)",
+        title: "Leadership & People Development",
         description:
           "Ability to lead key workstreams, motivate teams, and support the growth of junior colleagues.",
         phrases: [
@@ -159,7 +160,7 @@ const SKILL_GROUPS = [
       },
       {
         priority: "Priority 3",
-        title: "Business & Commercial Acumen (Priority 3)",
+        title: "Business & Commercial Acumen",
         description:
           "Ability to understand business models, identify opportunities and risks, and shape strategies that improve growth and competitiveness.",
         phrases: [
@@ -177,9 +178,10 @@ const SKILL_GROUPS = [
   },
 ];
 
-const PIVOT_SECTIONS = [
+const PIVOT_SECTIONS: PivotSection[] = [
   {
-    title: "Finance → Consulting",
+    tabLabel: "Finance",
+    title: "Finance",
     summary:
       "Emphasize analytical rigor, quantitative problem solving, and client impact; de-emphasize pure execution or product jargon.",
     howToReframe: [
@@ -207,7 +209,8 @@ const PIVOT_SECTIONS = [
     ],
   },
   {
-    title: "Marketing, Sales & Product → Consulting",
+    tabLabel: "Marketing, Sales & Product",
+    title: "Marketing, Sales & Product",
     summary:
       "Focus on data-driven decision making, customer insights, commercial impact, and cross-functional collaboration.",
     howToReframe: [
@@ -234,7 +237,8 @@ const PIVOT_SECTIONS = [
     ],
   },
   {
-    title: "STEM (engineering, data science, research) → Consulting",
+    tabLabel: "STEM",
+    title: "STEM",
     summary:
       "Translate technical depth into structured problem solving, quantitative insight, and clear communication to non-experts.",
     howToReframe: [
@@ -261,7 +265,8 @@ const PIVOT_SECTIONS = [
     ],
   },
   {
-    title: "Operations → Consulting",
+    tabLabel: "Operations",
+    title: "Operations",
     summary:
       "Emphasize end-to-end ownership, process optimization, and measurable improvements in cost, quality, and speed.",
     howToReframe: [
@@ -288,7 +293,8 @@ const PIVOT_SECTIONS = [
     ],
   },
   {
-    title: "Non-Traditional Fields → Consulting",
+    tabLabel: "Non-Traditional Fields",
+    title: "Non-Traditional Fields",
     summary:
       "Extract problem-solving, leadership, and stakeholder management from any context (non-profit, arts, teaching, public sector, hospitality, etc.).",
     howToReframe: [
@@ -320,7 +326,7 @@ const COVER_LETTER_SECTIONS = [
   {
     number: "01",
     title: "Who You Are",
-    subtitle: "Who you are & what you have done",
+    subtitle: "",
     goals: [
       "Establish your profile and credibility in 1–2 short paragraphs.",
       "Highlight 2–3 experiences that show Priority-1 skills: analytical problem solving, communication, collaboration.",
@@ -349,7 +355,7 @@ const COVER_LETTER_SECTIONS = [
   {
     number: "02",
     title: "Why Consulting",
-    subtitle: "Why consulting is right at this stage",
+    subtitle: "",
     goals: [
       "Show a logical, forward-looking career story.",
       "Connect your past experiences to what consulting offers.",
@@ -378,7 +384,7 @@ const COVER_LETTER_SECTIONS = [
   {
     number: "03",
     title: "Why This Firm",
-    subtitle: "Why this firm",
+    subtitle: "",
     goals: [
       "Demonstrate genuine interest and fit with this specific firm and office.",
       "Link firm attributes to your skills and goals.",
@@ -448,24 +454,37 @@ function SkillCard({
       <Badge>{priority}</Badge>
       <div className="mt-4 text-xl font-semibold text-galaxy">{title}</div>
       <p className="mt-2 text-sm text-[#090814]">{description}</p>
-      <div className="mt-6 grid gap-6 lg:grid-cols-2">
+      <div className="mt-6 grid gap-10 lg:grid-cols-2">
         <div className="text-sm text-[#090814]">
-          <div className="font-semibold text-galaxy">
-            Key English phrases/keywords
-          </div>
+          <div className="font-semibold text-galaxy">Phrases &amp; Key Words</div>
           <ul className="mt-2 list-disc space-y-2 pl-5">
             {phrases.map((phrase) => (
-              <li key={phrase}>{phrase}</li>
+              <li key={phrase}>
+                {(() => {
+                  const separator = phrase.includes(" – ") ? " – " : " - ";
+                  const parts = phrase.split(separator);
+                  if (parts.length < 2) {
+                    return phrase;
+                  }
+                  return (
+                    <>
+                      <strong>{parts[0]}</strong>
+                      {separator}
+                      {parts.slice(1).join(separator)}
+                    </>
+                  );
+                })()}
+              </li>
             ))}
           </ul>
         </div>
         <div className="text-sm text-[#090814]">
-          <div className="font-semibold text-galaxy">Example CV bullets</div>
-          <ul className="mt-2 list-disc space-y-2 pl-5">
+          <div className="font-semibold text-galaxy">Examples</div>
+          <div className="mt-2 space-y-2 text-[#334EAC]">
             {examples.map((example) => (
-              <li key={example}>{example}</li>
+              <p key={example}>{example}</p>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </Card>
@@ -543,9 +562,6 @@ export default function ResumeCoverLetterTipsPage() {
           <div className="mt-10 space-y-10">
             {SKILL_GROUPS.map((group) => (
               <div key={group.label} className="space-y-6">
-                <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#081F5C]">
-                  {group.label}
-                </div>
                 <div className="space-y-6">
                   {group.skills.map((skill) => (
                     <SkillCard key={skill.title} {...skill} />
@@ -563,44 +579,8 @@ export default function ResumeCoverLetterTipsPage() {
             title="Translating other backgrounds into a consulting CV"
             description="Reframe your experience by highlighting analytical rigor, structured problem solving, and client impact."
           />
-          <div className="mt-10 space-y-6">
-            {PIVOT_SECTIONS.map((section) => (
-              <Card key={section.title} className="bg-meteor">
-                <div className="text-xl font-semibold text-galaxy">{section.title}</div>
-                <p className="mt-2 text-sm text-[#090814]">{section.summary}</p>
-                <div className="mt-4 text-sm text-[#090814]">
-                  <div className="font-semibold text-galaxy">How to reframe</div>
-                  <ul className="mt-2 list-disc space-y-2 pl-5">
-                    {section.howToReframe.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="mt-6 text-sm text-[#090814]">
-                  <div className="font-semibold text-galaxy">Example transformations</div>
-                  <div className="mt-4 space-y-4">
-                    {section.transformations.map((item) => (
-                      <div
-                        key={item.before}
-                        className="grid gap-3 lg:grid-cols-[1fr_auto_1fr] lg:items-center"
-                      >
-                        <div className="rounded-[10px] bg-[#7096D1]/10 p-4">
-                          <Badge className="mb-3">Before</Badge>
-                          <p>{item.before}</p>
-                        </div>
-                        <div className="hidden text-[#334EAC] lg:block">
-                          <ArrowRight size={20} />
-                        </div>
-                        <div className="rounded-[10px] bg-[#7096D1]/10 p-4">
-                          <Badge className="mb-3">After</Badge>
-                          <p>{item.after}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Card>
-            ))}
+          <div className="mt-10">
+            <PivotSlider sections={PIVOT_SECTIONS} />
           </div>
         </Container>
       </section>
@@ -632,8 +612,7 @@ export default function ResumeCoverLetterTipsPage() {
                   </ul>
                 </div>
                 <div className="mt-4 text-sm text-[#090814]">
-                  <div className="font-semibold">Actionable tips:</div>
-                  <div className="mt-2 space-y-4">
+                  <div className="space-y-4">
                     {section.tips.map((tip) => (
                       <div key={tip.label}>
                         <div className="font-semibold">{tip.label}</div>
