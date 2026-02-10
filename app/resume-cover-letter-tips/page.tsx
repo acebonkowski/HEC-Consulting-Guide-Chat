@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "react-feather";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Download } from "react-feather";
 import { Badge } from "@/components/Badge";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Card } from "@/components/Card";
@@ -542,13 +542,18 @@ export default function ResumeCoverLetterTipsPage() {
                 </ButtonLink>
               </div>
             </div>
-            <a
-              href="/resume-template.docx"
-              download
-              className={PRIMARY_BUTTON_CLASSES}
-            >
-              Download Resume Template
-            </a>
+            <div className="flex flex-col items-start gap-2">
+              <a
+                href="/HEC_MBA_CV_TEMPLATE_-_NEW_2025_June_OK.docx"
+                download
+                className={PRIMARY_BUTTON_CLASSES}
+              >
+                <span className="inline-flex items-center gap-2">
+                  Download Resume Template
+                  <Download size={16} />
+                </span>
+              </a>
+            </div>
           </div>
         </Container>
       </section>

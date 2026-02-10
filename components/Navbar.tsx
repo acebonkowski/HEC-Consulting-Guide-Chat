@@ -3,20 +3,49 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { Menu, X, BookOpen } from "react-feather";
-import { GUIDE_NAV_ITEMS, NAV_ITEMS, SITE } from "@/lib/site";
+import { Menu, X, ChevronDown } from "react-feather";
+import { NAV_ITEMS, SITE } from "@/lib/site";
 import { Container } from "@/components/Container";
-import { ButtonLink } from "@/components/ButtonLink";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
   const pathname = usePathname();
+  const showGuideNav = pathname !== "/";
+  const skipHref = showGuideNav ? "#start" : "#home";
+
   const items = useMemo(
-    () => (pathname === "/consulting-guide" ? GUIDE_NAV_ITEMS : NAV_ITEMS),
-    [pathname]
+    () =>
+      showGuideNav
+        ? [
+            { label: "Home", href: "/consulting-guide#start" },
+            { label: "Process", href: "/consulting-guide#process" },
+            {
+              label: "Case Interview",
+              href: "/consulting-guide#case-interview",
+              children: [
+                { label: "Overview", href: "/consulting-guide#case-interview" },
+                { label: "Framework Overview", href: "/frameworks" },
+                { label: "Industry Overview", href: "/industry-breakdown" },
+                { label: "Market Sizing Numbers", href: "/market-sizing" },
+              ],
+            },
+            {
+              label: "Fit Interview",
+              href: "/consulting-guide#fit-interview",
+              children: [
+                { label: "Overview", href: "/consulting-guide#fit-interview" },
+                {
+                  label: "Resume & Cover Letter Guidance",
+                  href: "/resume-cover-letter-tips",
+                },
+              ],
+            },
+            { label: "Key Resources", href: "/consulting-guide#key-resource" },
+          ]
+        : NAV_ITEMS,
+    [showGuideNav]
   );
-  const skipHref = pathname === "/consulting-guide" ? "#start" : "#home";
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -48,23 +77,41 @@ export function Navbar() {
         </div>
 
         <nav className="hidden md:flex items-center gap-6" aria-label="Primary">
-          {items.map((i) => (
-            <a
-              key={i.href}
-              href={i.href}
-              className="text-sm font-medium text-white/90 hover:text-white"
-            >
-              {i.label}
-            </a>
-          ))}
-          <ButtonLink
-            href="/consulting-guide"
-            variant="secondary"
-            className="gap-2"
-            ariaLabel="Open Consulting Guide"
-          >
-            Consulting Guide <BookOpen size={16} />
-          </ButtonLink>
+          {items.map((item) =>
+            "children" in item ? (
+              <div key={item.label} className="relative group">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-white/90 hover:text-white"
+                  aria-haspopup="true"
+                >
+                  {item.label}
+                  <ChevronDown size={14} />
+                </button>
+                <div className="absolute left-0 top-full pt-2 opacity-0 invisible transition-opacity duration-200 group-hover:opacity-100 group-hover:visible">
+                  <div className="min-w-[220px] rounded-[8px] border border-venus bg-[#081F5C] p-2 shadow-lg">
+                    {item.children.map((child) => (
+                      <a
+                        key={child.href}
+                        href={child.href}
+                        className="block rounded-[6px] px-3 py-2 text-sm text-white/90 hover:bg-white/10 hover:text-white"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-white/90 hover:text-white"
+              >
+                {item.label}
+              </a>
+            )
+          )}
         </nav>
 
         <button
@@ -82,24 +129,37 @@ export function Navbar() {
         <div className="md:hidden border-t border-venus bg-galaxy">
           <Container className="py-4">
             <div className="flex flex-col gap-3">
-              {items.map((i) => (
-                <a
-                  key={i.href}
-                  href={i.href}
-                  className="rounded-[5px] px-3 py-2 text-sm font-medium text-white/90 hover:bg-venus/30 hover:text-white"
-                  onClick={() => setOpen(false)}
-                >
-                  {i.label}
-                </a>
-              ))}
-              <ButtonLink
-                href="/consulting-guide"
-                variant="secondary"
-                className="mt-2 w-fit gap-2"
-                ariaLabel="Open Consulting Guide"
-              >
-                Consulting Guide <BookOpen size={16} />
-              </ButtonLink>
+              {items.map((item) =>
+                "children" in item ? (
+                  <div key={item.label} className="rounded-[5px] px-3 py-2">
+                    <div className="flex items-center gap-2 text-sm font-medium text-white/90">
+                      {item.label}
+                      <ChevronDown size={14} />
+                    </div>
+                    <div className="mt-2 flex flex-col gap-2">
+                      {item.children.map((child) => (
+                        <a
+                          key={child.href}
+                          href={child.href}
+                          className="rounded-[5px] px-3 py-2 text-sm text-white/80 hover:bg-venus/30 hover:text-white"
+                          onClick={() => setOpen(false)}
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-[5px] px-3 py-2 text-sm font-medium text-white/90 hover:bg-venus/30 hover:text-white"
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
             </div>
           </Container>
         </div>
