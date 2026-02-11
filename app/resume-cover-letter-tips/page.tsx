@@ -518,7 +518,12 @@ export default function ResumeCoverLetterTipsPage() {
                 the same skill language your target firms use.
               </p>
               <div className="flex flex-wrap gap-3">
-                <ButtonLink href="#" variant="primary" className="gap-2">
+                <ButtonLink
+                  href="https://chatgpt.com/g/g-698add7652c88191a56837dc300c4067-hec-mba-consulting-club-resume-assessment"
+                  variant="primary"
+                  className="gap-2"
+                  external
+                >
                   <Image
                     src="/openai-icon.svg"
                     alt=""
@@ -529,7 +534,12 @@ export default function ResumeCoverLetterTipsPage() {
                   Assess Your Resume
                   <ArrowUpRight size={16} />
                 </ButtonLink>
-                <ButtonLink href="#" variant="primary" className="gap-2">
+                <ButtonLink
+                  href="https://chatgpt.com/g/g-698afea3fcf481918ca8a9095ed244dd-hec-mba-consulting-club-s-cover-letter-assessment"
+                  variant="primary"
+                  className="gap-2"
+                  external
+                >
                   <Image
                     src="/openai-icon.svg"
                     alt=""
