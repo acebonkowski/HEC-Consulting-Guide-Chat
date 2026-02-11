@@ -535,7 +535,7 @@ export default function HomePage() {
               </p>
               <div className="mt-3">
                   <ButtonLink
-                  href="https://hecparis.sharepoint.com/teams/HECMBAConsultingClub/Documents%20partages/Forms/AllItems.aspx"
+                    href="https://hecparis.sharepoint.com/:f:/t/MBAHECConsultingClub/IgDA3poB01pcTb1fxLhwzfx2Adc1r_WuQhNDvKdSk_xfJPU?e=ZS2wgB"
                     external
                     variant="secondary"
                     className="gap-2"

@@ -28,21 +28,28 @@ export function ButtonLink({
       "text-universe hover:bg-sky focus-visible:ring-2 focus-visible:ring-planetary",
   };
 
-  const props = external
-    ? { target: "_blank", rel: "noreferrer noopener" }
-    : {};
+  const classNames = clsx(
+    "inline-flex items-center justify-center rounded-[5px] px-4 py-2 text-sm font-semibold transition-colors",
+    styles[variant],
+    className
+  );
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={ariaLabel}
+        className={classNames}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <Link
-      href={href}
-      {...props}
-      aria-label={ariaLabel}
-      className={clsx(
-        "inline-flex items-center justify-center rounded-[5px] px-4 py-2 text-sm font-semibold transition-colors",
-        styles[variant],
-        className
-      )}
-    >
+    <Link href={href} aria-label={ariaLabel} className={classNames}>
       {children}
     </Link>
   );
