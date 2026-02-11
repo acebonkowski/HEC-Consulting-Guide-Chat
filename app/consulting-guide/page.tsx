@@ -256,7 +256,12 @@ export default function ConsultingGuidePage() {
                   Ideally, apply with a meaningful referral through a separate referral link.
                 </p>
                 <div className="mt-auto flex flex-col gap-3 pt-4">
-                  <ButtonLink href="#" variant="primary" className="w-full justify-between gap-2">
+                  <ButtonLink
+                    href="https://chatgpt.com/g/g-698add7652c88191a56837dc300c4067-hec-mba-consulting-club-resume-assessment"
+                    variant="primary"
+                    className="w-full justify-between gap-2"
+                    external
+                  >
                     <span className="inline-flex flex-1 items-center gap-2 text-left">
                       <Image
                         src="/openai-icon.svg"
@@ -269,7 +274,12 @@ export default function ConsultingGuidePage() {
                     </span>
                     <ArrowUpRight size={16} />
                   </ButtonLink>
-                  <ButtonLink href="#" variant="primary" className="w-full justify-between gap-2">
+                  <ButtonLink
+                    href="https://chatgpt.com/g/g-698afea3fcf481918ca8a9095ed244dd-hec-mba-consulting-club-s-cover-letter-assessment"
+                    variant="primary"
+                    className="w-full justify-between gap-2"
+                    external
+                  >
                     <span className="inline-flex flex-1 items-center gap-2 text-left">
                       <Image
                         src="/openai-icon.svg"
@@ -278,7 +288,7 @@ export default function ConsultingGuidePage() {
                         height={16}
                         className="brightness-0 invert"
                       />
-                      Check Your Cover Letter
+                      Assess Your Cover Letter
                     </span>
                     <ArrowUpRight size={16} />
                   </ButtonLink>

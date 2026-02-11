@@ -547,7 +547,7 @@ export default function ResumeCoverLetterTipsPage() {
                     height={16}
                     className="brightness-0 invert"
                   />
-                  Check Your Cover Letter
+                  Assess Your Cover Letter
                   <ArrowUpRight size={16} />
                 </ButtonLink>
               </div>
