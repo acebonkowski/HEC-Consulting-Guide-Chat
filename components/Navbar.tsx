@@ -78,7 +78,7 @@ export function Navbar() {
 
         <nav className="hidden md:flex items-center gap-6" aria-label="Primary">
           {items.map((item) =>
-            "children" in item ? (
+            "children" in item && item.children && item.children.length > 0 ? (
               <div key={item.label} className="relative group">
                 <button
                   type="button"
@@ -138,7 +138,7 @@ export function Navbar() {
           <Container className="py-4">
             <div className="flex flex-col gap-3">
               {items.map((item) =>
-                "children" in item ? (
+                "children" in item && item.children && item.children.length > 0 ? (
                   <div key={item.label} className="rounded-[5px] px-3 py-2">
                     <div className="flex items-center gap-2 text-sm font-medium text-white/90">
                       {item.label}
