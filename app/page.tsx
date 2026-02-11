@@ -581,7 +581,7 @@ export default function HomePage() {
                 </p>
               <div className="mt-3">
                   <ButtonLink
-                    href="https://www.practiceaptitudetest.com/"
+                    href="https://www.practiceaptitudetests.com/"
                     external
                     variant="secondary"
                     className="gap-2"
