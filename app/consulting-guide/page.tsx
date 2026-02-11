@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import {
   AlertTriangle,
@@ -371,24 +372,30 @@ export default function ConsultingGuidePage() {
               <Card className="flex h-full flex-col bg-[#7096D1]/30">
                 <div className="text-xl font-light text-[#081F5C]">03</div>
                 <div className="mt-2 text-xl font-bold text-galaxy">Crush Interview(s)</div>
-                <p className="mt-2 text-sm text-[#090814]">
-                In any process, you will have at least <span className="font-semibold">one case interview (ranging up to 3+). </span> Sometimes there are multiple rounds in one day, where you have:<br />
-                </p>
-                 <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-[#090814]">
-                   <li>A handful of behavioral questions (approx. 10 minutes)</li>
-                   <li>Followed by a case interview (approx. 30 minutes)</li>
-                 </ul>
-                
-                <p className="mt-2 text-sm text-[#090814]">
-    Based on our internal HEC data, merely 66% of candidates go through behavioral questions.  
-In any way, you will know before.
-                </p>
-                <div className="mt-4 flex flex-col items-start gap-2 rounded-[10px] border border-red-300 bg-red-50/70 p-4 text-sm text-red-700">
+                <div className="flex flex-1 flex-col">
+                  <p className="mt-2 text-sm text-[#090814]">
+                    In any process, you will have at least{" "}
+                    <span className="font-semibold">
+                      one case interview (ranging up to 3+).
+                    </span>{" "}
+                    Sometimes there are multiple rounds in one day, where you have:
+                    <br />
+                  </p>
+                  <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-[#090814]">
+                    <li>A handful of behavioral questions (approx. 10 minutes)</li>
+                    <li>Followed by a case interview (approx. 30 minutes)</li>
+                  </ul>
+                  <p className="mt-2 text-sm text-[#090814]">
+                    Based on our internal HEC data, merely 66% of candidates go
+                    through behavioral questions. In any way, you will know before.
+                  </p>
+                </div>
+                <div className="mt-auto flex flex-col items-start gap-2 rounded-[10px] border border-red-300 bg-red-50/70 p-4 text-sm text-red-700">
                   <AlertTriangle size={18} />
                   <p>
-                    Companies switch their interview processes. For Bain London, candidates had to
-                    additionally prepare a presentation, and McKinsey has recently prompted
-                    applicants to use their own AI.
+                    Companies switch their interview processes. For Bain London,
+                    candidates had to additionally prepare a presentation, and
+                    McKinsey has recently prompted applicants to use their own AI.
                   </p>
                 </div>
               </Card>
@@ -442,7 +449,7 @@ In any way, you will know before.
                       className="absolute left-[6px] top-6 h-4 w-4 rounded-full bg-[#334EAC] ring-4 ring-[#EDF4FA]"
                       aria-hidden="true"
                     />
-                    <Card className="bg-meteor">
+                    <Card className="bg-meteor shadow-2xl shadow-[#081F5C]/20">
                       <div className="flex items-start justify-between gap-4">
                         <div className="text-lg font-light text-[#081F5C]">
                           {String(index + 1).padStart(2, "0")}
@@ -465,35 +472,35 @@ In any way, you will know before.
                       </div>
                       <p className="mt-3 text-sm text-[#090814]">{step.goal}</p>
                       {index === 0 ? (
-                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                        <p className="mt-3 w-full text-left text-sm text-[#334EAC]">
                           “So the client, a European grocery retailer, is considering entering the
                           French ready-meal market. Our goal is to assess feasibility and
                           profitability, correct?”
                         </p>
                       ) : null}
                       {step.title === "Structuring the Problem" ? (
-                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                        <p className="mt-3 w-full text-left text-sm text-[#334EAC]">
                           “To assess this opportunity, I’ll look at three key areas: first, market
                           attractiveness; second, the company’s competitive fit; and third,
                           financial feasibility…”
                         </p>
                       ) : null}
                       {step.title === "Exhibit Analysis" ? (
-                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                        <p className="mt-3 w-full text-left text-sm text-[#334EAC]">
                           “First, the title shows [key takeaway], revenues grew 15% from the outlier
                           in Q3; comparing bars, Segment A outperforms by 2x, so I’d recommend
                           doubling down there to address the case’s profitability drop.”
                         </p>
                       ) : null}
                       {step.title === "Brainstorming" ? (
-                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                        <p className="mt-3 w-full text-left text-sm text-[#334EAC]">
                           “I’d like to think about revenue growth across four categories:
                           customer-facing levers, product levers, channel levers, and and pricing
                           levers. Under customer levers, I see ...”
                         </p>
                       ) : null}
                       {step.title === "Case Math" ? (
-                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                        <p className="mt-3 w-full text-left text-sm text-[#334EAC]">
                           “Let me walk you through my approach: First, I’ll calculate revenue as
                           units times price, subtract variable costs to get the contribution margin
                           before dividing fixed costs by margin per unit for breakeven. If that
@@ -501,7 +508,7 @@ In any way, you will know before.
                         </p>
                       ) : null}
                       {step.title === "Market Sizing" ? (
-                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                        <p className="mt-3 w-full text-left text-sm text-[#334EAC]">
                           “I’ll start with France’s total population, narrow to adults aged 18+,
                           then estimate the percentage who drink coffee regularly, the share
                           consuming coffee in the morning, and the portion opting for cappuccinos
@@ -509,7 +516,7 @@ In any way, you will know before.
                         </p>
                       ) : null}
                       {step.title === "Case Closing" ? (
-                        <p className="mt-3 w-3/4 text-center text-sm text-[#334EAC] mx-auto">
+                        <p className="mt-3 w-full text-left text-sm text-[#334EAC]">
                           “To recap, the goal is to boost profitability for this coffee chain in
                           France. My recommendation is to launch morning cappuccino promotions
                           targeting urban adults, backed by market sizing showing 4-5M daily
@@ -535,7 +542,7 @@ In any way, you will know before.
                         )}
                       </div>
                       {step.tips?.length ? (
-                        <div className="mt-4 text-sm text-[#090814]">
+                        <div className="mt-4 rounded-[10px] border border-emerald-300 bg-emerald-50/70 p-4 text-sm text-emerald-700">
                           <div className="font-semibold">Tips</div>
                           <ul className="mt-2 list-disc space-y-2 pl-5">
                             {step.tips.map((item, itemIndex) => (
@@ -574,21 +581,21 @@ In any way, you will know before.
                   href: "/market-sizing",
                 },
               ].map((item) => (
-                <Card key={item.title} className="bg-meteor">
-                  <div className="text-xl font-bold text-galaxy">{item.title}</div>
-                  <p className="mt-2 text-sm text-[#090814]">{item.description}</p>
-                  <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
-                  <div className="mt-4">
-                    <ButtonLink
-                      href={item.href}
-                      variant="ghost"
-                      className="flex w-full items-center !px-0 !py-0 font-bold text-[#334EAC] underline underline-offset-4"
-                    >
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="block rounded-[10px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#334EAC]"
+                >
+                  <Card className="bg-meteor shadow-2xl shadow-[#081F5C]/20">
+                    <div className="text-xl font-bold text-galaxy">{item.title}</div>
+                    <p className="mt-2 text-sm text-[#090814]">{item.description}</p>
+                    <div className="mt-4 h-px w-full bg-[#334EAC]" aria-hidden="true" />
+                    <div className="mt-4 flex w-full items-center font-bold text-[#334EAC] underline underline-offset-4">
                       <span className="flex-1 text-left">Learn More</span>
                       <ArrowRight size={16} className="ml-auto" />
-                    </ButtonLink>
-                  </div>
-                </Card>
+                    </div>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { Menu, X, ChevronDown } from "react-feather";
+import { Menu, X, ChevronDown, BookOpen } from "react-feather";
 import { NAV_ITEMS, SITE } from "@/lib/site";
 import { Container } from "@/components/Container";
 
@@ -112,6 +112,14 @@ export function Navbar() {
               </a>
             )
           )}
+          {!showGuideNav ? (
+            <a
+              href="/consulting-guide"
+              className="inline-flex items-center gap-2 rounded-[5px] bg-[#BAD6EB] px-4 py-2 text-sm font-semibold text-galaxy hover:bg-[#7096D1] hover:text-[#FCFDFF]"
+            >
+              Consulting Guide <BookOpen size={16} />
+            </a>
+          ) : null}
         </nav>
 
         <button
@@ -160,6 +168,15 @@ export function Navbar() {
                   </a>
                 )
               )}
+              {!showGuideNav ? (
+                <a
+                  href="/consulting-guide"
+                  className="mt-2 inline-flex w-fit items-center gap-2 rounded-[5px] bg-[#BAD6EB] px-4 py-2 text-sm font-semibold text-galaxy hover:bg-[#7096D1] hover:text-[#FCFDFF]"
+                  onClick={() => setOpen(false)}
+                >
+                  Consulting Guide <BookOpen size={16} />
+                </a>
+              ) : null}
             </div>
           </Container>
         </div>

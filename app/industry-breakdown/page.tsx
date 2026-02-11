@@ -965,18 +965,24 @@ function IndustrySectionCard({ section }: { section: IndustrySection }) {
       line: "bg-[#334EAC]",
       bullet: "bg-[#081F5C]",
       container: "",
+      background: "",
+      text: "text-[#090814]",
     },
     trend: {
       header: "text-[#1E7A5C]",
       line: "bg-[#1E7A5C]",
       bullet: "bg-[#1E7A5C]",
-      container: "border-[#77D9B5]",
+      container: "border-emerald-300",
+      background: "!bg-emerald-50/70",
+      text: "text-emerald-700",
     },
     risk: {
       header: "text-[#C2185B]",
       line: "bg-[#C2185B]",
       bullet: "bg-[#C2185B]",
-      container: "border-[#F2A0BE]",
+      container: "border-red-300",
+      background: "!bg-red-50/70",
+      text: "text-red-700",
     },
   } as const;
 
@@ -985,7 +991,7 @@ function IndustrySectionCard({ section }: { section: IndustrySection }) {
     <Card
       className={
         isCallout
-          ? `bg-[#FCFDFF] border ${styles.container}`
+          ? `border ${styles.container} ${styles.background} ${styles.text}`
           : "bg-[#FCFDFF]"
       }
     >
@@ -994,20 +1000,22 @@ function IndustrySectionCard({ section }: { section: IndustrySection }) {
         <span>{section.title}</span>
       </div>
       <div className={`mt-2 h-px w-full ${styles.line}`} />
-      <ul className="mt-3 space-y-2 text-sm text-[#090814]">
+      <ul className={`mt-3 space-y-2 text-sm ${styles.text}`}>
         {section.items.map((item) => {
           if (typeof item !== "string") {
             return (
               <li key={item.label} className="flex gap-2">
-                <span className={`mt-2 h-1.5 w-1.5 rounded-full ${styles.bullet}`} />
+                <span
+                  className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${styles.bullet}`}
+                />
                 <div>
                   <span className="font-semibold">
                     {toApaTitleCase(item.label)}
                   </span>
                   {item.description ? (
-                    <span className="text-[#090814]">: {item.description}</span>
+                    <span className={styles.text}>: {item.description}</span>
                   ) : null}
-                  <ul className="mt-2 space-y-1 pl-4 text-sm text-[#090814]">
+                  <ul className={`mt-2 space-y-1 pl-4 text-sm ${styles.text}`}>
                     {item.subitems.map((subitem) => {
                       const [label, ...rest] = subitem.split(":");
                       const detail = rest.join(":").trim();
@@ -1015,7 +1023,7 @@ function IndustrySectionCard({ section }: { section: IndustrySection }) {
 
                       return (
                         <li key={subitem} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#4C6FBF]" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#4C6FBF]" />
                           <span>
                             {hasLabel ? (
                               <>
@@ -1043,7 +1051,9 @@ function IndustrySectionCard({ section }: { section: IndustrySection }) {
 
           return (
             <li key={item} className="flex gap-2">
-              <span className={`mt-2 h-1.5 w-1.5 rounded-full ${styles.bullet}`} />
+              <span
+                className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${styles.bullet}`}
+              />
               <span>
                 {hasLabel ? (
                   <>

@@ -232,11 +232,11 @@ export default function MarketSizingPage() {
                   <div className="text-base font-semibold text-galaxy">
                     {table.title}
                   </div>
-                  <div className="mt-4 overflow-x-auto">
+                  <div className="mt-4 overflow-x-auto rounded-[12px] border border-venus">
                     <table className="min-w-full text-left text-sm text-[#090814]">
-                      <thead className="border-b border-venus text-xs uppercase tracking-[0.2em] text-[#081F5C]">
+                      <thead className="bg-[#081F5C] text-xs uppercase tracking-[0.2em] text-white">
                         <tr>
-                          <th className="px-4 py-3">Metric &amp; Unit</th>
+                          <th className="px-4 py-3">Category</th>
                           <th className="px-4 py-3">World</th>
                           <th className="px-4 py-3">EU</th>
                           <th className="px-4 py-3">US</th>
@@ -253,7 +253,7 @@ export default function MarketSizingPage() {
                           <tr
                             key={row.metric}
                             className={`border-b border-venus last:border-b-0 ${
-                              rowIndex % 2 === 1 ? "bg-[#F5F7FB]" : ""
+                              rowIndex % 2 === 1 ? "bg-[#E9F2F9]" : "bg-[#F4F8FD]"
                             }`}
                           >
                             <td className="px-4 py-3 font-semibold text-[#081F5C]">

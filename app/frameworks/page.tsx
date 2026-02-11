@@ -646,8 +646,8 @@ export default function FrameworksPage() {
                   </div>
 
                   {framework.decisionFlow ? (
-                    <div className="rounded-[10px] border border-venus bg-[#EDF4FA] p-4 text-sm text-[#090814]">
-                      <div className="font-semibold text-galaxy">Decision flow</div>
+                    <div className="rounded-[10px] border border-emerald-300 bg-emerald-50/70 p-4 text-sm text-emerald-700">
+                      <div className="font-semibold text-emerald-700">Decision flow</div>
                       <ol className="mt-2 list-decimal space-y-2 pl-5">
                         {framework.decisionFlow.map((step) => (
                           <li key={step}>{step}</li>
@@ -656,15 +656,21 @@ export default function FrameworksPage() {
                     </div>
                   ) : null}
 
-                  <div className="rounded-[10px] border border-red-200 bg-red-50/70 p-4 text-sm text-red-700">
+                  <div className="rounded-[10px] border border-red-300 bg-red-50/70 p-4 text-sm text-red-700">
                     <div className="flex items-center gap-2 font-semibold">
                       <AlertTriangle size={16} />
                       Framework Tips
                     </div>
-                    <ul className="mt-2 list-disc space-y-2 pl-5">
+                    <ul className="mt-2 space-y-2">
                       {[...(framework.guidingNote ?? []), ...framework.tips].map(
                         (tip) => (
-                          <li key={tip}>{tip}</li>
+                          <li key={tip} className="flex items-start gap-2">
+                            <span
+                              className="mt-2 h-1.5 w-1.5 rounded-full bg-current"
+                              aria-hidden="true"
+                            />
+                            <span>{tip}</span>
+                          </li>
                         )
                       )}
                     </ul>

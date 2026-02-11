@@ -227,6 +227,61 @@ export default function HomePage() {
                 <DayInLifeDonut data={DAY_IN_LIFE_BREAKDOWN} total={DAY_IN_LIFE_TOTAL} />
               </div>
             </Card>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  title: "Europe (Incl. UK)",
+                  value: "€90–110k",
+                  description:
+                    "MBB Associate base in major EU markets, including Germany and the UK.",
+                  flag: "🇪🇺",
+                  source:
+                    "https://caselane.ai/blog/mckinsey-salary-2025",
+                  sourceLabel: "Source: CaseLane.ai",
+                },
+                {
+                  title: "United States",
+                  value: "$190–192k",
+                  description:
+                    "Typical MBB post‑MBA base, total comp commonly exceeds $230k with bonus.",
+                  flag: "🇺🇸",
+                  source:
+                    "https://www.businessbecause.com/news/in-the-news/9655/management-consultant-salaries-2025",
+                  sourceLabel: "Source: BusinessBecause",
+                },
+                {
+                  title: "Middle East (GCC)",
+                  value: "$130k+",
+                  description:
+                    "Base around $130k plus allowances and performance bonus, total often exceeds $200k.",
+                  flag: "🇦🇪",
+                  source:
+                    "https://managementconsulted.com/consultant-salary/",
+                  sourceLabel: "Source: Management Consulted",
+                },
+              ].map((item) => (
+                <Card key={item.title} className="bg-meteor">
+                  <div className="flex items-center justify-between">
+                    <div className="text-lg font-semibold text-galaxy">
+                      {item.title}
+                    </div>
+                    <span className="ml-auto text-2xl" aria-hidden="true">
+                      {item.flag}
+                    </span>
+                  </div>
+                  <div className="mt-4 text-[50px] font-semibold text-[#7096D1]">
+                    {item.value}
+                  </div>
+                  <p className="mt-3 text-sm text-[#090814]">
+                    {item.description}
+                  </p>
+                  <div className="mt-6">
+                    <SourceLink href={item.source} label={item.sourceLabel} />
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <div className="mt-10">
