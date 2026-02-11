@@ -363,7 +363,7 @@ export default function ConsultingGuidePage() {
                     </p>
                   <div className="flex flex-col gap-2">
                     <ButtonLink
-                      href="https://www.practiceaptitudetests.com/"
+                      href="https://www.practiceaptitudetests.com/numerical-reasoning-tests/"
                       external
                       variant="secondary"
                       className="w-fit gap-2"
@@ -884,7 +884,7 @@ export default function ConsultingGuidePage() {
                 </p>
                 <div className="mt-3">
                   <ButtonLink
-                    href="https://www.practiceaptitudetests.com/"
+                    href="https://www.practiceaptitudetests.com/numerical-reasoning-tests/"
                     external
                     variant="secondary"
                     className="gap-2"
